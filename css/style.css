@@ -1662,3 +1662,108 @@ button, a { -webkit-tap-highlight-color: transparent; }
   .profession-description-block,
   .profession-experience-block { padding: 17px; }
 }
+
+
+/* =========================================================
+   HERO RPG: CENTRALIZAÇÃO CONSISTENTE
+   ========================================================= */
+.rpg-page .rpg-hero {
+  min-height: 430px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 76px 22px 68px;
+  text-align: center;
+}
+.rpg-page .rpg-hero-inner {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.rpg-page .rpg-hero .eyebrow {
+  width: 100%;
+  margin: 0 0 16px;
+  text-align: center;
+}
+.rpg-page .rpg-hero h1 {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+  line-height: 1.1;
+  text-wrap: balance;
+}
+.rpg-page .rpg-hero h1 span { color: var(--gold, #e5c158); }
+.rpg-page .rpg-hero .rpg-hero-description {
+  width: 100%;
+  max-width: 650px;
+  margin: 18px auto 0;
+  text-align: center;
+  color: var(--muted);
+  line-height: 1.7;
+}
+.rpg-page .rpg-hero .gold-line { margin: 24px auto 0; }
+@media (max-width: 700px) {
+  .rpg-page .rpg-hero { min-height: 370px; padding: 58px 18px 48px; }
+  .rpg-page .rpg-hero h1 { font-size: clamp(28px, 7.5vw, 42px); }
+  .rpg-page .rpg-hero .rpg-hero-description { max-width: 540px; }
+}
+
+/* =========================================================
+   WIDGET DE ACESSIBILIDADE — AUMENTO/REDUÇÃO DE FONTE
+   ========================================================= */
+.accessibility-widget {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  padding: 10px 12px;
+  color: var(--text, #f5f1ff);
+  background: rgba(20, 13, 39, .96);
+  border: 1px solid rgba(229, 193, 88, .42);
+  border-radius: 12px;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, .32), 0 0 18px rgba(125, 60, 255, .14);
+  backdrop-filter: blur(12px);
+}
+.accessibility-label {
+  color: var(--muted, #b8afc9);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .3px;
+  text-align: center;
+}
+.accessibility-controls { display: flex; align-items: center; gap: 6px; }
+.accessibility-controls button {
+  min-width: 34px;
+  min-height: 32px;
+  padding: 5px 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(229, 193, 88, .55);
+  border-radius: 7px;
+  background: rgba(125, 60, 255, .12);
+  color: var(--gold, #e5c158);
+  font: 700 13px/1 'Montserrat', Arial, sans-serif;
+  cursor: pointer;
+  transition: background .2s ease, color .2s ease, transform .2s ease;
+}
+.accessibility-controls button:hover,
+.accessibility-controls button:focus-visible {
+  background: var(--gold, #e5c158);
+  color: #170f25;
+  outline: none;
+}
+.accessibility-controls button:active { transform: translateY(1px); }
+@media (max-width: 480px) {
+  .accessibility-widget { left: 12px; bottom: 12px; padding: 8px; }
+  .accessibility-controls button { min-width: 31px; min-height: 30px; }
+}

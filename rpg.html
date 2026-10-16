@@ -22,10 +22,12 @@
 
   <main>
     <section class="page-hero rpg-hero">
-      <p class="eyebrow">ORDEM VOCACIONAL • RPG</p>
-      <h1>TRANSFORME SUA ESCOLHA EM UMA <span>AVENTURA</span></h1>
-      <p>Explore profissões por meio de desafios, decisões e experiências inspiradas no cotidiano de diferentes áreas profissionais.</p>
-      <div class="gold-line"></div>
+      <div class="rpg-hero-inner">
+        <p class="eyebrow">ORDEM VOCACIONAL • RPG</p>
+        <h1>TRANSFORME SUA ESCOLHA EM UMA <span>AVENTURA</span></h1>
+        <p class="rpg-hero-description">Explore profissões por meio de desafios, decisões e experiências inspiradas no cotidiano de diferentes áreas profissionais.</p>
+        <div class="gold-line"></div>
+      </div>
     </section>
 
     <section class="rpg-workspace section">
@@ -282,5 +284,16 @@
 
   <script src="js/main.js"></script>
   <script src="js/rpg.js"></script>
+
+  <aside class="accessibility-widget" aria-label="Ferramenta de acessibilidade: tamanho do texto">
+    <span class="accessibility-label">Tamanho do texto</span>
+    <div class="accessibility-controls">
+      <button type="button" data-font-action="decrease" aria-label="Diminuir tamanho do texto" title="Diminuir texto">A−</button>
+      <button type="button" data-font-action="reset" aria-label="Restaurar tamanho padrão do texto" title="Restaurar tamanho padrão">A</button>
+      <button type="button" data-font-action="increase" aria-label="Aumentar tamanho do texto" title="Aumentar texto">A+</button>
+    </div>
+  </aside>
+  <script src="js/acessibilidade.js"></script>
+
 </body>
 </html>
