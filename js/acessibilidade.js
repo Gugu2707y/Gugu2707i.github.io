@@ -1,6 +1,6 @@
 (() => {
   "use strict";
-  const STEPS = [0.8, 0.9, 1, 1.1, 1.2];
+  const STEPS = [0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5];
   let stepIndex = 2;
   const originalSizes = new Map();
   const textSelector = 'h1,h2,h3,h4,h5,h6,p,a,button,label,li,dt,dd,th,td,span,strong,em,small,legend,figcaption,summary,blockquote,.eyebrow,.rpg-tab,.rpg-card,.rpg-detail';
