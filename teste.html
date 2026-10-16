@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ordem Vocacional | Teste Vocacional</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="test-page">
+  <header class="header">
+    <a class="logo" href="index.html"><span class="logo-mark">◇</span> ORDEM VOCACIONAL</a>
+    <button class="menu-toggle" aria-label="Abrir menu">☰</button>
+    <nav class="nav">
+      <a href="index.html">Início</a>
+      <a href="sobre.html">Sobre o Teste</a>
+      <a class="active" href="teste.html">Fazer Teste</a>
+      <a href="rpg.html">RPG</a>
+      <a href="mapa.html">Teste e Mapas</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="test-intro" id="testIntro">
+      <p class="eyebrow">ORDEM VOCACIONAL</p>
+      <h1>TESTE <span>VOCACIONAL</span></h1>
+      <p>Responda honestamente para descobrir seu perfil e explorar possíveis caminhos profissionais.</p>
+
+      <div class="welcome-box">
+        <div class="icon">◇</div>
+        <h2>BEM-VINDO AO TESTE VOCACIONAL!</h2>
+        <p>Você está prestes a iniciar uma jornada de autodescoberta que irá revelar sua tendência vocacional. O resultado não define seu futuro: ele serve como um ponto de partida para você conhecer possibilidades.</p>
+        <h3>Como funciona:</h3>
+        <ul class="check-list">
+          <li>Leia cada pergunta com atenção.</li>
+          <li>Escolha a alternativa que mais combina com você.</li>
+          <li>O teste leva aproximadamente 5 a 10 minutos.</li>
+          <li>No final, você verá seu perfil e profissões relacionadas.</li>
+        </ul>
+        <div class="buttons">
+          <button class="btn primary" id="startTest">COMEÇAR O TESTE</button>
+          <a class="btn secondary" href="index.html">VOLTAR AO INÍCIO</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="quiz-section hidden" id="quizSection">
+      <div class="quiz-top">
+        <div>
+          <p class="eyebrow">SUA JORNADA</p>
+          <h2 id="questionTitle">Pergunta 1</h2>
+        </div>
+        <div class="progress-info"><span id="questionNumber">1</span>/12</div>
+      </div>
+
+      <div class="progress-bar"><div id="progressFill"></div></div>
+
+      <div class="question-card">
+        <p class="question-text" id="questionText"></p>
+        <div class="answers" id="answers"></div>
+      </div>
+
+      <div class="quiz-actions">
+        <button class="btn secondary" id="prevQuestion">VOLTAR</button>
+        <button class="btn primary" id="nextQuestion">PRÓXIMA</button>
+      </div>
+      <p class="quiz-warning" id="quizWarning"></p>
+    </section>
+  </main>
+
+  <footer class="footer compact">
+    <div class="copyright">© 2026 Ordem Vocacional. Projeto educacional.</div>
+  </footer>
+
+  <script src="js/teste.js"></script>
+</body>
+</html>

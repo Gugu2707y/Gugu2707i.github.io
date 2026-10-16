@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="RPG Ordem Vocacional — regras, guia do mestre, criação de personagem e materiais.">
+  <title>Ordem Vocacional | RPG</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="rpg-page">
+  <header class="header">
+    <a class="logo" href="index.html"><span class="logo-mark">◇</span> ORDEM VOCACIONAL</a>
+    <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false">☰</button>
+    <nav class="nav" aria-label="Navegação principal">
+      <a href="index.html">Início</a>
+      <a href="sobre.html">Sobre o Teste</a>
+      <a href="teste.html">Fazer Teste</a>
+      <a class="active" href="rpg.html">RPG</a>
+      <a href="mapa.html">Teste e Mapas</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-hero rpg-hero">
+      <p class="eyebrow">ORDEM VOCACIONAL • RPG</p>
+      <h1>TRANSFORME SUA ESCOLHA EM UMA <span>AVENTURA</span></h1>
+      <p>Explore profissões por meio de desafios, decisões e experiências inspiradas no cotidiano de diferentes áreas profissionais.</p>
+      <div class="gold-line"></div>
+    </section>
+
+    <section class="rpg-workspace section">
+      <div class="rpg-tabs" role="tablist" aria-label="Conteúdo do RPG">
+        <button class="rpg-tab active" id="tab-regras" type="button" role="tab" aria-selected="true" aria-controls="panel-regras" data-tab="regras">REGRAS</button>
+        <button class="rpg-tab" id="tab-mestre" type="button" role="tab" aria-selected="false" aria-controls="panel-mestre" data-tab="mestre">GUIA DO MESTRE</button>
+        <button class="rpg-tab" id="tab-personagem" type="button" role="tab" aria-selected="false" aria-controls="panel-personagem" data-tab="personagem">CRIAÇÃO DE PERSONAGEM</button>
+        <button class="rpg-tab" id="tab-introducao" type="button" role="tab" aria-selected="false" aria-controls="panel-introducao" data-tab="introducao">INTRODUÇÃO</button>
+        <button class="rpg-tab" id="tab-materiais" type="button" role="tab" aria-selected="false" aria-controls="panel-materiais" data-tab="materiais">MATERIAIS</button>
+      </div>
+
+      <div class="rpg-panels">
+        <section class="rpg-panel active" id="panel-regras" role="tabpanel" aria-labelledby="tab-regras" data-panel="regras">
+          <div class="panel-heading">
+            <p class="eyebrow">01 • SISTEMA</p>
+            <h2>REGRAS DO CAMINHO</h2>
+            <p>Um conjunto simples de regras para transformar escolhas profissionais em uma experiência de RPG clara e fácil de conduzir.</p>
+          </div>
+
+          <div class="rpg-card-grid three-columns">
+            <article class="rpg-info-card">
+              <span class="rpg-card-number">01</span>
+              <h3>ESCOLHA</h3>
+              <p>O jogador recebe uma situação profissional e escolhe como pretende agir diante do problema apresentado.</p>
+            </article>
+            <article class="rpg-info-card">
+              <span class="rpg-card-number">02</span>
+              <h3>ROLE O D6</h3>
+              <p>Quando uma ação tiver risco ou depender de uma característica, use o dado virtual para definir o resultado.</p>
+            </article>
+            <article class="rpg-info-card">
+              <span class="rpg-card-number">03</span>
+              <h3>INTERPRETE</h3>
+              <p>O número obtido representa a dificuldade da ação. O Mestre interpreta o resultado e apresenta a consequência.</p>
+            </article>
+          </div>
+
+          <div class="accordion-stack">
+            <article class="rpg-accordion">
+              <button class="rpg-accordion-trigger" type="button" aria-expanded="false">
+                <span><strong>COMO FUNCIONA O D6</strong><small>Entenda a leitura dos resultados</small></span><span class="accordion-arrow">⌄</span>
+              </button>
+              <div class="rpg-accordion-content">
+                <ul class="rpg-list">
+                  <li><b>1–2:</b> resultado difícil; a ação pode falhar ou gerar uma consequência.</li>
+                  <li><b>3–4:</b> resultado parcial; a ação funciona, mas existe um custo ou complicação.</li>
+                  <li><b>5:</b> resultado positivo; o objetivo é alcançado com segurança.</li>
+                  <li><b>6:</b> resultado excelente; além de conseguir, o personagem obtém uma vantagem.</li>
+                </ul>
+              </div>
+            </article>
+            <article class="rpg-accordion">
+              <button class="rpg-accordion-trigger" type="button" aria-expanded="false">
+                <span><strong>PRINCÍPIO DO RPG</strong><small>O objetivo é experimentar, não acertar</small></span><span class="accordion-arrow">⌄</span>
+              </button>
+              <div class="rpg-accordion-content">
+                <p>As missões não existem para dizer qual profissão é “melhor”. Elas servem para mostrar como diferentes formas de pensar e trabalhar aparecem na prática, ajudando o estudante a comparar possibilidades.</p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="rpg-panel" id="panel-mestre" role="tabpanel" aria-labelledby="tab-mestre" data-panel="mestre" hidden>
+          <div class="panel-heading">
+            <p class="eyebrow">02 • CONDUÇÃO</p>
+            <h2>GUIA DO MESTRE</h2>
+            <p>Use esta área para conduzir uma sessão, apresentar situações e transformar as escolhas do jogador em uma pequena jornada profissional.</p>
+          </div>
+
+          <div class="rpg-card-grid two-columns">
+            <article class="rpg-info-card large-card">
+              <span class="rpg-card-number">01</span>
+              <h3>APRESENTE O CENÁRIO</h3>
+              <p>Explique onde o personagem está, qual é sua função e qual problema precisa ser resolvido. Evite antecipar qual seria a “resposta certa”.</p>
+              <button class="mini-action" type="button" data-scroll-tab="personagem">CRIAR PERSONAGEM</button>
+            </article>
+            <article class="rpg-info-card large-card">
+              <span class="rpg-card-number">02</span>
+              <h3>OBSERVE A DECISÃO</h3>
+              <p>Peça ao jogador que explique sua estratégia. Se a ação envolver incerteza, use o D6 e adapte a consequência ao contexto profissional.</p>
+              <button class="mini-action" type="button" data-roll-d6>ROLAR D6</button>
+            </article>
+          </div>
+
+          <div class="master-table-wrap">
+            <h3>TABELA RÁPIDA DE DIFICULDADE</h3>
+            <div class="master-table">
+              <div><span>FÁCIL</span><b>1–2</b><small>Ação familiar ou bem preparada.</small></div>
+              <div><span>MÉDIA</span><b>3–4</b><small>Exige atenção, conhecimento ou adaptação.</small></div>
+              <div><span>ALTA</span><b>5–6</b><small>Problema complexo ou sob pressão.</small></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="rpg-panel" id="panel-personagem" role="tabpanel" aria-labelledby="tab-personagem" data-panel="personagem" hidden>
+          <div class="panel-heading">
+            <p class="eyebrow">03 • IDENTIDADE</p>
+            <h2>CRIAÇÃO DE PERSONAGEM</h2>
+            <p>Preencha a ficha abaixo. Ao salvar, os dados serão enviados automaticamente para a Ficha de Personagem nesta mesma página.</p>
+          </div>
+
+          <div class="character-layout">
+            <form class="character-form" id="characterForm">
+              <div class="form-field">
+                <label for="characterName">NOME DO PERSONAGEM</label>
+                <input id="characterName" name="name" type="text" maxlength="40" placeholder="Ex.: Gabriel" required>
+              </div>
+              <div class="form-row">
+                <div class="form-field">
+                  <label for="characterAge">IDADE</label>
+                  <input id="characterAge" name="age" type="number" min="1" max="120" placeholder="16" required>
+                </div>
+                <div class="form-field">
+                  <label for="characterProfession">PROFISSÃO / CAMINHO</label>
+                  <select id="characterProfession" name="profession" required>
+                    <option value="">Selecione uma opção</option>
+                    <option>Desenvolvedor de Software</option>
+                    <option>Analista de Dados</option>
+                    <option>Engenheiro de Computação</option>
+                    <option>Designer</option>
+                    <option>Publicidade</option>
+                    <option>Produção Audiovisual</option>
+                    <option>Professor</option>
+                    <option>Psicólogo</option>
+                    <option>Gestor de Pessoas</option>
+                    <option>Administrador</option>
+                    <option>Gerente de Projetos</option>
+                    <option>Analista de Negócios</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-field">
+                <label for="characterTraits">CARACTERÍSTICAS</label>
+                <textarea id="characterTraits" name="traits" rows="5" maxlength="300" placeholder="Ex.: curioso, organizado, gosta de resolver problemas e trabalhar em equipe." required></textarea>
+              </div>
+              <div class="form-actions">
+                <button class="btn primary" type="submit">SALVAR PERSONAGEM</button>
+                <button class="btn secondary" type="reset">LIMPAR</button>
+              </div>
+              <p class="form-status" id="characterStatus" role="status" aria-live="polite"></p>
+            </form>
+
+            <div class="dice-panel">
+              <div class="empty-image-frame square-frame" aria-label="Moldura vazia para futura imagem do personagem"></div>
+              <div class="dice-copy">
+                <span class="eyebrow">ROLAGEM VIRTUAL</span>
+                <h3>D6</h3>
+                <p>Role um dado de seis faces para resolver ações durante a aventura.</p>
+                <div class="dice-result" id="diceResult" aria-live="polite">—</div>
+                <button class="btn dice-button" type="button" id="rollD6">ROLAR D6</button>
+              </div>
+            </div>
+          </div>
+
+          <section class="character-sheet" id="characterSheet" aria-labelledby="sheetTitle">
+            <div class="sheet-header">
+              <div>
+                <p class="eyebrow">FICHA DE PERSONAGEM</p>
+                <h3 id="sheetTitle">PERSONAGEM AINDA NÃO CRIADO</h3>
+              </div>
+              <span class="sheet-level">NÍVEL 01</span>
+            </div>
+            <div class="sheet-grid">
+              <div><span>NOME</span><strong id="sheetName">—</strong></div>
+              <div><span>IDADE</span><strong id="sheetAge">—</strong></div>
+              <div><span>PROFISSÃO</span><strong id="sheetProfession">—</strong></div>
+              <div class="sheet-traits"><span>CARACTERÍSTICAS</span><p id="sheetTraits">Preencha o formulário para visualizar as características do personagem.</p></div>
+            </div>
+          </section>
+        </section>
+
+        <section class="rpg-panel" id="panel-introducao" role="tabpanel" aria-labelledby="tab-introducao" data-panel="introducao" hidden>
+          <div class="panel-heading">
+            <p class="eyebrow">04 • PRIMEIRO PASSO</p>
+            <h2>INTRODUÇÃO À JORNADA</h2>
+            <p>A Ordem Vocacional transforma a exploração de carreiras em uma experiência narrativa. Você não apenas lê sobre uma profissão: você toma decisões dentro dela.</p>
+          </div>
+
+          <div class="intro-story">
+            <div class="empty-image-frame landscape-frame" aria-label="Moldura vazia para futura imagem de introdução"></div>
+            <div class="intro-copy">
+              <span class="rpg-card-number">CAPÍTULO I</span>
+              <h3>O PRIMEIRO CHAMADO</h3>
+              <p>Você recebe uma oportunidade para experimentar uma área profissional. Antes de decidir seu caminho, será preciso observar o ambiente, entender o problema e escolher como agir.</p>
+              <p>Cada decisão revela uma parte diferente da profissão. Algumas exigem criatividade; outras pedem organização, comunicação, análise ou capacidade de trabalhar sob pressão.</p>
+              <button class="mini-action" type="button" data-tab-target="personagem">COMEÇAR CRIAÇÃO</button>
+            </div>
+          </div>
+
+          <div class="accordion-stack">
+            <article class="rpg-accordion">
+              <button class="rpg-accordion-trigger" type="button" aria-expanded="false"><span><strong>COMO COMEÇAR UMA SESSÃO</strong><small>Uma sequência simples para o primeiro encontro</small></span><span class="accordion-arrow">⌄</span></button>
+              <div class="rpg-accordion-content"><ol class="rpg-list numbered"><li>Crie o personagem.</li><li>Escolha uma área profissional.</li><li>Leia a missão inicial.</li><li>Tome uma decisão.</li><li>Use o D6 quando houver risco.</li></ol></div>
+            </article>
+          </div>
+        </section>
+
+        <section class="rpg-panel" id="panel-materiais" role="tabpanel" aria-labelledby="tab-materiais" data-panel="materiais" hidden>
+          <div class="panel-heading">
+            <p class="eyebrow">05 • RECURSOS</p>
+            <h2>FICHAS E MATERIAIS</h2>
+            <p>Materiais preparados para apoiar a aplicação do RPG. Os botões abaixo funcionam como pontos de download e podem receber seus arquivos reais depois.</p>
+          </div>
+
+          <div class="materials-list">
+            <article class="material-card">
+              <div class="material-icon">✦</div>
+              <div><h3>FICHA DE PERSONAGEM</h3><p>Modelo para registrar nome, idade, profissão, características e evolução do personagem.</p></div>
+              <button class="material-download" type="button" data-download="ficha-personagem">BAIXAR</button>
+            </article>
+            <article class="material-card">
+              <div class="material-icon">◇</div>
+              <div><h3>GUIA RÁPIDO DO RPG</h3><p>Resumo das regras, rolagens e orientações para iniciar uma sessão sem complicação.</p></div>
+              <button class="material-download" type="button" data-download="guia-rpg">BAIXAR</button>
+            </article>
+            <article class="material-card">
+              <div class="material-icon">▣</div>
+              <div><h3>CARTAS DE MISSÃO</h3><p>Espaço preparado para inserir futuramente as missões profissionais da Ordem Vocacional.</p></div>
+              <button class="material-download" type="button" data-download="cartas-missao">BAIXAR</button>
+            </article>
+            <article class="material-card">
+              <div class="material-icon">◎</div>
+              <div><h3>MAPA DE PROFISSÕES</h3><p>Material de apoio para relacionar caminhos, áreas e possibilidades profissionais.</p></div>
+              <button class="material-download" type="button" data-download="mapa-profissoes">BAIXAR</button>
+            </article>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <section class="section rpg-image-section">
+      <div class="panel-heading center-heading">
+        <p class="eyebrow">ESPAÇO VISUAL</p>
+        <h2>ILUSTRAÇÕES DA JORNADA</h2>
+        <p>As molduras abaixo já estão dimensionadas. Você poderá inserir suas próprias imagens depois, sem alterar o layout.</p>
+      </div>
+      <div class="image-frame-grid">
+        <div class="empty-image-frame portrait-frame" aria-label="Moldura vazia para imagem de personagem"></div>
+        <div class="empty-image-frame portrait-frame" aria-label="Moldura vazia para imagem de cenário"></div>
+        <div class="empty-image-frame portrait-frame" aria-label="Moldura vazia para imagem de profissão"></div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <h2>AINDA NÃO SABE QUAL CAMINHO SEGUIR?</h2>
+      <p>Faça o teste vocacional e use seu resultado para escolher uma missão que combine com seus interesses.</p>
+      <a class="btn primary" href="teste.html">FAZER O TESTE</a>
+    </section>
+  </main>
+
+  <footer class="footer compact">
+    <div class="copyright">© 2026 Ordem Vocacional. Projeto educacional.</div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/rpg.js"></script>
+</body>
+</html>

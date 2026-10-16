@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ordem Vocacional | Teste e Mapas</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="header">
+    <a class="logo" href="index.html"><span class="logo-mark">◇</span> ORDEM VOCACIONAL</a>
+    <button class="menu-toggle" aria-label="Abrir menu">☰</button>
+    <nav class="nav">
+      <a href="index.html">Início</a>
+      <a href="sobre.html">Sobre o Teste</a>
+      <a href="teste.html">Fazer Teste</a>
+      <a href="rpg.html">RPG</a>
+      <a class="active" href="mapa.html">Teste e Mapas</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <p class="eyebrow">MAPA VOCACIONAL</p>
+      <h1>EXPLORE AS <span>PROFISSÕES</span></h1>
+      <p>Use o mapa como uma visão geral das áreas que podem aparecer durante sua jornada.</p>
+      <div class="gold-line"></div>
+    </section>
+
+    <section class="section">
+      <div class="filter-bar">
+        <button class="filter active" data-filter="todos">TODAS</button>
+        <button class="filter" data-filter="tecnologia">TECNOLOGIA</button>
+        <button class="filter" data-filter="criatividade">CRIATIVIDADE</button>
+        <button class="filter" data-filter="pessoas">PESSOAS</button>
+        <button class="filter" data-filter="estrategia">ESTRATÉGIA</button>
+      </div>
+
+      <div class="career-map" id="careerMap">
+        <article class="map-career" data-category="tecnologia estrategia">
+          <span class="map-tag">TECNOLOGIA</span><h3>Desenvolvedor de Software</h3><p>Cria sistemas, sites e aplicações digitais.</p>
+        </article>
+        <article class="map-career" data-category="tecnologia">
+          <span class="map-tag">TECNOLOGIA</span><h3>Analista de Dados</h3><p>Transforma dados em informações úteis para decisões.</p>
+        </article>
+        <article class="map-career" data-category="estrategia tecnologia">
+          <span class="map-tag">ESTRATÉGIA</span><h3>Engenheiro de Computação</h3><p>Trabalha com software, hardware e sistemas computacionais.</p>
+        </article>
+        <article class="map-career" data-category="criatividade">
+          <span class="map-tag">CRIATIVIDADE</span><h3>Designer</h3><p>Cria soluções visuais, experiências e interfaces.</p>
+        </article>
+        <article class="map-career" data-category="criatividade">
+          <span class="map-tag">CRIATIVIDADE</span><h3>Publicidade</h3><p>Desenvolve campanhas e estratégias de comunicação.</p>
+        </article>
+        <article class="map-career" data-category="pessoas">
+          <span class="map-tag">PESSOAS</span><h3>Professor</h3><p>Planeja experiências de aprendizagem e ajuda outras pessoas a desenvolver conhecimentos.</p>
+        </article>
+        <article class="map-career" data-category="pessoas">
+          <span class="map-tag">PESSOAS</span><h3>Psicólogo</h3><p>Atua com processos psicológicos e comportamento humano.</p>
+        </article>
+        <article class="map-career" data-category="estrategia">
+          <span class="map-tag">ESTRATÉGIA</span><h3>Administrador</h3><p>Planeja, organiza e acompanha recursos e processos.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer compact">
+    <div class="copyright">© 2026 Ordem Vocacional. Projeto educacional.</div>
+  </footer>
+
+  <script src="js/mapa.js"></script>
+</body>
+</html>

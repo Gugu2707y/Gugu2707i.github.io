@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ordem Vocacional | Seu Resultado</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="header">
+    <a class="logo" href="index.html"><span class="logo-mark">◇</span> ORDEM VOCACIONAL</a>
+    <button class="menu-toggle" aria-label="Abrir menu">☰</button>
+    <nav class="nav">
+      <a href="index.html">Início</a>
+      <a href="sobre.html">Sobre o Teste</a>
+      <a class="active" href="teste.html">Fazer Teste</a>
+      <a href="rpg.html">RPG</a>
+      <a href="mapa.html">Teste e Mapas</a>
+    </nav>
+  </header>
+
+  <main class="result-main">
+    <section class="result-hero">
+      <p class="eyebrow">SUA JORNADA FOI CONCLUÍDA</p>
+      <h1>SEU PERFIL É <span id="resultTitle">EXPLORADOR</span></h1>
+      <p id="resultSubtitle">Você demonstra curiosidade e interesse por descobrir novas possibilidades.</p>
+    </section>
+
+    <section class="result-grid">
+      <article class="result-card">
+        <div class="result-icon" id="resultIcon">⌖</div>
+        <h2 id="profileName">Explorador</h2>
+        <p id="profileDescription"></p>
+        <div class="score-wrap">
+          <div class="score-label"><span>Compatibilidade com o perfil</span><strong id="scoreValue">0%</strong></div>
+          <div class="progress-bar"><div id="scoreFill"></div></div>
+        </div>
+      </article>
+
+      <article class="result-card">
+        <p class="eyebrow">CAMINHOS POSSÍVEIS</p>
+        <h2>Profissões para explorar</h2>
+        <p class="result-helper">As profissões abaixo foram relacionadas ao seu perfil. Abra cada uma para conhecer possibilidades específicas daquela carreira.</p>
+      </article>
+    </section>
+
+    <section class="result-professions" id="careerList" aria-label="Profissões recomendadas"></section>
+
+    <section class="result-card advice">
+      <p class="eyebrow">IMPORTANTE</p>
+      <h2>Use este resultado como ponto de partida</h2>
+      <p>O resultado é uma ferramenta de reflexão e não substitui orientação profissional especializada. Pesquise as áreas, converse com profissionais e experimente atividades antes de tomar uma decisão.</p>
+      <div class="buttons">
+        <a class="btn primary" href="rpg.html">EXPLORAR RPG</a>
+        <a class="btn secondary" href="teste.html">FAZER NOVAMENTE</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer compact">
+    <div class="copyright">© 2026 Ordem Vocacional. Projeto educacional.</div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/resultado.js"></script>
+</body>
+</html>
