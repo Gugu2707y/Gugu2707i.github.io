@@ -171,7 +171,14 @@
             </form>
 
             <div class="dice-panel">
-              <div class="empty-image-frame square-frame" aria-label="Moldura vazia para futura imagem do personagem"></div>
+              <div class="avatar-picker-card">
+                <p class="eyebrow">RETRATO DO PERSONAGEM</p>
+                <button class="avatar-picker-trigger" id="characterAvatarTrigger" type="button" aria-label="Escolher foto do personagem" aria-haspopup="dialog" aria-controls="avatarPickerModal">
+                  <span class="avatar-preview is-empty" id="characterAvatarPreview" aria-hidden="true"><span class="avatar-plus">+</span><span class="avatar-prompt">ADICIONAR FOTO</span></span>
+                  <span class="avatar-hover-overlay" aria-hidden="true"><span>+</span><small>TROCAR FOTO</small></span>
+                </button>
+                <p class="avatar-helper">Escolha um dos 30 retratos disponíveis. As imagens podem ser adicionadas depois.</p>
+              </div>
               <div class="dice-copy">
                 <span class="eyebrow">ROLAGEM VIRTUAL</span>
                 <h3>D6</h3>
@@ -184,7 +191,8 @@
 
           <section class="character-sheet" id="characterSheet" aria-labelledby="sheetTitle">
             <div class="sheet-header">
-              <div>
+              <div class="sheet-heading-group">
+                <div class="sheet-avatar-mini" id="sheetAvatarMini" aria-hidden="true"><span>+</span></div>
                 <p class="eyebrow">FICHA DE PERSONAGEM</p>
                 <h3 id="sheetTitle">PERSONAGEM AINDA NÃO CRIADO</h3>
               </div>
@@ -338,6 +346,17 @@
       <a class="btn primary" href="teste.html">FAZER O TESTE</a>
     </section>
   </main>
+
+  <div class="avatar-modal-backdrop" id="avatarPickerModal" hidden>
+    <section class="avatar-modal" role="dialog" aria-modal="true" aria-labelledby="avatarModalTitle" aria-describedby="avatarModalDescription" tabindex="-1">
+      <header class="avatar-modal-header">
+        <div><p class="eyebrow">FICHA DE PERSONAGEM</p><h2 id="avatarModalTitle">ESCOLHA SEU RETRATO</h2><p id="avatarModalDescription">Selecione uma das 30 molduras. Os espaços estão prontos para receber imagens posteriormente.</p></div>
+        <button type="button" class="avatar-modal-close" id="closeAvatarModal" aria-label="Fechar galeria">×</button>
+      </header>
+      <div class="avatar-options-grid" id="avatarOptionsGrid" aria-label="30 opções de retrato"></div>
+      <footer class="avatar-modal-footer"><span id="avatarSelectionStatus" aria-live="polite">Nenhum retrato selecionado.</span><button type="button" class="btn secondary" id="removeCharacterAvatar">REMOVER FOTO</button></footer>
+    </section>
+  </div>
 
   <footer class="footer compact">
     <div class="copyright">© 2026 Ordem Vocacional. Projeto educacional.</div>
