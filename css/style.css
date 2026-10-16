@@ -1498,3 +1498,167 @@ button, a { -webkit-tap-highlight-color: transparent; }
   .accordion-title { font-size: 10px; }
   .accordion-arrow { width: 28px; height: 28px; flex-basis: 28px; }
 }
+
+/* =========================================================
+   RESULTADO VOCACIONAL — GRID PRINCIPAL E DETALHE PROFISSIONAL
+   ========================================================= */
+.profile-top-grid {
+  width: min(100% - 36px, 1080px);
+  margin: 28px auto 34px;
+  display: grid;
+  grid-template-columns: minmax(280px, .82fr) minmax(0, 1.18fr);
+  align-items: stretch;
+  gap: 22px;
+}
+.profile-top-left {
+  display: grid;
+  grid-template-rows: minmax(260px, 1fr) auto;
+  gap: 14px;
+  min-width: 0;
+}
+.profile-main-photo,
+.profession-detail-photo {
+  min-height: 300px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-align: center;
+  color: #e5c158;
+  border: 1px dashed rgba(229,193,88,.48);
+  border-radius: 13px;
+  background: radial-gradient(circle at 50% 18%, rgba(125,60,255,.18), transparent 62%), linear-gradient(145deg, rgba(255,255,255,.025), rgba(255,255,255,.008));
+}
+.profile-photo-symbol {
+  width: 58px;
+  height: 58px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(229,193,88,.48);
+  border-radius: 50%;
+  font-size: 26px;
+}
+.profile-main-photo > span:nth-child(2),
+.profession-detail-photo > span:not(.photo-placeholder-mark) {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+.profile-main-photo small,
+.profession-detail-photo small {
+  color: var(--muted);
+  font-size: 12px;
+}
+.profile-about-main {
+  min-width: 0;
+  padding: clamp(22px, 3.5vw, 38px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid rgba(229,193,88,.2);
+  border-radius: 13px;
+  background: linear-gradient(145deg, rgba(30,22,47,.98), rgba(14,10,25,.98));
+  box-shadow: 0 16px 42px rgba(0,0,0,.13);
+}
+.profile-about-main > .eyebrow { color: #e5c158; }
+.profile-about-main h2,
+.result-section-heading h2 {
+  margin: 5px 0 15px;
+  color: var(--text);
+  font-family: 'Cinzel', Georgia, serif;
+  font-size: clamp(23px, 3vw, 31px);
+}
+.profile-about-main h3 {
+  margin: 0 0 10px;
+  font-family: 'Cinzel', Georgia, serif;
+  font-size: clamp(16px, 2vw, 21px);
+  line-height: 1.5;
+}
+.profile-about-main h3 span { color: #e5c158; }
+.profile-subtitle { color: var(--text); font-size: 14px; line-height: 1.75; }
+.profile-analysis-text { color: var(--muted); font-size: 13px; line-height: 1.9; }
+.profile-about-main .score-wrap { margin-top: 20px; }
+.profile-rpg-card { height: fit-content; }
+.profile-rpg-card h3 { font-size: 16px; }
+.profile-rpg-card > p:not(.eyebrow) { font-size: 13px; line-height: 1.75; }
+.result-section-heading {
+  width: min(100% - 36px, 1080px);
+  margin: 0 auto 20px;
+  text-align: center;
+}
+.result-section-heading .eyebrow { color: #e5c158; }
+.result-section-heading p:last-child {
+  max-width: 650px;
+  margin: 0 auto;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.8;
+}
+.profession-detail-grid {
+  display: grid;
+  grid-template-columns: minmax(220px, .72fr) minmax(0, 1.28fr);
+  align-items: stretch;
+  gap: 20px;
+  padding: 22px 28px 8px;
+}
+.profession-detail-photo {
+  min-height: 100%;
+  min-height: 270px;
+}
+.profession-detail-copy { display: grid; gap: 13px; min-width: 0; }
+.profession-description-block,
+.profession-experience-block {
+  padding: 20px 22px;
+  border: 1px solid rgba(229,193,88,.16);
+  border-radius: 10px;
+  background: rgba(255,255,255,.018);
+}
+.profession-description-block .eyebrow,
+.profession-experience-block .eyebrow { color: #e5c158; }
+.profession-description-block h3,
+.profession-experience-block h3 {
+  margin: 7px 0 10px;
+  color: var(--text);
+  font-family: 'Cinzel', Georgia, serif;
+  font-size: 18px;
+  line-height: 1.5;
+}
+.profession-description-block > p:not(.eyebrow),
+.profession-experience-block > p:not(.eyebrow) {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.85;
+}
+.profession-short-description { color: var(--text) !important; }
+.profession-experience-block .rpg-profession-link { max-width: 300px; margin-top: 13px; }
+
+/* Tipografia dos quatro acordeões: aumento discreto de 1–2px. */
+.career-accordion .accordion-title { font-size: 14px; }
+.career-accordion .accordion-intro { font-size: 14px; line-height: 1.85; }
+.career-accordion .star-card { font-size: 14px; }
+.career-accordion .detail-list,
+.career-accordion .skill-list { font-size: 14px; line-height: 1.85; }
+.career-accordion .detail-list li,
+.career-accordion .skill-list li { margin-bottom: 8px; }
+.career-accordion .star-card { padding: 14px; }
+
+@media (max-width: 760px) {
+  .profile-top-grid { width: min(100% - 24px, 1080px); grid-template-columns: 1fr; }
+  .profile-top-left { grid-template-rows: minmax(190px, auto) auto; }
+  .profile-main-photo { min-height: 210px; }
+  .profile-about-main { padding: 23px; }
+  .result-section-heading { width: min(100% - 24px, 1080px); }
+  .profession-detail-grid { grid-template-columns: 1fr; padding: 17px 18px 5px; gap: 15px; }
+  .profession-detail-photo { min-height: 200px; }
+}
+@media (max-width: 520px) {
+  .career-accordion .accordion-title { font-size: 12px; }
+  .career-accordion .accordion-intro,
+  .career-accordion .star-card,
+  .career-accordion .detail-list,
+  .career-accordion .skill-list { font-size: 13px; }
+  .profession-description-block,
+  .profession-experience-block { padding: 17px; }
+}

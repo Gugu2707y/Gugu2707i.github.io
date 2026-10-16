@@ -243,26 +243,22 @@ function createSkillList(items) {
 }
 
 function buildProfileAnalysis(profile, result) {
-  const answers = Array.isArray(result.answers) ? result.answers : [];
-  const categoryAnswers = answers.filter(item => item && item.category === result.winner);
-  const chosenTexts = answers.slice(0, 12).map(item => item && item.answer).filter(Boolean);
-  const selectedExamples = chosenTexts.slice(0, 3).map(escapeHTML);
-  const evidence = selectedExamples.length
-    ? ` Nas suas respostas, apareceram escolhas como ${selectedExamples.map(text => `“${text}”`).join(", ")}.`
-    : "";
+  const answers = Array.isArray(result.answers) ? result.answers.filter(item => item && item.answer) : [];
+  const categoryAnswers = answers.filter(item => item.category === result.winner);
+  const uniqueAnswers = [...new Set(categoryAnswers.map(item => item.answer))].slice(0, 3);
 
   const profileInsights = {
-    tecnologia: "Você tende a investigar como as coisas funcionam, testar possibilidades e buscar soluções lógicas. Suas escolhas apontam interesse em compreender sistemas, resolver problemas por etapas e aprender colocando ideias em prática.",
-    criatividade: "Suas respostas indicam interesse em imaginar alternativas, expressar ideias e experimentar maneiras originais de resolver situações. Você parece valorizar a comunicação, a criação e a possibilidade de transformar conceitos em algo que outras pessoas possam perceber ou utilizar.",
-    pessoas: "Suas escolhas destacam atenção às relações humanas, à comunicação e ao impacto das decisões sobre outras pessoas. Você demonstra interesse em ouvir perspectivas, compartilhar conhecimento e colaborar para que indivíduos ou grupos avancem.",
-    estrategia: "Suas respostas apontam para interesse em organizar tarefas, comparar caminhos e acompanhar objetivos até a conclusão. Você parece valorizar planejamento, decisões fundamentadas e a coordenação de recursos ou pessoas para resolver problemas."
+    tecnologia: "Você demonstra preferência por investigar como as coisas funcionam e encontrar soluções com lógica. As escolhas registradas ajudam a indicar quais tipos de problemas e ferramentas despertam sua curiosidade.",
+    criatividade: "Você demonstra interesse em criar, comunicar ideias e explorar soluções diferentes. Suas escolhas ajudam a revelar quais formas de expressão e criação chamam mais sua atenção.",
+    pessoas: "Você demonstra atenção às relações humanas, à comunicação e ao impacto das ações nas pessoas. Suas escolhas ajudam a identificar contextos em que colaboração, escuta ou orientação podem ser importantes.",
+    estrategia: "Você demonstra interesse em organizar tarefas, comparar alternativas e trabalhar com objetivos. Suas escolhas ajudam a indicar situações em que planejamento e tomada de decisão podem ser motivadores."
   };
 
-  const reinforcement = categoryAnswers.length
-    ? ` Você escolheu ${categoryAnswers.length} resposta(s) diretamente ligada(s) ao perfil ${profile.name.toLowerCase()}, reforçando essa tendência nas situações apresentadas.`
-    : " O perfil representa a tendência mais forte entre as opções escolhidas, mas outras áreas também podem combinar com você.";
+  const evidence = uniqueAnswers.length
+    ? ` Entre as respostas que mais combinaram com este perfil estão: ${uniqueAnswers.map(answer => `“${escapeHTML(answer)}”`).join("; ")}.`
+    : " O resultado representa a tendência mais forte entre as alternativas selecionadas e pode ser explorado junto de outros interesses.";
 
-  return `${profileInsights[result.winner] || profile.description}${reinforcement}${evidence}`;
+  return `${profileInsights[result.winner] || profile.description}${evidence}`;
 }
 
 function renderCareer(career, index) {
@@ -274,34 +270,34 @@ function renderCareer(career, index) {
 
   return `
     <article class="profession-result" data-career-index="${index}">
-      <div class="profession-result-header">
+      <header class="profession-result-header">
         <div class="profession-heading">
           <p class="eyebrow">PROFISSÃO RECOMENDADA · 0${index + 1}</p>
-          <h2>${career.name}</h2>
-          <p>${career.shortDescription}</p>
+          <h2>${escapeHTML(career.name)}</h2>
+          <p>${escapeHTML(career.shortDescription)}</p>
         </div>
-      </div>
+      </header>
 
-      <div class="profession-overview">
-        <section class="profile-about">
-          <p class="eyebrow">SOBRE ESTA PROFISSÃO</p>
-          <h3>Onde seu perfil encontra essa carreira</h3>
-          <p>${career.intro}</p>
-        </section>
-
-        <aside class="profession-side">
-          <div class="profession-photo-frame" role="img" aria-label="Espaço reservado para uma foto de ${career.name}">
-            <div class="photo-placeholder-mark" aria-hidden="true">✦</div>
-            <span>ADICIONE A FOTO DA PROFISSÃO</span>
-            <small>${career.name}</small>
-          </div>
-          <div class="rpg-material-card">
+      <div class="profession-detail-grid">
+        <div class="profession-detail-photo" role="img" aria-label="Espaço reservado para imagem de ${escapeHTML(career.name)}">
+          <span class="photo-placeholder-mark" aria-hidden="true">✦</span>
+          <span>IMAGEM DA PROFISSÃO</span>
+          <small>${escapeHTML(career.name)}</small>
+        </div>
+        <div class="profession-detail-copy">
+          <section class="profession-description-block">
+            <p class="eyebrow">SOBRE ESTA PROFISSÃO</p>
+            <h3>${escapeHTML(career.name)}</h3>
+            <p>${escapeHTML(career.intro)}</p>
+            <p class="profession-short-description">${escapeHTML(career.shortDescription)}</p>
+          </section>
+          <section class="profession-experience-block">
             <p class="eyebrow">EXPERIÊNCIA INTERATIVA</p>
-            <h3>Materiais RPG da sua Profissão</h3>
-            <p>Leve esta carreira para uma aventura e experimente desafios inspirados na área.</p>
+            <h3>Experimente essa carreira no RPG</h3>
+            <p>Explore uma situação inspirada na rotina profissional, tome decisões e descubra como seus interesses aparecem na prática.</p>
             <a class="btn primary rpg-profession-link" href="rpg.html?profissao=${professionQuery}">ACESSAR MATERIAIS RPG <span aria-hidden="true">↗</span></a>
-          </div>
-        </aside>
+          </section>
+        </div>
       </div>
 
       <div class="career-accordions">
@@ -343,9 +339,9 @@ if (!raw) {
 
     document.getElementById("resultTitle").textContent = profile.name;
     document.getElementById("resultSubtitle").textContent = profile.subtitle;
-    document.getElementById("profileName").textContent = profile.title;
+    document.getElementById("profilePhotoCaption").textContent = profile.title;
+    document.getElementById("profileRpgLink").href = `rpg.html?perfil=${encodeURIComponent(profile.title)}`;
     document.getElementById("profileDescription").textContent = buildProfileAnalysis(profile, result);
-    document.getElementById("resultIcon").textContent = profile.icon;
     document.getElementById("scoreValue").textContent = `${percentage}%`;
 
     setTimeout(() => {

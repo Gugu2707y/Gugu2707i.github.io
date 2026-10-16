@@ -22,26 +22,42 @@
   <main class="result-main">
     <section class="result-hero">
       <p class="eyebrow">SUA JORNADA FOI CONCLUÍDA</p>
-      <h1>SEU PERFIL É <span id="resultTitle">EXPLORADOR</span></h1>
-      <p id="resultSubtitle">Você demonstra curiosidade e interesse por descobrir novas possibilidades.</p>
+      <h1>SEU RESULTADO <span>VOCACIONAL</span></h1>
+      <p>Conheça os caminhos profissionais relacionados às escolhas que você fez no teste.</p>
     </section>
 
-    <section class="result-grid">
-      <article class="result-card">
-        <div class="result-icon" id="resultIcon">⌖</div>
-        <h2 id="profileName">Explorador</h2>
-        <p id="profileDescription"></p>
+    <section class="profile-top-grid" aria-label="Resumo do perfil vocacional">
+      <div class="profile-top-left">
+        <div class="profile-main-photo" role="img" aria-label="Espaço reservado para imagem do perfil vocacional">
+          <span class="profile-photo-symbol" aria-hidden="true">✦</span>
+          <span>ESPAÇO RESERVADO PARA IMAGEM</span>
+          <small id="profilePhotoCaption">Seu perfil vocacional</small>
+        </div>
+        <article class="rpg-material-card profile-rpg-card">
+          <p class="eyebrow">SUA PRÓXIMA EXPERIÊNCIA</p>
+          <h3>Materiais RPG da sua Profissão</h3>
+          <p>Explore desafios e decisões inspirados nas áreas que combinam com seu perfil.</p>
+          <a class="btn primary rpg-profession-link" id="profileRpgLink" href="rpg.html">ACESSAR MATERIAIS RPG <span aria-hidden="true">↗</span></a>
+        </article>
+      </div>
+
+      <article class="profile-about-main">
+        <p class="eyebrow">SÍNTESE DO TESTE</p>
+        <h2>Sobre seu Perfil</h2>
+        <h3>SEU PERFIL É <span id="resultTitle">EXPLORADOR</span></h3>
+        <p id="resultSubtitle" class="profile-subtitle">Você demonstra curiosidade e interesse por descobrir novas possibilidades.</p>
+        <p id="profileDescription" class="profile-analysis-text"></p>
         <div class="score-wrap">
           <div class="score-label"><span>Compatibilidade com o perfil</span><strong id="scoreValue">0%</strong></div>
           <div class="progress-bar"><div id="scoreFill"></div></div>
         </div>
       </article>
+    </section>
 
-      <article class="result-card">
-        <p class="eyebrow">CAMINHOS POSSÍVEIS</p>
-        <h2>Profissões para explorar</h2>
-        <p class="result-helper">As profissões abaixo foram relacionadas ao seu perfil. Abra cada uma para conhecer possibilidades específicas daquela carreira.</p>
-      </article>
+    <section class="result-section-heading">
+      <p class="eyebrow">CAMINHOS POSSÍVEIS</p>
+      <h2>Profissões para explorar</h2>
+      <p>Conheça cada profissão recomendada, entenda como é a atuação e explore os quatro painéis para saber mais.</p>
     </section>
 
     <section class="result-professions" id="careerList" aria-label="Profissões recomendadas"></section>
