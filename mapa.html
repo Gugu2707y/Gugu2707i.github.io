@@ -3,72 +3,115 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ordem Vocacional | Teste e Mapas</title>
+  <meta name="theme-color" content="#120a1f">
+  <title>Ordem Vocacional | Mapas de Cenários</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body class="maps-gallery-page">
   <header class="header">
     <a class="logo" href="index.html"><span class="logo-mark">◇</span> ORDEM VOCACIONAL</a>
-    <button class="menu-toggle" aria-label="Abrir menu">☰</button>
+    <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
     <nav class="nav">
       <a href="index.html">Início</a>
       <a href="sobre.html">Sobre o Teste</a>
       <a href="teste.html">Fazer Teste</a>
       <a href="rpg.html">RPG</a>
-      <a class="active" href="mapa.html">Teste e Mapas</a>
+      <a class="active" href="mapa.html">Mapas de Cenários</a>
     </nav>
   </header>
-
-  <main>
-    <section class="page-hero">
-      <p class="eyebrow">MAPA VOCACIONAL</p>
-      <h1>EXPLORE AS <span>PROFISSÕES</span></h1>
-      <p>Use o mapa como uma visão geral das áreas que podem aparecer durante sua jornada.</p>
+  <main class="maps-gallery-main">
+    <section class="page-hero maps-hero">
+      <p class="eyebrow">BIBLIOTECA VISUAL • RPG ORDEM VOCACIONAL</p>
+      <h1>MAPAS DE <span>CENÁRIOS</span></h1>
+      <p>Uma galeria exclusiva para organizar os 13 mapas da aventura. Os espaços estão preparados para receber as imagens posteriormente.</p>
       <div class="gold-line"></div>
     </section>
-
-    <section class="section">
-      <div class="filter-bar">
-        <button class="filter active" data-filter="todos">TODAS</button>
-        <button class="filter" data-filter="tecnologia">TECNOLOGIA</button>
-        <button class="filter" data-filter="criatividade">CRIATIVIDADE</button>
-        <button class="filter" data-filter="pessoas">PESSOAS</button>
-        <button class="filter" data-filter="estrategia">ESTRATÉGIA</button>
+    <section class="section maps-library" aria-labelledby="maps-library-title">
+      <div class="maps-library-heading">
+        <div><p class="eyebrow">GALERIA DE ASSETS</p><h2 id="maps-library-title">CENÁRIOS DA JORNADA</h2><p>Selecione uma moldura para ampliar a visualização. Quando uma imagem for adicionada ao espaço, também será possível baixá-la.</p></div>
+        <span class="asset-count">13 MAPAS</span>
       </div>
-
-      <div class="career-map" id="careerMap">
-        <article class="map-career" data-category="tecnologia estrategia">
-          <span class="map-tag">TECNOLOGIA</span><h3>Desenvolvedor de Software</h3><p>Cria sistemas, sites e aplicações digitais.</p>
-        </article>
-        <article class="map-career" data-category="tecnologia">
-          <span class="map-tag">TECNOLOGIA</span><h3>Analista de Dados</h3><p>Transforma dados em informações úteis para decisões.</p>
-        </article>
-        <article class="map-career" data-category="estrategia tecnologia">
-          <span class="map-tag">ESTRATÉGIA</span><h3>Engenheiro de Computação</h3><p>Trabalha com software, hardware e sistemas computacionais.</p>
-        </article>
-        <article class="map-career" data-category="criatividade">
-          <span class="map-tag">CRIATIVIDADE</span><h3>Designer</h3><p>Cria soluções visuais, experiências e interfaces.</p>
-        </article>
-        <article class="map-career" data-category="criatividade">
-          <span class="map-tag">CRIATIVIDADE</span><h3>Publicidade</h3><p>Desenvolve campanhas e estratégias de comunicação.</p>
-        </article>
-        <article class="map-career" data-category="pessoas">
-          <span class="map-tag">PESSOAS</span><h3>Professor</h3><p>Planeja experiências de aprendizagem e ajuda outras pessoas a desenvolver conhecimentos.</p>
-        </article>
-        <article class="map-career" data-category="pessoas">
-          <span class="map-tag">PESSOAS</span><h3>Psicólogo</h3><p>Atua com processos psicológicos e comportamento humano.</p>
-        </article>
-        <article class="map-career" data-category="estrategia">
-          <span class="map-tag">ESTRATÉGIA</span><h3>Administrador</h3><p>Planeja, organiza e acompanha recursos e processos.</p>
-        </article>
+      <div class="map-assets-grid" id="mapAssetsGrid">
+        <button class="map-asset-card" type="button" data-map-number="1" aria-label="Ampliar mapa 1">
+          <span class="map-asset-number">01</span>
+          <span class="map-asset-placeholder" role="img" aria-label="Espaço vazio para imagem do mapa 1"><span class="map-asset-plus" aria-hidden="true">+</span><span class="map-asset-empty-label">Mapa 01</span></span>
+          <span class="map-asset-footer"><strong>Mapa 01</strong><span>Visualizar ↗</span></span>
+        </button>
+        <button class="map-asset-card" type="button" data-map-number="2" aria-label="Ampliar mapa 2">
+          <span class="map-asset-number">02</span>
+          <span class="map-asset-placeholder" role="img" aria-label="Espaço vazio para imagem do mapa 2"><span class="map-asset-plus" aria-hidden="true">+</span><span class="map-asset-empty-label">Mapa 02</span></span>
+          <span class="map-asset-footer"><strong>Mapa 02</strong><span>Visualizar ↗</span></span>
+        </button>
+        <button class="map-asset-card" type="button" data-map-number="3" aria-label="Ampliar mapa 3">
+          <span class="map-asset-number">03</span>
+          <span class="map-asset-placeholder" role="img" aria-label="Espaço vazio para imagem do mapa 3"><span class="map-asset-plus" aria-hidden="true">+</span><span class="map-asset-empty-label">Mapa 03</span></span>
+          <span class="map-asset-footer"><strong>Mapa 03</strong><span>Visualizar ↗</span></span>
+        </button>
+        <button class="map-asset-card" type="button" data-map-number="4" aria-label="Ampliar mapa 4">
+          <span class="map-asset-number">04</span>
+          <span class="map-asset-placeholder" role="img" aria-label="Espaço vazio para imagem do mapa 4"><span class="map-asset-plus" aria-hidden="true">+</span><span class="map-asset-empty-label">Mapa 04</span></span>
+          <span class="map-asset-footer"><strong>Mapa 04</strong><span>Visualizar ↗</span></span>
+        </button>
+        <button class="map-asset-card" type="button" data-map-number="5" aria-label="Ampliar mapa 5">
+          <span class="map-asset-number">05</span>
+          <span class="map-asset-placeholder" role="img" aria-label="Espaço vazio para imagem do mapa 5"><span class="map-asset-plus" aria-hidden="true">+</span><span class="map-asset-empty-label">Mapa 05</span></span>
+          <span class="map-asset-footer"><strong>Mapa 05</strong><span>Visualizar ↗</span></span>
+        </button>
+        <button class="map-asset-card" type="button" data-map-number="6" aria-label="Ampliar mapa 6">
+          <span class="map-asset-number">06</span>
+          <span class="map-asset-placeholder" role="img" aria-label="Espaço vazio para imagem do mapa 6"><span class="map-asset-plus" aria-hidden="true">+</span><span class="map-asset-empty-label">Mapa 06</span></span>
+          <span class="map-asset-footer"><strong>Mapa 06</strong><span>Visualizar ↗</span></span>
+        </button>
+        <button class="map-asset-card" type="button" data-map-number="7" aria-label="Ampliar mapa 7">
+          <span class="map-asset-number">07</span>
+          <span class="map-asset-placeholder" role="img" aria-label="Espaço vazio para imagem do mapa 7"><span class="map-asset-plus" aria-hidden="true">+</span><span class="map-asset-empty-label">Mapa 07</span></span>
+          <span class="map-asset-footer"><strong>Mapa 07</strong><span>Visualizar ↗</span></span>
+        </button>
+        <button class="map-asset-card" type="button" data-map-number="8" aria-label="Ampliar mapa 8">
+          <span class="map-asset-number">08</span>
+          <span class="map-asset-placeholder" role="img" aria-label="Espaço vazio para imagem do mapa 8"><span class="map-asset-plus" aria-hidden="true">+</span><span class="map-asset-empty-label">Mapa 08</span></span>
+          <span class="map-asset-footer"><strong>Mapa 08</strong><span>Visualizar ↗</span></span>
+        </button>
+        <button class="map-asset-card" type="button" data-map-number="9" aria-label="Ampliar mapa 9">
+          <span class="map-asset-number">09</span>
+          <span class="map-asset-placeholder" role="img" aria-label="Espaço vazio para imagem do mapa 9"><span class="map-asset-plus" aria-hidden="true">+</span><span class="map-asset-empty-label">Mapa 09</span></span>
+          <span class="map-asset-footer"><strong>Mapa 09</strong><span>Visualizar ↗</span></span>
+        </button>
+        <button class="map-asset-card" type="button" data-map-number="10" aria-label="Ampliar mapa 10">
+          <span class="map-asset-number">10</span>
+          <span class="map-asset-placeholder" role="img" aria-label="Espaço vazio para imagem do mapa 10"><span class="map-asset-plus" aria-hidden="true">+</span><span class="map-asset-empty-label">Mapa 10</span></span>
+          <span class="map-asset-footer"><strong>Mapa 10</strong><span>Visualizar ↗</span></span>
+        </button>
+        <button class="map-asset-card" type="button" data-map-number="11" aria-label="Ampliar mapa 11">
+          <span class="map-asset-number">11</span>
+          <span class="map-asset-placeholder" role="img" aria-label="Espaço vazio para imagem do mapa 11"><span class="map-asset-plus" aria-hidden="true">+</span><span class="map-asset-empty-label">Mapa 11</span></span>
+          <span class="map-asset-footer"><strong>Mapa 11</strong><span>Visualizar ↗</span></span>
+        </button>
+        <button class="map-asset-card" type="button" data-map-number="12" aria-label="Ampliar mapa 12">
+          <span class="map-asset-number">12</span>
+          <span class="map-asset-placeholder" role="img" aria-label="Espaço vazio para imagem do mapa 12"><span class="map-asset-plus" aria-hidden="true">+</span><span class="map-asset-empty-label">Mapa 12</span></span>
+          <span class="map-asset-footer"><strong>Mapa 12</strong><span>Visualizar ↗</span></span>
+        </button>
+        <button class="map-asset-card" type="button" data-map-number="13" aria-label="Ampliar mapa 13">
+          <span class="map-asset-number">13</span>
+          <span class="map-asset-placeholder" role="img" aria-label="Espaço vazio para imagem do mapa 13"><span class="map-asset-plus" aria-hidden="true">+</span><span class="map-asset-empty-label">Mapa 13</span></span>
+          <span class="map-asset-footer"><strong>Mapa 13</strong><span>Visualizar ↗</span></span>
+        </button>
       </div>
     </section>
   </main>
-
-  <footer class="footer compact">
-    <div class="copyright">© 2026 Ordem Vocacional. Projeto educacional.</div>
-  </footer>
-
+  <div class="asset-modal" id="mapPreviewModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="mapPreviewTitle">
+    <div class="asset-modal-backdrop" data-close-map-modal></div>
+    <section class="asset-modal-panel" role="document">
+      <button class="asset-modal-close" type="button" aria-label="Fechar visualização" data-close-map-modal>×</button>
+      <p class="eyebrow">GALERIA DE CENÁRIOS</p>
+      <h2 id="mapPreviewTitle">Mapa 01</h2>
+      <div class="map-preview-stage" id="mapPreviewStage"><div class="map-preview-empty"><span>+</span><p>Espaço reservado para a imagem do mapa.</p><small>Adicione o arquivo de imagem ao projeto para habilitar a visualização ampla e o download.</small></div></div>
+      <div class="map-preview-actions"><a class="btn primary is-disabled" id="downloadMapButton" href="#" download aria-disabled="true">BAIXAR MAPA</a><button class="btn secondary" type="button" data-close-map-modal>FECHAR</button></div>
+    </section>
+  </div>
+  <footer class="footer compact"><div class="copyright">© 2026 Ordem Vocacional. Projeto educacional.</div></footer>
+  <script src="js/main.js"></script>
   <script src="js/mapa.js"></script>
 </body>
 </html>
