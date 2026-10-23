@@ -121,7 +121,11 @@
 
   // Para adicionar as imagens futuramente, informe o caminho no índice correspondente.
   // Exemplo: AVATAR_IMAGES[1] = "assets/personagens/personagem-01.png".
-  const AVATAR_IMAGES = Array(30).fill(null);
+  const AVATAR_IMAGES = Array.from(
+  { length: 30 },
+  (_, index) =>
+    `assets/personagens/personagem-${String(index + 1).padStart(2, "0")}.png`
+);
 
   function avatarImageFor(index) {
     return Number.isInteger(index) && index >= 1 && index <= 30 ? AVATAR_IMAGES[index - 1] : null;
