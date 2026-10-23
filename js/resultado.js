@@ -202,6 +202,72 @@ const profiles = {
         skills: ["Estudar modelagem de processos", "Praticar levantamento de requisitos", "Aprender fundamentos de bancos de dados", "Desenvolver documentação clara", "Aprimorar técnicas de entrevista e análise"]
       }
     ]
+  },
+  engenharia: {
+    name: "ENGENHARIA",
+    title: "Engenheiro(a) em formação",
+    icon: "⚙",
+    subtitle: "Você demonstra interesse em analisar sistemas, resolver problemas técnicos e melhorar estruturas ou processos.",
+    description: "Seu resultado aponta interesse por cálculo, planejamento técnico, construção e otimização. Engenharia reúne várias especialidades; explore cursos e projetos práticos para descobrir quais problemas despertam sua curiosidade.",
+    careers: [
+      {
+        name: "Engenheiro Civil",
+        shortDescription: "Planeja e acompanha estruturas, obras e sistemas de infraestrutura.",
+        intro: "A Engenharia Civil combina matemática, física, materiais e planejamento para projetar estruturas e infraestrutura com atenção à segurança, ao custo e ao impacto no ambiente.",
+        recommended: ["Estruturas", "Transportes", "Geotecnia", "Recursos Hídricos", "Saneamento", "Construção Civil", "Infraestrutura Urbana", "Gestão de Obras"],
+        strengthsIntro: "Projetos de engenharia valorizam raciocínio analítico, atenção aos detalhes e capacidade de avaliar consequências antes de executar uma solução.",
+        strengths: ["Interesse em entender como sistemas funcionam", "Raciocínio lógico e quantitativo", "Atenção a segurança e precisão", "Vontade de melhorar soluções existentes"],
+        challengesIntro: "A área exige responsabilidade técnica, estudo contínuo e decisões que considerem restrições reais.",
+        challenges: ["Estudar matemática e física com constância", "Equilibrar custo, prazo e qualidade", "Seguir normas técnicas e de segurança", "Revisar cálculos e hipóteses com cuidado"],
+        skillsIntro: "Uma boa preparação começa por fundamentos científicos e projetos práticos que conectem teoria e aplicação.",
+        skills: ["Fortalecer matemática e física", "Aprender desenho técnico e modelagem", "Estudar materiais e estruturas", "Praticar análise de problemas", "Conhecer normas e segurança técnica"]
+      },
+      {
+        name: "Engenheiro de Produção",
+        shortDescription: "Melhora processos, recursos e sistemas para produzir com mais eficiência e qualidade.",
+        intro: "Engenharia de Produção combina análise quantitativa, organização de processos e melhoria contínua para reduzir desperdícios e tornar sistemas mais eficientes.",
+        recommended: ["Pesquisa Operacional", "Logística", "Qualidade", "Planejamento de Produção", "Ergonomia", "Engenharia de Processos", "Gestão de Operações", "Melhoria Contínua"],
+        strengthsIntro: "Essa especialidade valoriza quem compara alternativas, mede resultados e procura causas antes de propor mudanças.",
+        strengths: ["Facilidade para organizar etapas", "Interesse em otimização", "Capacidade de comparar dados", "Visão de conjunto sobre processos"],
+        challengesIntro: "Melhorar um sistema exige considerar pessoas, orçamento, equipamentos, qualidade e prazos ao mesmo tempo.",
+        challenges: ["Lidar com dados incompletos", "Equilibrar eficiência e qualidade", "Explicar mudanças para equipes", "Medir resultados de forma consistente"],
+        skillsIntro: "Ferramentas quantitativas e experiência prática ajudam a transformar ideias de melhoria em resultados mensuráveis.",
+        skills: ["Estudar estatística e matemática aplicada", "Aprender planilhas e análise de dados", "Mapear processos", "Conhecer fundamentos de logística", "Praticar melhoria contínua"]
+      }
+    ]
+  },
+  seguranca: {
+    name: "SEGURANÇA PÚBLICA",
+    title: "Protetor(a) da comunidade",
+    icon: "🛡",
+    subtitle: "Você demonstra interesse em proteger pessoas, agir com responsabilidade e seguir procedimentos em situações complexas.",
+    description: "Seu resultado aponta interesse por prevenção, organização, justiça e proteção coletiva. Segurança Pública envolve funções diferentes e exige preparo, respeito aos direitos, equilíbrio e atuação dentro da lei.",
+    careers: [
+      {
+        name: "Gestor de Segurança Pública",
+        shortDescription: "Planeja ações de prevenção, coordena recursos e avalia políticas voltadas à segurança da comunidade.",
+        intro: "A gestão em Segurança Pública envolve analisar problemas, organizar serviços, coordenar equipes e desenvolver ações preventivas com responsabilidade e respeito aos direitos das pessoas.",
+        recommended: ["Gestão de Segurança Pública", "Prevenção à Violência", "Políticas Públicas", "Gestão de Emergências", "Análise Criminal", "Proteção Comunitária", "Defesa Civil", "Planejamento Operacional"],
+        strengthsIntro: "Essa área valoriza a capacidade de manter a calma, avaliar informações e tomar decisões proporcionais às circunstâncias.",
+        strengths: ["Atenção a regras e procedimentos", "Interesse pela proteção coletiva", "Capacidade de organizar equipes", "Disposição para avaliar riscos antes de agir"],
+        challengesIntro: "O trabalho exige responsabilidade, comunicação clara e decisões fundamentadas, especialmente quando há pressão ou informações incompletas.",
+        challenges: ["Agir com equilíbrio sob pressão", "Respeitar protocolos e direitos", "Comunicar orientações com clareza", "Avaliar riscos sem tirar conclusões precipitadas"],
+        skillsIntro: "Conhecimentos de legislação, comunicação, análise de riscos e prevenção ajudam a preparar para funções da área.",
+        skills: ["Estudar cidadania e direitos fundamentais", "Conhecer noções de legislação", "Praticar comunicação e mediação", "Aprender análise de riscos", "Desenvolver organização e trabalho em equipe"]
+      },
+      {
+        name: "Profissional de Defesa Civil",
+        shortDescription: "Ajuda comunidades a prevenir riscos e se preparar para emergências e desastres.",
+        intro: "A Defesa Civil atua na prevenção, preparação, resposta e recuperação diante de riscos e desastres. O trabalho combina planejamento, informação confiável e cooperação entre serviços e comunidades.",
+        recommended: ["Prevenção de Desastres", "Planos de Contingência", "Gestão de Riscos", "Resposta a Emergências", "Educação Comunitária", "Mapeamento de Áreas de Risco", "Logística Humanitária", "Recuperação de Comunidades"],
+        strengthsIntro: "A preparação para emergências depende de organização, comunicação e capacidade de transformar avaliações de risco em ações práticas.",
+        strengths: ["Planejamento de cenários", "Atenção à segurança das pessoas", "Capacidade de coordenar tarefas", "Interesse em prevenir problemas"],
+        challengesIntro: "Emergências podem mudar rapidamente, por isso é importante seguir protocolos, atualizar informações e colaborar com diferentes equipes.",
+        challenges: ["Tomar decisões com informações limitadas", "Manter planos atualizados", "Coordenar recursos e comunicação", "Considerar necessidades de grupos vulneráveis"],
+        skillsIntro: "Conhecer prevenção, comunicação de risco e planejamento de emergência ajuda a desenvolver competências para a área.",
+        skills: ["Estudar prevenção e gestão de riscos", "Aprender primeiros conceitos de cartografia", "Praticar elaboração de planos", "Desenvolver comunicação clara", "Conhecer protocolos de emergência"]
+      }
+    ]
   }
 };
 
@@ -251,7 +317,9 @@ function buildProfileAnalysis(profile, result) {
     tecnologia: "Você demonstra preferência por investigar como as coisas funcionam e encontrar soluções com lógica. As escolhas registradas ajudam a indicar quais tipos de problemas e ferramentas despertam sua curiosidade.",
     criatividade: "Você demonstra interesse em criar, comunicar ideias e explorar soluções diferentes. Suas escolhas ajudam a revelar quais formas de expressão e criação chamam mais sua atenção.",
     pessoas: "Você demonstra atenção às relações humanas, à comunicação e ao impacto das ações nas pessoas. Suas escolhas ajudam a identificar contextos em que colaboração, escuta ou orientação podem ser importantes.",
-    estrategia: "Você demonstra interesse em organizar tarefas, comparar alternativas e trabalhar com objetivos. Suas escolhas ajudam a indicar situações em que planejamento e tomada de decisão podem ser motivadores."
+    estrategia: "Você demonstra interesse em organizar tarefas, comparar alternativas e trabalhar com objetivos. Suas escolhas ajudam a indicar situações em que planejamento e tomada de decisão podem ser motivadores.",
+    engenharia: "Você demonstra interesse em analisar problemas técnicos, otimizar recursos e construir soluções com base em cálculos e evidências. Essas tendências podem ser exploradas em diferentes especialidades da Engenharia.",
+    seguranca: "Você demonstra interesse em prevenção, proteção coletiva, procedimentos e decisões responsáveis. Essas tendências podem ser exploradas em diferentes caminhos da Segurança Pública."
   };
 
   const evidence = uniqueAnswers.length
@@ -335,7 +403,7 @@ if (!raw) {
     const profile = profiles[result.winner] || profiles.tecnologia;
     const score = result.scores[result.winner] || 0;
     const total = Number(result.total) || 1;
-    const percentage = Math.round((score / total) * 100);
+    const percentage = Math.min(100, Math.round((score / (Number(result.maxScore) || total)) * 100));
 
     document.getElementById("resultTitle").textContent = profile.name;
     document.getElementById("resultSubtitle").textContent = profile.subtitle;

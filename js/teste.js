@@ -107,10 +107,58 @@ const questions = [
       ["Gosto de planejar, liderar e alcançar objetivos.", "estrategia"]
     ]
   }
+  ,{
+    text: "Uma ponte apresenta sinais de desgaste e precisa ser avaliada. Qual tarefa você escolheria?",
+    answers: [
+      ["Analisar a estrutura, calcular os riscos e propor uma solução técnica.", { engenharia: 3, tecnologia: 1 }],
+      ["Organizar o isolamento da área e orientar as pessoas para um local seguro.", { seguranca: 3, estrategia: 1, pessoas: 1 }],
+      ["Pesquisar materiais e métodos para tornar a construção mais resistente.", { engenharia: 3, tecnologia: 1 }],
+      ["Conversar com os moradores para entender os impactos do problema.", { pessoas: 2, estrategia: 1 }]
+    ]
+  },
+  {
+    text: "Durante uma missão, um equipamento importante para de funcionar. Como você reage?",
+    answers: [
+      ["Investigar a falha e testar uma solução técnica com segurança.", { engenharia: 2, tecnologia: 2 }],
+      ["Seguir o protocolo de emergência e coordenar a proteção da equipe.", { seguranca: 3, estrategia: 1 }],
+      ["Distribuir tarefas para manter a missão funcionando enquanto o problema é resolvido.", { estrategia: 2, engenharia: 1, seguranca: 1 }],
+      ["Registrar o defeito e consultar uma pessoa especializada antes de agir.", { engenharia: 2, tecnologia: 1 }]
+    ]
+  },
+  {
+    text: "Uma cidade quer se preparar melhor para enchentes. Qual desafio mais interessa a você?",
+    answers: [
+      ["Projetar sistemas de drenagem e soluções de infraestrutura.", { engenharia: 3, tecnologia: 1 }],
+      ["Planejar rotas de evacuação e procedimentos de emergência.", { seguranca: 3, estrategia: 1 }],
+      ["Criar sensores e sistemas digitais para monitorar áreas de risco.", { tecnologia: 3, engenharia: 1 }],
+      ["Mapear comunidades vulneráveis e organizar ações de apoio.", { pessoas: 2, estrategia: 1 }]
+    ]
+  },
+  {
+    text: "Durante um evento público, surge uma situação de conflito. Qual seria sua prioridade?",
+    answers: [
+      ["Avaliar os riscos, seguir os procedimentos e proteger as pessoas.", { seguranca: 3, pessoas: 1 }],
+      ["Organizar a equipe, distribuir funções e manter a comunicação clara.", { seguranca: 2, estrategia: 2, pessoas: 1 }],
+      ["Analisar o local para identificar falhas estruturais ou técnicas de segurança.", { engenharia: 2, seguranca: 2 }],
+      ["Ajudar a mediar o conflito e buscar uma solução justa.", { pessoas: 2, estrategia: 1 }]
+    ]
+  },
+  {
+    text: "Sua equipe precisa criar um sistema mais eficiente usando menos recursos. Como você contribuiria?",
+    answers: [
+      ["Fazer cálculos, comparar materiais e otimizar o projeto.", { engenharia: 3, tecnologia: 1 }],
+      ["Programar uma ferramenta para automatizar tarefas e analisar dados.", { tecnologia: 3, engenharia: 1 }],
+      ["Definir procedimentos, avaliar riscos e preparar planos de contingência.", { seguranca: 2, estrategia: 2 }],
+      ["Organizar o orçamento e distribuir os recursos entre as prioridades.", { estrategia: 2, engenharia: 1 }]
+    ]
+  }
 ];
 
 let current = 0;
 const selected = Array(questions.length).fill(null);
+
+const totalIndicator = document.querySelector(".progress-info");
+if (totalIndicator) totalIndicator.dataset.total = String(questions.length);
 
 const intro = document.getElementById("testIntro");
 const quiz = document.getElementById("quizSection");
@@ -127,8 +175,14 @@ const nextButton = document.getElementById("nextQuestion");
 function renderQuestion() {
   const question = questions[current];
 
+  // O progresso aparece somente na primeira pergunta; as transições continuam iguais.
+  quiz.classList.toggle("hide-progress", current !== 0);
+
   questionTitle.textContent = `Pergunta ${current + 1}`;
   questionNumber.textContent = current + 1;
+  if (totalIndicator) totalIndicator.setAttribute("aria-label", `Pergunta ${current + 1} de ${questions.length}`);
+  const totalText = totalIndicator?.querySelector("[data-total-label]");
+  if (totalText) totalText.textContent = String(questions.length);
   questionText.textContent = question.text;
   progressFill.style.width = `${((current + 1) / questions.length) * 100}%`;
   warning.textContent = "";
@@ -190,26 +244,39 @@ nextButton.addEventListener("click", () => {
     tecnologia: 0,
     criatividade: 0,
     pessoas: 0,
-    estrategia: 0
+    estrategia: 0,
+    engenharia: 0,
+    seguranca: 0
   };
 
   selected.forEach((answerIndex, questionIndex) => {
-    const type = questions[questionIndex].answers[answerIndex][1];
-    scores[type]++;
+    const points = questions[questionIndex].answers[answerIndex][1];
+    if (typeof points === "string") {
+      scores[points] = (scores[points] || 0) + 1;
+    } else if (points && typeof points === "object") {
+      Object.entries(points).forEach(([category, value]) => {
+        scores[category] = (scores[category] || 0) + Number(value || 0);
+      });
+    }
   });
 
   const winner = Object.keys(scores).sort((a, b) => scores[b] - scores[a])[0];
 
-  const answerDetails = selected.map((answerIndex, questionIndex) => ({
-    question: questions[questionIndex].text,
-    answer: questions[questionIndex].answers[answerIndex][0],
-    category: questions[questionIndex].answers[answerIndex][1]
-  }));
+  const answerDetails = selected.map((answerIndex, questionIndex) => {
+    const points = questions[questionIndex].answers[answerIndex][1];
+    return {
+      question: questions[questionIndex].text,
+      answer: questions[questionIndex].answers[answerIndex][0],
+      category: typeof points === "string" ? points : Object.keys(points || {}).sort((a, b) => (points[b] || 0) - (points[a] || 0))[0],
+      points: points
+    };
+  });
 
   localStorage.setItem("ordemVocacionalResult", JSON.stringify({
     winner,
     scores,
     total: questions.length,
+    maxScore: questions.length + 10,
     answers: answerDetails,
     date: new Date().toISOString()
   }));
