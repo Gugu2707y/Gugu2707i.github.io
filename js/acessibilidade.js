@@ -1,62 +1,68 @@
-(() => {
-  "use strict";
-  const STEPS = [0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5];
-  let stepIndex = 2;
-  const originalSizes = new Map();
-  const textSelector = 'h1,h2,h3,h4,h5,h6,p,a,button,label,li,dt,dd,th,td,span,strong,em,small,legend,figcaption,summary,blockquote,.eyebrow,.rpg-tab,.rpg-card,.rpg-detail';
+document.addEventListener("DOMContentLoaded", () => {
+  const toggleButton = document.getElementById("accessibilityToggle");
+  const closeButton = document.getElementById("accessibilityClose");
+  const panel = document.getElementById("accessibilityPanel");
+  const increaseButton = document.getElementById("increaseFont");
+  const decreaseButton = document.getElementById("decreaseFont");
+  const resetButton = document.getElementById("resetAccessibility");
+  const fontSizeValue = document.getElementById("fontSizeValue");
+  const focusToggle = document.getElementById("focusModeToggle");
+  const focusStatus = document.getElementById("focusStatus");
 
-  function rememberAndApply(root = document) {
-    const nodes = [];
-    if (root.nodeType === Node.ELEMENT_NODE && root.matches?.(textSelector)) nodes.push(root);
-    if (root.querySelectorAll) nodes.push(...root.querySelectorAll(textSelector));
-    nodes.forEach((el) => {
-      if (el.closest('.accessibility-widget')) return;
-      if (!originalSizes.has(el)) {
-        const size = parseFloat(getComputedStyle(el).fontSize);
-        if (Number.isFinite(size) && size > 0) originalSizes.set(el, size);
-      }
-      const base = originalSizes.get(el);
-      if (base) el.style.fontSize = `${base * STEPS[stepIndex]}px`;
-    });
+  if (!toggleButton || !closeButton || !panel || !increaseButton ||
+      !decreaseButton || !resetButton || !fontSizeValue ||
+      !focusToggle || !focusStatus) return;
+
+  const MIN_FONT = 100;
+  const MAX_FONT = 180;
+  const FONT_STEP = 10;
+
+  let storedFont = Number(localStorage.getItem("ovFontSize"));
+  let fontSize = Number.isFinite(storedFont) && storedFont >= MIN_FONT && storedFont <= MAX_FONT
+    ? storedFont : MIN_FONT;
+
+  function updateFontSize() {
+    fontSize = Math.max(MIN_FONT, Math.min(MAX_FONT, fontSize));
+    document.documentElement.style.fontSize = `${fontSize}%`;
+    fontSizeValue.textContent = `${fontSize}%`;
+    localStorage.setItem("ovFontSize", String(fontSize));
   }
 
-  function resetSizes() {
-    document.querySelectorAll(textSelector).forEach((el) => {
-      if (!el.closest('.accessibility-widget')) el.style.removeProperty('font-size');
-    });
-    // Re-capture current stylesheet values after removing inline overrides.
-    originalSizes.clear?.();
-    document.querySelectorAll(textSelector).forEach((el) => {
-      if (el.closest('.accessibility-widget')) return;
-      const size = parseFloat(getComputedStyle(el).fontSize);
-      if (Number.isFinite(size) && size > 0) originalSizes.set(el, size);
-    });
+  function setFocusMode(enabled) {
+    document.documentElement.classList.toggle("focus-mode", enabled);
+    focusToggle.checked = enabled;
+    focusStatus.textContent = enabled ? "Modo Foco ativado" : "Modo Foco desativado";
+    localStorage.setItem("ovFocusMode", String(enabled));
   }
 
-  document.addEventListener('DOMContentLoaded', () => {
-    const widget = document.querySelector('.accessibility-widget');
-    if (!widget) return;
-    widget.addEventListener('click', (event) => {
-      const button = event.target.closest('button[data-font-action]');
-      if (!button) return;
-      const action = button.dataset.fontAction;
-      if (action === 'increase') stepIndex = Math.min(STEPS.length - 1, stepIndex + 1);
-      else if (action === 'decrease') stepIndex = Math.max(0, stepIndex - 1);
-      else if (action === 'reset') {
-        stepIndex = 2;
-        resetSizes();
-        return;
-      }
-      rememberAndApply();
-    });
+  function openPanel() {
+    panel.hidden = false;
+    toggleButton.setAttribute("aria-expanded", "true");
+  }
 
-    rememberAndApply();
-    const observer = new MutationObserver((records) => {
-      if (stepIndex === 2) return;
-      records.forEach((record) => record.addedNodes.forEach((node) => {
-        if (node.nodeType === Node.ELEMENT_NODE) rememberAndApply(node);
-      }));
-    });
-    observer.observe(document.body, { childList: true, subtree: true });
+  function closePanel() {
+    panel.hidden = true;
+    toggleButton.setAttribute("aria-expanded", "false");
+    toggleButton.focus();
+  }
+
+  toggleButton.addEventListener("click", () => panel.hidden ? openPanel() : closePanel());
+  closeButton.addEventListener("click", closePanel);
+  increaseButton.addEventListener("click", () => { fontSize += FONT_STEP; updateFontSize(); });
+  decreaseButton.addEventListener("click", () => { fontSize -= FONT_STEP; updateFontSize(); });
+
+  resetButton.addEventListener("click", () => {
+    fontSize = MIN_FONT;
+    updateFontSize();
+    setFocusMode(false);
   });
-})();
+
+  focusToggle.addEventListener("change", () => setFocusMode(focusToggle.checked));
+
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape" && !panel.hidden) closePanel();
+  });
+
+  updateFontSize();
+  setFocusMode(localStorage.getItem("ovFocusMode") === "true");
+});
