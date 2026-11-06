@@ -1,144 +1,89 @@
-/* WIDGET DE ACESSIBILIDADE — RPG ORDEM VOCACIONAL */
-.accessibility-widget {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 1000;
-  font-family: inherit;
+/* Widget Acessibilidade — RPG Ordem Vocacional */
+#ov-accessibility {
+  position: fixed !important;
+  right: 20px !important;
+  bottom: 20px !important;
+  left: auto !important;
+  top: auto !important;
+  z-index: 99999 !important;
+  font-family: Arial, sans-serif;
 }
+#ov-accessibility, #ov-accessibility * { box-sizing: border-box; }
 
-.accessibility-main-button {
-  width: 58px;
-  height: 58px;
-  border-radius: 50%;
-  border: 2px solid #e5c158;
-  background: #21152f;
-  color: #e5c158;
-  font-size: 30px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 5px 20px rgba(0,0,0,.4);
+#ov-accessibility-button {
+  width: 60px; height: 60px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  border: 2px solid #e5c158; background: #120a1f; color: #e5c158;
+  font-size: 30px; cursor: pointer;
+  box-shadow: 0 5px 25px rgba(0,0,0,.55);
   transition: transform .2s ease, background .2s ease;
 }
-.accessibility-main-button:hover { background: #352346; transform: scale(1.06); }
+#ov-accessibility-button:hover { background: #30203e; transform: scale(1.06); }
 
-.accessibility-main-button:focus-visible,
-.accessibility-panel button:focus-visible,
-.accessibility-switch input:focus-visible + .switch-slider {
-  outline: 3px solid #e5c158;
-  outline-offset: 3px;
+#ov-accessibility-panel {
+  position: absolute; right: 0; bottom: 74px;
+  width: 320px; max-width: calc(100vw - 40px);
+  padding: 20px; border: 1px solid #e5c158; border-radius: 15px;
+  background: #120a1f; color: #f5f0fa;
+  box-shadow: 0 10px 35px rgba(0,0,0,.6);
+  animation: ovPanelIn .18s ease;
 }
-
-.accessibility-panel {
-  position: absolute;
-  right: 0;
-  bottom: 72px;
-  width: 310px;
-  max-width: calc(100vw - 40px);
-  padding: 20px;
-  border: 1px solid rgba(229,193,88,.65);
-  border-radius: 15px;
-  background: #1b1228;
-  color: #f5f0fa;
-  box-shadow: 0 10px 35px rgba(0,0,0,.45);
-  animation: accessibilityOpen .2s ease;
-  box-sizing: border-box;
-}
-.accessibility-panel[hidden] { display: none; }
-.accessibility-panel * { box-sizing: border-box; }
-
-@keyframes accessibilityOpen {
-  from { opacity: 0; transform: translateY(8px); }
+#ov-accessibility-panel[hidden] { display: none !important; }
+@keyframes ovPanelIn {
+  from { opacity: 0; transform: translateY(7px); }
   to { opacity: 1; transform: translateY(0); }
 }
+.ov-accessibility-header { display:flex; justify-content:space-between; align-items:flex-start; gap:12px; margin-bottom:20px; }
+.ov-accessibility-header span { color:#e5c158; font-size:10px; letter-spacing:1.7px; font-weight:bold; }
+.ov-accessibility-header h2 { color:#fff; font: 23px Georgia,serif; margin:5px 0 0; }
+#ov-accessibility-close { border:0; background:transparent; color:#e5c158; font-size:28px; line-height:1; cursor:pointer; }
+.ov-accessibility-section h3 { color:#e5c158; font-size:15px; margin:0 0 7px; }
+.ov-accessibility-section p { color:#c9bfd4; font-size:12px; line-height:1.5; margin:0 0 14px; }
+.ov-font-controls { display:flex; align-items:center; justify-content:space-between; gap:14px; }
+.ov-font-controls button { width:50px; height:40px; border:1px solid #e5c158; border-radius:8px; background:#30203e; color:#e5c158; font-size:18px; font-weight:bold; cursor:pointer; }
+.ov-font-controls button:hover { background:#493456; }
+#ov-font-value { color:#fff; font-size:14px; }
+.ov-reset-button { width:100%; margin-top:12px; padding:10px; border:1px solid #8b7136; border-radius:8px; background:transparent; color:#e5c158; cursor:pointer; }
+.ov-reset-button:hover { background:rgba(229,193,88,.12); }
+.ov-accessibility-divider { height:1px; margin:19px 0; background:rgba(229,193,88,.25); }
+.ov-focus-row { display:flex; align-items:center; justify-content:space-between; gap:12px; }
+.ov-focus-row p { margin-bottom:0; }
+#ov-focus-status { display:block; margin-top:12px; color:#c9bfd4; font-size:11px; }
+.ov-switch { position:relative; display:inline-block; flex:0 0 46px; width:46px; height:25px; }
+.ov-switch input { position:absolute; opacity:0; width:1px; height:1px; }
+.ov-switch-slider { position:absolute; inset:0; border-radius:30px; background:#594b65; cursor:pointer; transition:.2s; }
+.ov-switch-slider:before { content:""; position:absolute; width:19px; height:19px; left:3px; bottom:3px; border-radius:50%; background:#fff; transition:.2s; }
+.ov-switch input:checked + .ov-switch-slider { background:#9b7b32; }
+.ov-switch input:checked + .ov-switch-slider:before { transform:translateX(21px); background:#fff3c4; }
+#ov-accessibility button:focus-visible, .ov-switch input:focus-visible + .ov-switch-slider { outline:3px solid #e5c158; outline-offset:3px; }
 
-.accessibility-header {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 12px;
-  margin-bottom: 20px;
+/* Modo Foco: apoio visual, sem ocultar conteúdo ou controles */
+html.ov-focus-mode body { line-height:1.8; }
+html.ov-focus-mode p, html.ov-focus-mode li {
+  line-height:1.8 !important; margin-bottom:1.25em; letter-spacing:.2px;
 }
-.accessibility-overline {
-  color: #e5c158;
-  font-size: 10px;
-  letter-spacing: 1.5px;
-  font-weight: bold;
+html.ov-focus-mode p:hover, html.ov-focus-mode li:hover,
+html.ov-focus-mode label:hover {
+  background:rgba(229,193,88,.10); border-radius:5px;
 }
-.accessibility-header h2 {
-  color: #f5f0fa;
-  font-family: Georgia, serif;
-  font-size: 23px;
-  margin: 5px 0 0;
-}
-.accessibility-close {
-  border: 0;
-  background: transparent;
-  color: #e5c158;
-  font-size: 27px;
-  cursor: pointer;
-  line-height: 1;
-}
-.accessibility-section h3 { margin: 0 0 6px; color: #e5c158; font-size: 15px; }
-.accessibility-description { margin: 0 0 14px; color: #c9bfd4; font-size: 12px; line-height: 1.5; }
+html.ov-focus-mode * { scroll-behavior:auto !important; }
+html.ov-focus-mode #ov-accessibility { opacity:1 !important; filter:none !important; }
 
-.font-controls { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
-.font-controls button {
-  width: 48px; height: 40px; border: 1px solid #e5c158; border-radius: 8px;
-  background: #30213e; color: #e5c158; font-size: 18px; font-weight: bold; cursor: pointer;
+@media (max-width:480px) {
+  #ov-accessibility { right:14px !important; bottom:14px !important; }
+  #ov-accessibility-button { width:54px; height:54px; }
+  #ov-accessibility-panel { width:290px; bottom:68px; max-width:calc(100vw - 28px); }
 }
-.font-controls button:hover { background: #493456; }
-#fontSizeValue { color: #fff; font-size: 14px; font-weight: bold; }
 
-.accessibility-reset {
-  width: 100%; margin-top: 12px; padding: 9px; border: 1px solid rgba(229,193,88,.4);
-  border-radius: 8px; background: transparent; color: #e5c158; cursor: pointer; font-size: 12px;
-}
-.accessibility-reset:hover { background: rgba(229,193,88,.1); }
-.accessibility-divider { height: 1px; margin: 18px 0; background: rgba(229,193,88,.25); }
-
-.focus-option { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
-.focus-option .accessibility-description { margin-bottom: 0; }
-.accessibility-switch { position: relative; display: inline-block; flex-shrink: 0; width: 46px; height: 25px; }
-.accessibility-switch input { opacity: 0; width: 0; height: 0; }
-.switch-slider {
-  position: absolute; inset: 0; border-radius: 30px; background: #594b65; cursor: pointer; transition: .2s;
-}
-.switch-slider::before {
-  content: ""; position: absolute; width: 19px; height: 19px; left: 3px; bottom: 3px;
-  border-radius: 50%; background: white; transition: .2s;
-}
-.accessibility-switch input:checked + .switch-slider { background: #9b7b32; }
-.accessibility-switch input:checked + .switch-slider::before { transform: translateX(21px); background: #fff3c4; }
-.focus-status { display: block; margin-top: 12px; color: #c9bfd4; font-size: 11px; }
-
-/* MODO FOCO: apoio visual, sem ocultar conteúdo ou controles */
-html.focus-mode body { line-height: 1.9; }
-html.focus-mode p { line-height: 1.9 !important; margin-bottom: 1.4em; }
-html.focus-mode li { line-height: 1.8 !important; margin-bottom: .5em; }
-html.focus-mode p,
-html.focus-mode li,
-html.focus-mode label,
-html.focus-mode .question-text {
-  border-radius: 5px;
-  transition: background-color .15s ease;
-}
-html.focus-mode p:hover,
-html.focus-mode li:hover,
-html.focus-mode label:hover,
-html.focus-mode .question-text:hover { background: rgba(229,193,88,.09); }
-html.focus-mode *,
-html.focus-mode *::before,
-html.focus-mode *::after {
-  animation-duration: .01ms !important;
-  animation-iteration-count: 1 !important;
-}
-html.focus-mode .accessibility-widget { opacity: 1 !important; filter: none !important; }
-
-@media (max-width: 480px) {
-  .accessibility-widget { right: 14px; bottom: 14px; }
-  .accessibility-panel { width: 290px; bottom: 68px; }
-  .accessibility-main-button { width: 54px; height: 54px; }
+/* Escala de fonte controlada pelo widget */
+html.ov-font-scaled body { }
+html.ov-font-scaled p,
+html.ov-font-scaled li,
+html.ov-font-scaled label,
+html.ov-font-scaled h1,
+html.ov-font-scaled h2,
+html.ov-font-scaled h3,
+html.ov-font-scaled h4,
+html.ov-font-scaled .question-text {
+  font-size: calc(1em * var(--ov-accessibility-scale, 1)) !important;
 }

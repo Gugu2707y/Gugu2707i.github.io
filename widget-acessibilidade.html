@@ -1,0 +1,43 @@
+<!-- COLE ESTE BLOCO ANTES DE </body> EM CADA PÁGINA -->
+<div id="ov-accessibility">
+  <button id="ov-accessibility-button" type="button"
+    aria-label="Abrir acessibilidade" aria-expanded="false"
+    aria-controls="ov-accessibility-panel" title="Acessibilidade">
+    <span aria-hidden="true">◉</span>
+  </button>
+
+  <section id="ov-accessibility-panel" aria-label="Opções de acessibilidade" hidden>
+    <header class="ov-accessibility-header">
+      <div><span>ORDEM VOCACIONAL</span><h2>Acessibilidade</h2></div>
+      <button id="ov-accessibility-close" type="button" aria-label="Fechar painel">×</button>
+    </header>
+
+    <div class="ov-accessibility-section">
+      <h3>Tamanho da fonte</h3>
+      <p>Ajuste o tamanho dos textos da página.</p>
+      <div class="ov-font-controls">
+        <button id="ov-font-minus" type="button" aria-label="Diminuir fonte">A−</button>
+        <strong id="ov-font-value" aria-live="polite">100%</strong>
+        <button id="ov-font-plus" type="button" aria-label="Aumentar fonte">A+</button>
+      </div>
+      <button id="ov-font-reset" class="ov-reset-button" type="button">Redefinir</button>
+    </div>
+
+    <div class="ov-accessibility-divider"></div>
+
+    <div class="ov-accessibility-section">
+      <div class="ov-focus-row">
+        <div><h3>Modo Foco / TDAH</h3><p>Mais conforto e menos distrações na leitura.</p></div>
+        <label class="ov-switch" aria-label="Ativar modo foco">
+          <input type="checkbox" id="ov-focus-toggle">
+          <span class="ov-switch-slider"></span>
+        </label>
+      </div>
+      <span id="ov-focus-status" aria-live="polite">Modo Foco desativado</span>
+    </div>
+  </section>
+</div>
+
+<!-- COLE TAMBÉM ANTES DE </body> -->
+<link rel="stylesheet" href="css/acessibilidade.css">
+<script src="js/acessibilidade.js" defer></script>
