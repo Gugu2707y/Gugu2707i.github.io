@@ -1,29 +1,20 @@
 RPG ORDEM VOCACIONAL — WIDGET DE ACESSIBILIDADE
 
 Arquivos:
-- widget-acessibilidade.html: bloco HTML para inserir em cada página.
-- css/acessibilidade.css: estilos do widget.
-- js/acessibilidade.js: funcionamento dos controles.
+- css/acessibilidade.css : estilo do widget, modo foco e máscara de leitura.
+- js/acessibilidade.js   : cria o botão/painel sozinho e guarda as escolhas (localStorage).
+- css/style.css          : todos os font-size agora usam var(--ov-fs, 1) para o aumento de letra.
+- acessibilidade.html    : página de teste do widget.
 
-INSTALAÇÃO:
-1. Extraia o ZIP na pasta do projeto.
-2. Copie css/acessibilidade.css para a pasta css do site.
-3. Copie js/acessibilidade.js para a pasta js do site.
-4. Em cada página HTML, dentro do <head>, adicione:
-   <link rel="stylesheet" href="css/acessibilidade.css">
-5. Abra widget-acessibilidade.html, copie o bloco <div id="ov-accessibility">...</div>
-   e cole antes de </body> em cada página onde deseja o widget.
-6. Antes de </body>, adicione:
-   <script src="js/acessibilidade.js" defer></script>
-7. Se suas pastas tiverem outros nomes, ajuste os dois caminhos dos arquivos.
+INSTALAÇÃO (já feita em index, sobre, teste, resultado, rpg e mapa):
+1. No <head>, depois de style.css:  <link rel="stylesheet" href="css/acessibilidade.css">
+2. Antes de </body>:                <script src="js/acessibilidade.js" defer></script>
+Nenhum HTML do widget precisa ser colado: o JavaScript o insere na página.
+Em uma página nova, basta repetir os passos 1 e 2.
 
-TESTE:
-- Abra a página e confira o botão dourado no canto inferior direito.
-- Clique para abrir o painel.
-- A+ aumenta até 150%; A- diminui até 100%; Redefinir restaura.
-- O modo foco aumenta o espaçamento de leitura e destaca suavemente textos sob o ponteiro.
-
-OBSERVAÇÃO:
-Este ZIP contém o componente completo e uma página-bloco de instalação, mas não substitui automaticamente
-as páginas originais do site. Para modificar todas as páginas do projeto de uma vez, é necessário
-o ZIP atual do projeto.
+USO:
+- Botão flutuante (olho) no canto inferior direito abre o painel.
+- A− / A+ ajustam de 80% até 250%; "Restaurar padrão" volta a 100%.
+- Modo Foco / TDAH: mais espaço entre linhas e parágrafos, faixa de leitura que segue o mouse
+  (ou o toque / foco do teclado), realce suave do bloco sob o ponteiro, sem animações, brilhos e sombras.
+- Esc fecha o painel. As escolhas são lembradas ao trocar de página.

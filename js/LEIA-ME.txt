@@ -1,0 +1,20 @@
+RPG ORDEM VOCACIONAL — WIDGET DE ACESSIBILIDADE
+
+Arquivos:
+- css/acessibilidade.css : estilo do widget, modo foco e máscara de leitura.
+- js/acessibilidade.js   : cria o botão/painel sozinho e guarda as escolhas (localStorage).
+- css/style.css          : todos os font-size agora usam var(--ov-fs, 1) para o aumento de letra.
+- acessibilidade.html    : página de teste do widget.
+
+INSTALAÇÃO (já feita em index, sobre, teste, resultado, rpg e mapa):
+1. No <head>, depois de style.css:  <link rel="stylesheet" href="css/acessibilidade.css">
+2. Antes de </body>:                <script src="js/acessibilidade.js" defer></script>
+Nenhum HTML do widget precisa ser colado: o JavaScript o insere na página.
+Em uma página nova, basta repetir os passos 1 e 2.
+
+USO:
+- Botão flutuante (olho) no canto inferior direito abre o painel.
+- A− / A+ ajustam de 80% até 250%; "Restaurar padrão" volta a 100%.
+- Modo Foco / TDAH: mais espaço entre linhas e parágrafos, faixa de leitura que segue o mouse
+  (ou o toque / foco do teclado), realce suave do bloco sob o ponteiro, sem animações, brilhos e sombras.
+- Esc fecha o painel. As escolhas são lembradas ao trocar de página.

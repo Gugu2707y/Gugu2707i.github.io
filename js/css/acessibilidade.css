@@ -1,0 +1,191 @@
+/* =========================================================
+   WIDGET DE ACESSIBILIDADE — ORDEM VOCACIONAL
+   Botão flutuante (canto inferior direito) + painel,
+   tamanho de letra e Modo Foco / TDAH.
+   ========================================================= */
+
+/* ---------- Widget (tamanhos fixos: não escala com o texto do site) ---------- */
+#ov-a11y {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  font-family: 'Montserrat', Arial, sans-serif;
+  line-height: 1.4;
+  letter-spacing: normal;
+  word-spacing: normal;
+}
+#ov-a11y, #ov-a11y * { box-sizing: border-box; }
+
+#ov-a11y-button {
+  width: 58px; height: 58px; padding: 0;
+  display: grid; place-items: center;
+  border: 2px solid #e5c158; border-radius: 50%;
+  background: linear-gradient(145deg, #2a1b3c, #120a1f);
+  color: #e5c158; cursor: pointer;
+  box-shadow: 0 6px 24px rgba(0,0,0,.5), 0 0 18px rgba(125,60,255,.25);
+  transition: transform .2s ease, background .2s ease, color .2s ease;
+}
+#ov-a11y-button svg { width: 30px; height: 30px; display: block; }
+#ov-a11y-button:hover,
+#ov-a11y-button[aria-expanded="true"] { background: #e5c158; color: #120a1f; transform: scale(1.06); }
+
+#ov-a11y-panel {
+  position: absolute; right: 0; bottom: 70px;
+  width: 330px; max-width: calc(100vw - 40px);
+  max-height: calc(100vh - 110px); overflow-y: auto;
+  padding: 20px;
+  color: #f5f0fa; background: #120a1f;
+  border: 1px solid #e5c158; border-radius: 16px;
+  box-shadow: 0 14px 45px rgba(0,0,0,.65), 0 0 24px rgba(125,60,255,.2);
+  animation: ovA11yIn .18s ease;
+}
+#ov-a11y-panel[hidden] { display: none !important; }
+@keyframes ovA11yIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+.ov-a11y-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 18px; }
+.ov-a11y-head span { display: block; color: #e5c158; font-size: 10px; font-weight: 700; letter-spacing: 1.6px; }
+.ov-a11y-head h2 { margin: 4px 0 0; color: #fff; font: 600 20px 'Cinzel', Georgia, serif; }
+#ov-a11y-close {
+  width: 34px; height: 34px; padding: 0; border: 0; border-radius: 8px;
+  background: transparent; color: #e5c158; font-size: 26px; line-height: 1; cursor: pointer;
+}
+#ov-a11y-close:hover { background: rgba(229,193,88,.14); }
+
+.ov-a11y-sec h3 { margin: 0 0 6px; color: #e5c158; font-size: 14px; font-weight: 700; }
+.ov-a11y-sec p { margin: 0 0 14px; color: #c9bfd4; font-size: 12px; line-height: 1.5; }
+
+.ov-a11y-font { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.ov-a11y-font button {
+  width: 56px; height: 44px; padding: 0;
+  border: 1px solid #e5c158; border-radius: 9px;
+  background: #30203e; color: #e5c158;
+  font: 700 18px 'Montserrat', Arial, sans-serif; cursor: pointer;
+  transition: background .2s ease, color .2s ease;
+}
+.ov-a11y-font button:hover:not(:disabled) { background: #e5c158; color: #120a1f; }
+.ov-a11y-font button:disabled { opacity: .35; cursor: not-allowed; }
+#ov-a11y-fontvalue { color: #fff; font-size: 18px; font-weight: 700; min-width: 64px; text-align: center; }
+
+.ov-a11y-bar { height: 6px; margin: 14px 0 0; border-radius: 6px; background: #30203e; overflow: hidden; }
+.ov-a11y-bar > i { display: block; height: 100%; width: 0; background: linear-gradient(90deg, #7d3cff, #e5c158); transition: width .2s ease; }
+
+#ov-a11y-reset {
+  width: 100%; margin-top: 14px; padding: 11px;
+  border: 1px solid #8b7136; border-radius: 9px;
+  background: transparent; color: #e5c158;
+  font: 600 13px 'Montserrat', Arial, sans-serif; cursor: pointer;
+}
+#ov-a11y-reset:hover { background: rgba(229,193,88,.13); }
+
+.ov-a11y-div { height: 1px; margin: 18px 0; background: rgba(229,193,88,.28); }
+
+.ov-a11y-focusrow { display: flex; align-items: center; justify-content: space-between; gap: 14px; }
+.ov-a11y-focusrow p { margin: 0; }
+#ov-a11y-focusstatus { display: block; margin-top: 12px; color: #c9bfd4; font-size: 11px; }
+
+.ov-a11y-switch { position: relative; flex: 0 0 50px; width: 50px; height: 28px; }
+.ov-a11y-switch input { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: pointer; z-index: 1; }
+.ov-a11y-slider { position: absolute; inset: 0; border-radius: 30px; background: #594b65; transition: background .2s ease; }
+.ov-a11y-slider::before {
+  content: ""; position: absolute; left: 3px; top: 3px; width: 22px; height: 22px;
+  border-radius: 50%; background: #fff; transition: transform .2s ease, background .2s ease;
+}
+.ov-a11y-switch input:checked + .ov-a11y-slider { background: #9b7b32; }
+.ov-a11y-switch input:checked + .ov-a11y-slider::before { transform: translateX(22px); background: #fff3c4; }
+
+#ov-a11y button:focus-visible,
+.ov-a11y-switch input:focus-visible + .ov-a11y-slider { outline: 3px solid #e5c158; outline-offset: 3px; }
+
+@media (max-width: 480px) {
+  #ov-a11y { right: 14px; bottom: 14px; }
+  #ov-a11y-button { width: 54px; height: 54px; }
+  #ov-a11y-panel { bottom: 66px; max-width: calc(100vw - 28px); padding: 16px; }
+}
+
+/* =========================================================
+   TAMANHO DA LETRA
+   O css/style.css usa var(--ov-fs, 1) em todos os font-size.
+   Aqui só garantimos que o layout aguente textos grandes.
+   ========================================================= */
+html.ov-font-scaled body { overflow-wrap: break-word; }
+html.ov-font-scaled .header { height: auto; min-height: 70px; padding-top: 8px; padding-bottom: 8px; flex-wrap: wrap; gap: 8px; }
+html.ov-font-scaled .nav { flex-wrap: wrap; gap: 8px 20px; }
+html.ov-font-scaled .btn, html.ov-font-scaled button { height: auto; min-height: 40px; }
+html.ov-font-scaled input, html.ov-font-scaled select, html.ov-font-scaled textarea { max-width: 100%; }
+html.ov-font-scaled #ov-a11y, html.ov-font-scaled #ov-a11y * { overflow-wrap: normal; }
+
+/* =========================================================
+   MODO FOCO / TDAH
+   - mais espaço entre linhas e parágrafos
+   - máscara de leitura (escurece o que está fora da faixa lida)
+   - destaque sutil no bloco sob o ponteiro / foco do teclado
+   - menos elementos chamativos (animações, brilhos, sombras)
+   Nada é escondido: textos, botões e opções continuam acessíveis.
+   ========================================================= */
+html.ov-focus-mode body { line-height: 1.95 !important; letter-spacing: .2px; word-spacing: .06em; }
+
+html.ov-focus-mode main p,
+html.ov-focus-mode main li,
+html.ov-focus-mode main label,
+html.ov-focus-mode main dd,
+html.ov-focus-mode main td,
+html.ov-focus-mode main th,
+html.ov-focus-mode main summary,
+html.ov-focus-mode .footer p {
+  line-height: 1.95 !important;
+}
+html.ov-focus-mode main p,
+html.ov-focus-mode main li { margin-bottom: 1.1em; max-width: 72ch; }
+html.ov-focus-mode main h1,
+html.ov-focus-mode main h2,
+html.ov-focus-mode main h3,
+html.ov-focus-mode main h4 { line-height: 1.4 !important; margin-bottom: .7em; }
+
+/* Realce suave do bloco sob o ponteiro ou com foco */
+html.ov-focus-mode main p:hover,
+html.ov-focus-mode main li:hover,
+html.ov-focus-mode main label:hover,
+html.ov-focus-mode main dd:hover,
+html.ov-focus-mode main h1:hover,
+html.ov-focus-mode main h2:hover,
+html.ov-focus-mode main h3:hover,
+html.ov-focus-mode main h4:hover {
+  background: rgba(229,193,88,.11);
+  box-shadow: -4px 0 0 rgba(229,193,88,.55);
+  border-radius: 4px;
+}
+html.ov-focus-mode main a:focus-visible,
+html.ov-focus-mode main button:focus-visible,
+html.ov-focus-mode main input:focus-visible,
+html.ov-focus-mode main textarea:focus-visible,
+html.ov-focus-mode main select:focus-visible { outline: 3px solid #e5c158 !important; outline-offset: 3px; }
+
+/* Menos distração visual (decorativo, não conteúdo) */
+html.ov-focus-mode *:not(#ov-a11y):not(#ov-a11y *),
+html.ov-focus-mode *::before,
+html.ov-focus-mode *::after {
+  animation: none !important;
+  transition: none !important;
+  scroll-behavior: auto !important;
+  text-shadow: none !important;
+}
+html.ov-focus-mode main *:not(#ov-a11y *) { box-shadow: none; }
+html.ov-focus-mode body { background: #0f0a1d !important; }
+html.ov-focus-mode .hero-glow,
+html.ov-focus-mode .scroll { display: none !important; }
+html.ov-focus-mode .header { backdrop-filter: none; }
+html.ov-focus-mode main img { filter: saturate(.7); }
+html.ov-focus-mode main .card,
+html.ov-focus-mode main article,
+html.ov-focus-mode main section { background-image: none; }
+
+/* Máscara de leitura (criada pelo JS) */
+.ov-mask { position: fixed; left: 0; right: 0; z-index: 900; background: rgba(6,3,13,.55); pointer-events: none; display: none; }
+html.ov-focus-mode .ov-mask { display: block; }
+#ov-mask-top { top: 0; height: 0; }
+#ov-mask-bottom { bottom: 0; height: 0; }
+html.ov-focus-mode #ov-mask-top    { border-bottom: 1px solid rgba(229,193,88,.35); }
+html.ov-focus-mode #ov-mask-bottom { border-top: 1px solid rgba(229,193,88,.35); }
+
+@media print { #ov-a11y, .ov-mask { display: none !important; } }

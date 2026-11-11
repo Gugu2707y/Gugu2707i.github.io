@@ -3,66 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Widget de Acessibilidade - Ordem Vocacional</title>
+  <title>Teste do Widget de Acessibilidade | Ordem Vocacional</title>
+  <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/acessibilidade.css">
 </head>
 <body>
-  <!-- Exemplo de conteúdo para testar o widget. No seu site, mantenha o conteúdo original. -->
-  <main class="demo-content">
-    <p class="demo-label">ORDEM VOCACIONAL • RPG</p>
-    <h1>Transforme sua escolha em uma aventura</h1>
-    <p>Este arquivo demonstra o widget de acessibilidade. Use o botão dourado no canto inferior direito para abrir as opções.</p>
+  <main class="section">
+    <div class="section-heading">
+      <p class="eyebrow">ORDEM VOCACIONAL • RPG</p>
+      <h1>Transforme sua escolha em uma aventura</h1>
+      <p>Esta página serve apenas para testar o widget. Use o botão dourado no canto inferior direito para abrir as opções de acessibilidade.</p>
+      <p>Experimente aumentar a letra e ativar o Modo Foco / TDAH: o espaçamento entre as linhas cresce, uma faixa de leitura acompanha o mouse e os elementos chamativos ficam mais discretos.</p>
+    </div>
   </main>
-
-  <!-- WIDGET DE ACESSIBILIDADE -->
-  <div class="accessibility-widget" id="accessibilityWidget">
-    <button class="accessibility-main-button" id="accessibilityToggle"
-      type="button" aria-label="Abrir opções de acessibilidade"
-      aria-expanded="false" aria-controls="accessibilityPanel" title="Acessibilidade">
-      <span aria-hidden="true">◉</span>
-    </button>
-
-    <section class="accessibility-panel" id="accessibilityPanel"
-      aria-label="Opções de acessibilidade" hidden>
-      <div class="accessibility-header">
-        <div>
-          <span class="accessibility-overline">ORDEM VOCACIONAL</span>
-          <h2>Acessibilidade</h2>
-        </div>
-        <button class="accessibility-close" id="accessibilityClose"
-          type="button" aria-label="Fechar painel">×</button>
-      </div>
-
-      <div class="accessibility-section">
-        <h3>Tamanho do texto</h3>
-        <p class="accessibility-description">Ajuste a leitura conforme sua necessidade.</p>
-        <div class="font-controls">
-          <button id="decreaseFont" type="button" aria-label="Diminuir tamanho do texto">A−</button>
-          <span id="fontSizeValue" aria-live="polite">100%</span>
-          <button id="increaseFont" type="button" aria-label="Aumentar tamanho do texto">A+</button>
-        </div>
-        <button class="accessibility-reset" id="resetAccessibility" type="button">Restaurar padrão</button>
-      </div>
-
-      <div class="accessibility-divider"></div>
-
-      <div class="accessibility-section">
-        <div class="focus-option">
-          <div>
-            <h3>Modo Foco / TDAH</h3>
-            <p class="accessibility-description">Reduz distrações e facilita a leitura.</p>
-          </div>
-          <label class="accessibility-switch">
-            <input type="checkbox" id="focusModeToggle">
-            <span class="switch-slider"></span>
-          </label>
-        </div>
-        <span class="focus-status" id="focusStatus" aria-live="polite">Modo Foco desativado</span>
-      </div>
-    </section>
-  </div>
-
-  <script src="js/acessibilidade.js"></script>
+  <script src="js/acessibilidade.js" defer></script>
 </body>
-<script src="js/acessibilidade.js" defer></script>
 </html>
