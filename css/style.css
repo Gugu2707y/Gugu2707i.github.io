@@ -1862,3 +1862,16 @@ body.modal-open { overflow:hidden; }
 .profession-detail-photo.has-image figcaption small { color:var(--muted); font-size:calc(12px * var(--ov-fs, 1)); line-height:1.6; }
 @media (max-width:620px) { .asset-grid-personagens { grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; } .asset-card-body { padding:11px; } }
 @media (max-width:390px) { .asset-grid-personagens { grid-template-columns:minmax(0,1fr); } }
+
+/* ===== NPCs e mapas: espaços sem imagem ===== */
+.asset-grid-npcs { grid-template-columns: repeat(auto-fill, minmax(215px, 1fr)); gap: 18px; }
+.asset-grid-mapas { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 18px; }
+.asset-grid-mapas .asset-card-image { aspect-ratio: 4/3; }
+.asset-grid-mapas .asset-card-image img { object-fit: contain; background: #0c0715; }
+.asset-card-image { font: inherit; color: inherit; }
+.asset-card.is-empty .asset-card-image { display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px; cursor:default; border:0; border-bottom:1px dashed rgba(229,193,88,.3); color:var(--gold,#e5c158); }
+.asset-card-plus { display:grid; place-items:center; width:46px; height:46px; border:1px solid rgba(229,193,88,.45); border-radius:50%; font-size:calc(28px * var(--ov-fs, 1)); font-weight:300; }
+.asset-card-soon { font-size:calc(10px * var(--ov-fs, 1)); font-weight:700; letter-spacing:1px; }
+.asset-card-download.is-disabled { opacity:.45; cursor:not-allowed; pointer-events:none; }
+@media (max-width:620px) { .asset-grid-npcs { grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; } .asset-grid-mapas { grid-template-columns:minmax(0,1fr); } }
+@media (max-width:390px) { .asset-grid-npcs { grid-template-columns:minmax(0,1fr); } }

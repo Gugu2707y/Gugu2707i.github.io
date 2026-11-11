@@ -1,0 +1,1 @@
+Coloque aqui as imagens dos NPCs e registre cada uma em js/assets-data.js (campo "file" da lista npcs).

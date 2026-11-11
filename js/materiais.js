@@ -1,80 +1,108 @@
-/* Materiais do RPG: monta os cartões dos 30 personagens (com descrição,
-   ampliação e download) a partir de js/assets-data.js. */
+/* Materiais do RPG: monta os cartões de Personagens, NPCs e Mapas de cenários
+   (descrição, ampliação e download) a partir de js/assets-data.js. */
 (() => {
   "use strict";
   const data = window.OV_ASSETS;
-  const grid = document.getElementById("personagensGrid");
-  if (!data || !grid) return;
+  if (!data) return;
 
   const pad = n => String(n).padStart(2, "0");
   const slug = s => s.replace(/[()]/g, "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-zA-Z0-9]+/g, "-").replace(/^-|-$/g, "");
-  const originalOf = item => encodeURI(data.pasta + item.file);
-  const downloadName = item => `Personagem-${pad(item.n)}-${slug(item.name)}.png`;
+  const extOf = f => (f.match(/\.[a-zA-Z0-9]+$/) || [".png"])[0];
 
-  /* ---------- cartões ---------- */
-  grid.replaceChildren();
-  data.personagens.forEach(item => {
-    const card = document.createElement("article");
-    card.className = "asset-card";
+  const GROUPS = [
+    { grid: "personagensGrid", list: data.personagens, pasta: data.pasta,       rotulo: "Personagem", label: "PERSONAGEM" },
+    { grid: "npcsGrid",        list: data.npcs,        pasta: data.pastaNpcs,   rotulo: "NPC",        label: "NPC" },
+    { grid: "mapasGrid",       list: data.mapas,       pasta: data.pastaMapas,  rotulo: "Mapa",       label: "MAPA DE CENÁRIO" }
+  ];
 
-    const open = document.createElement("button");
-    open.type = "button";
-    open.className = "asset-card-image";
-    open.setAttribute("aria-label", `Ampliar ${item.name}`);
-    const img = document.createElement("img");
-    img.src = encodeURI(data.pasta + item.thumb);
-    img.alt = `${item.name}: ${item.desc}`;
-    img.loading = "lazy";
-    img.decoding = "async";
-    const num = document.createElement("span");
-    num.className = "asset-card-number";
-    num.textContent = pad(item.n);
-    open.append(img, num);
-    open.addEventListener("click", () => openLightbox(item, open));
+  const modal = document.getElementById("assetLightbox");
+  const stage = document.getElementById("lightboxStage");
+  const mTitle = document.getElementById("lightboxTitle");
+  const mArea = document.getElementById("lightboxArea");
+  const mDesc = document.getElementById("lightboxDesc");
+  const mDownload = document.getElementById("lightboxDownload");
+  let lastFocus = null;
 
-    const body = document.createElement("div");
-    body.className = "asset-card-body";
-    const area = document.createElement("span");
-    area.className = "asset-card-area";
-    area.textContent = item.area;
-    const title = document.createElement("h4");
-    title.textContent = item.name;
+  const urlOriginal = (g, item) => encodeURI(g.pasta + item.file);
+  const urlThumb = (g, item) => encodeURI(g.pasta + (item.thumb || item.file));
+  const nomeArquivo = (g, item) => `${g.rotulo}-${pad(item.n)}-${slug(item.name)}${extOf(item.file)}`;
+
+  function card(g, item) {
+    const el = document.createElement("article");
+    el.className = "asset-card";
+    const has = !!item.file;
+
+    let visual;
+    if (has) {
+      visual = document.createElement("button");
+      visual.type = "button";
+      visual.setAttribute("aria-label", `Ampliar ${item.name}`);
+      visual.addEventListener("click", () => openLightbox(g, item, visual));
+      const img = document.createElement("img");
+      img.src = urlThumb(g, item);
+      img.alt = item.desc ? `${item.name}: ${item.desc}` : item.name;
+      img.loading = "lazy"; img.decoding = "async";
+      img.onerror = () => { if (img.src !== new URL(urlOriginal(g, item), location.href).href) img.src = urlOriginal(g, item); };
+      visual.append(img);
+    } else {
+      visual = document.createElement("div");
+      visual.setAttribute("role", "img");
+      visual.setAttribute("aria-label", `${item.name}: imagem em breve`);
+      el.classList.add("is-empty");
+      const plus = document.createElement("span"); plus.className = "asset-card-plus"; plus.setAttribute("aria-hidden", "true"); plus.textContent = "+";
+      const soon = document.createElement("span"); soon.className = "asset-card-soon"; soon.textContent = "IMAGEM EM BREVE";
+      visual.append(plus, soon);
+    }
+    visual.classList.add("asset-card-image");
+    const num = document.createElement("span"); num.className = "asset-card-number"; num.textContent = pad(item.n);
+    visual.append(num);
+
+    const body = document.createElement("div"); body.className = "asset-card-body";
+    const area = document.createElement("span"); area.className = "asset-card-area"; area.textContent = item.area || g.label;
+    const title = document.createElement("h4"); title.textContent = item.name;
     const desc = document.createElement("p");
-    desc.textContent = item.desc;
-    const dl = document.createElement("a");
-    dl.className = "asset-card-download";
-    dl.href = originalOf(item);
-    dl.download = downloadName(item);
-    dl.textContent = "↓ Baixar imagem";
-    dl.setAttribute("aria-label", `Baixar imagem: ${item.name}`);
-    body.append(area, title, desc, dl);
+    desc.textContent = item.desc || (has ? "" : "A imagem e a descrição deste espaço serão adicionadas em breve.");
+    body.append(area, title, desc);
 
-    card.append(open, body);
-    grid.append(card);
+    if (has) {
+      const dl = document.createElement("a");
+      dl.className = "asset-card-download";
+      dl.href = urlOriginal(g, item);
+      dl.download = nomeArquivo(g, item);
+      dl.textContent = "↓ Baixar imagem";
+      dl.setAttribute("aria-label", `Baixar imagem: ${item.name}`);
+      body.append(dl);
+    } else {
+      const off = document.createElement("span");
+      off.className = "asset-card-download is-disabled"; off.setAttribute("aria-disabled", "true");
+      off.textContent = "↓ Download indisponível";
+      body.append(off);
+    }
+    el.append(visual, body);
+    return el;
+  }
+
+  GROUPS.forEach(g => {
+    const grid = document.getElementById(g.grid);
+    if (!grid || !Array.isArray(g.list)) return;
+    grid.replaceChildren(...g.list.map(item => card(g, item)));
   });
 
   /* ---------- ampliação ---------- */
-  const modal = document.getElementById("assetLightbox");
   if (!modal) return;
-  const stage = document.getElementById("lightboxStage");
-  const title = document.getElementById("lightboxTitle");
-  const area = document.getElementById("lightboxArea");
-  const desc = document.getElementById("lightboxDesc");
-  const download = document.getElementById("lightboxDownload");
-  let lastFocus = null;
-
-  function openLightbox(item, trigger) {
+  function openLightbox(g, item, trigger) {
     lastFocus = trigger || document.activeElement;
-    title.textContent = item.name;
-    area.textContent = `PERSONAGEM ${pad(item.n)} · ${item.area.toUpperCase()}`;
-    desc.textContent = item.desc;
+    mTitle.textContent = item.name;
+    mArea.textContent = `${g.label} ${pad(item.n)}${item.area && item.area !== g.label ? " · " + item.area.toUpperCase() : ""}`;
+    mDesc.textContent = item.desc || "";
+    mDesc.hidden = !item.desc;
     const big = document.createElement("img");
-    big.src = originalOf(item);          // original em alta resolução
+    big.src = urlOriginal(g, item);
     big.alt = item.name;
-    big.onerror = () => { big.onerror = null; big.src = encodeURI(data.pasta + item.thumb); };
+    big.onerror = () => { big.onerror = null; big.src = urlThumb(g, item); };
     stage.replaceChildren(big);
-    download.href = originalOf(item);
-    download.download = downloadName(item);
+    mDownload.href = urlOriginal(g, item);
+    mDownload.download = nomeArquivo(g, item);
     modal.classList.add("is-open");
     modal.setAttribute("aria-hidden", "false");
     document.body.classList.add("modal-open");

@@ -250,6 +250,203 @@ window.OV_ASSETS = {
     "desc": "Pessoa de cabelo castanho encaracolado, óculos redondos, jaqueta marrom e bloco de anotações na mão. Representa a produção e a edição de vídeos."
   }
 ],
+
+  // ---------- NPCs (10) e MAPAS DE CENÁRIOS (13) ----------
+  // Para colocar uma imagem: copie o arquivo para a pasta indicada e preencha
+  // "file" (e, se quiser, "name" e "desc"). Exemplo:
+  //   { n: 1, file: "guarda-da-cidade.png", name: "Guarda da Cidade", area: "NPC", desc: "..." }
+  // "thumb" é opcional: miniatura leve em <pasta>/thumbs/ (veja tools/gerar_miniaturas.py).
+  // Sem "file", o espaço aparece como "Imagem em breve".
+  pastaNpcs: "assets/npcs/",
+  npcs: [
+    {
+      "n": 1,
+      "file": null,
+      "thumb": null,
+      "name": "NPC 01",
+      "area": "NPC",
+      "desc": ""
+    },
+    {
+      "n": 2,
+      "file": null,
+      "thumb": null,
+      "name": "NPC 02",
+      "area": "NPC",
+      "desc": ""
+    },
+    {
+      "n": 3,
+      "file": null,
+      "thumb": null,
+      "name": "NPC 03",
+      "area": "NPC",
+      "desc": ""
+    },
+    {
+      "n": 4,
+      "file": null,
+      "thumb": null,
+      "name": "NPC 04",
+      "area": "NPC",
+      "desc": ""
+    },
+    {
+      "n": 5,
+      "file": null,
+      "thumb": null,
+      "name": "NPC 05",
+      "area": "NPC",
+      "desc": ""
+    },
+    {
+      "n": 6,
+      "file": null,
+      "thumb": null,
+      "name": "NPC 06",
+      "area": "NPC",
+      "desc": ""
+    },
+    {
+      "n": 7,
+      "file": null,
+      "thumb": null,
+      "name": "NPC 07",
+      "area": "NPC",
+      "desc": ""
+    },
+    {
+      "n": 8,
+      "file": null,
+      "thumb": null,
+      "name": "NPC 08",
+      "area": "NPC",
+      "desc": ""
+    },
+    {
+      "n": 9,
+      "file": null,
+      "thumb": null,
+      "name": "NPC 09",
+      "area": "NPC",
+      "desc": ""
+    },
+    {
+      "n": 10,
+      "file": null,
+      "thumb": null,
+      "name": "NPC 10",
+      "area": "NPC",
+      "desc": ""
+    }
+  ],
+  pastaMapas: "assets/mapas/",
+  mapas: [
+    {
+      "n": 1,
+      "file": null,
+      "thumb": null,
+      "name": "Mapa 01",
+      "area": "Cenário",
+      "desc": ""
+    },
+    {
+      "n": 2,
+      "file": null,
+      "thumb": null,
+      "name": "Mapa 02",
+      "area": "Cenário",
+      "desc": ""
+    },
+    {
+      "n": 3,
+      "file": null,
+      "thumb": null,
+      "name": "Mapa 03",
+      "area": "Cenário",
+      "desc": ""
+    },
+    {
+      "n": 4,
+      "file": null,
+      "thumb": null,
+      "name": "Mapa 04",
+      "area": "Cenário",
+      "desc": ""
+    },
+    {
+      "n": 5,
+      "file": null,
+      "thumb": null,
+      "name": "Mapa 05",
+      "area": "Cenário",
+      "desc": ""
+    },
+    {
+      "n": 6,
+      "file": null,
+      "thumb": null,
+      "name": "Mapa 06",
+      "area": "Cenário",
+      "desc": ""
+    },
+    {
+      "n": 7,
+      "file": null,
+      "thumb": null,
+      "name": "Mapa 07",
+      "area": "Cenário",
+      "desc": ""
+    },
+    {
+      "n": 8,
+      "file": null,
+      "thumb": null,
+      "name": "Mapa 08",
+      "area": "Cenário",
+      "desc": ""
+    },
+    {
+      "n": 9,
+      "file": null,
+      "thumb": null,
+      "name": "Mapa 09",
+      "area": "Cenário",
+      "desc": ""
+    },
+    {
+      "n": 10,
+      "file": null,
+      "thumb": null,
+      "name": "Mapa 10",
+      "area": "Cenário",
+      "desc": ""
+    },
+    {
+      "n": 11,
+      "file": null,
+      "thumb": null,
+      "name": "Mapa 11",
+      "area": "Cenário",
+      "desc": ""
+    },
+    {
+      "n": 12,
+      "file": null,
+      "thumb": null,
+      "name": "Mapa 12",
+      "area": "Cenário",
+      "desc": ""
+    },
+    {
+      "n": 13,
+      "file": null,
+      "thumb": null,
+      "name": "Mapa 13",
+      "area": "Cenário",
+      "desc": ""
+    }
+  ],
   // Profissão do resultado -> número do personagem (n) acima.
   // Profissões que não estão aqui continuam com a moldura de reserva.
   profissoes: {

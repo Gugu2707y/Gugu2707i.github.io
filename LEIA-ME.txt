@@ -31,3 +31,11 @@ IMAGENS (personagens, retratos e profissões)
 - Retratos da criação de personagem (rpg.html) usam as mesmas 30 imagens.
 - resultado.html mostra a imagem da profissão (com descrição e download) quando existe vínculo em assets-data.js.
 - NPCs (10) e Mapas de cenários (13) continuam com molduras vazias: ainda não há imagens deles no projeto.
+
+NPCs E MAPAS DE CENÁRIOS (10 e 13 espaços, já funcionando)
+1. Copie a imagem para assets/npcs/ (NPCs) ou assets/mapas/ (mapas).
+2. Em js/assets-data.js, na lista "npcs" ou "mapas", preencha na linha do número desejado:
+   "file": "nome-do-arquivo.png", e se quiser "name" e "desc" (nome e descrição).
+3. Pronto: aparece em rpg.html (aba Materiais) e, no caso dos mapas, também em mapa.html,
+   com ampliação e botão de download. Espaços sem "file" aparecem como "Imagem em breve".
+4. Opcional (arquivos grandes): python tools/gerar_miniaturas.py assets/npcs  e preencha "thumb": "thumbs/nome.webp".

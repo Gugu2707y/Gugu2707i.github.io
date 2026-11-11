@@ -5,6 +5,25 @@
   const stage = document.getElementById("mapPreviewStage");
   const download = document.getElementById("downloadMapButton");
   const cards = [...document.querySelectorAll("[data-map-number]")];
+  // Preenche os cartões com as imagens registradas em js/assets-data.js (lista "mapas").
+  (window.OV_ASSETS && window.OV_ASSETS.mapas || []).forEach(item => {
+    const card = cards.find(c => Number(c.dataset.mapNumber) === item.n);
+    if (!card) return;
+    const nome = card.querySelector(".map-asset-footer strong");
+    if (nome && item.name) nome.textContent = item.name;
+    if (!item.file) return;
+    const holder = card.querySelector(".map-asset-placeholder");
+    if (!holder) return;
+    const pasta = window.OV_ASSETS.pastaMapas;
+    const img = document.createElement("img");
+    img.src = encodeURI(pasta + item.file);          // original: serve para ampliar e baixar
+    img.alt = item.desc ? `${item.name}: ${item.desc}` : item.name;
+    img.loading = "lazy";
+    const ext = (item.file.match(/\.[a-zA-Z0-9]+$/) || [".png"])[0];
+    img.dataset.filename = `Mapa-${String(item.n).padStart(2, "0")}-${item.name.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-zA-Z0-9]+/g, "-").replace(/^-|-$/g, "")}${ext}`;
+    holder.replaceChildren(img);
+    holder.removeAttribute("aria-label");
+  });
   let lastFocus = null;
 
   function imageForCard(card) {
