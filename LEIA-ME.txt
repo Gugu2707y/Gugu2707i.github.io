@@ -18,3 +18,16 @@ USO:
 - Modo Foco / TDAH: mais espaço entre linhas e parágrafos, faixa de leitura que segue o mouse
   (ou o toque / foco do teclado), realce suave do bloco sob o ponteiro, sem animações, brilhos e sombras.
 - Esc fecha o painel. As escolhas são lembradas ao trocar de página.
+
+
+=========================================================
+IMAGENS (personagens, retratos e profissões)
+=========================================================
+- js/assets-data.js : lista única das 30 imagens (arquivo original, miniatura, nome, área e descrição)
+  e o vínculo "profissão do resultado -> imagem". Para trocar nome/descrição/imagem, edite só este arquivo.
+- js/materiais.js   : monta os cartões da aba MATERIAIS (rpg.html) com ampliação e botão "Baixar imagem".
+- assets/personagens/thumbs/ : miniaturas leves (.webp) usadas na tela. Os PNG originais continuam em
+  assets/personagens/ e são os arquivos baixados.
+- Retratos da criação de personagem (rpg.html) usam as mesmas 30 imagens.
+- resultado.html mostra a imagem da profissão (com descrição e download) quando existe vínculo em assets-data.js.
+- NPCs (10) e Mapas de cenários (13) continuam com molduras vazias: ainda não há imagens deles no projeto.

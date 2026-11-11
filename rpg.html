@@ -241,7 +241,7 @@
             <p>Materiais preparados para apoiar a aplicação do RPG. Os botões abaixo funcionam como pontos de download e podem receber seus arquivos reais depois.</p>
           </div>
 
-          <div class="asset-library-intro"><p>53 espaços organizados por categoria. As molduras estão vazias e prontas para receber suas imagens depois.</p></div>
+          <div class="asset-library-intro"><p>Os 30 personagens já estão disponíveis para visualizar e baixar. As molduras de NPCs e mapas de cenários aguardam as imagens.</p></div>
           <nav class="asset-category-nav" aria-label="Categorias de materiais">
             <a href="#assets-personagens">PERSONAGENS <span>30</span></a>
             <a href="#assets-npcs">NPCs <span>10</span></a>
@@ -249,40 +249,10 @@
           </nav>
           <section class="asset-category" id="assets-personagens" aria-labelledby="heading-personagens">
             <div class="asset-category-heading">
-              <div><p class="eyebrow">BIBLIOTECA DE ASSETS</p><h3 id="heading-personagens">PERSONAGENS</h3><p>Molduras reservadas para os personagens jogáveis e suas variações.</p></div>
-              <span class="asset-count">30 MOLDURAS</span>
+              <div><p class="eyebrow">BIBLIOTECA DE ASSETS</p><h3 id="heading-personagens">PERSONAGENS</h3><p>Retratos dos personagens jogáveis. Clique para ampliar e use o botão para baixar a imagem em alta resolução.</p></div>
+              <span class="asset-count">30 PERSONAGENS</span>
             </div>
-            <div class="asset-grid asset-grid-personagens">
-              <div class="asset-frame" role="img" aria-label="Espaço reservado para personagens 01"><span>01</span></div>
-              <div class="asset-frame" role="img" aria-label="Espaço reservado para personagens 02"><span>02</span></div>
-              <div class="asset-frame" role="img" aria-label="Espaço reservado para personagens 03"><span>03</span></div>
-              <div class="asset-frame" role="img" aria-label="Espaço reservado para personagens 04"><span>04</span></div>
-              <div class="asset-frame" role="img" aria-label="Espaço reservado para personagens 05"><span>05</span></div>
-              <div class="asset-frame" role="img" aria-label="Espaço reservado para personagens 06"><span>06</span></div>
-              <div class="asset-frame" role="img" aria-label="Espaço reservado para personagens 07"><span>07</span></div>
-              <div class="asset-frame" role="img" aria-label="Espaço reservado para personagens 08"><span>08</span></div>
-              <div class="asset-frame" role="img" aria-label="Espaço reservado para personagens 09"><span>09</span></div>
-              <div class="asset-frame" role="img" aria-label="Espaço reservado para personagens 10"><span>10</span></div>
-              <div class="asset-frame" role="img" aria-label="Espaço reservado para personagens 11"><span>11</span></div>
-              <div class="asset-frame" role="img" aria-label="Espaço reservado para personagens 12"><span>12</span></div>
-              <div class="asset-frame" role="img" aria-label="Espaço reservado para personagens 13"><span>13</span></div>
-              <div class="asset-frame" role="img" aria-label="Espaço reservado para personagens 14"><span>14</span></div>
-              <div class="asset-frame" role="img" aria-label="Espaço reservado para personagens 15"><span>15</span></div>
-              <div class="asset-frame" role="img" aria-label="Espaço reservado para personagens 16"><span>16</span></div>
-              <div class="asset-frame" role="img" aria-label="Espaço reservado para personagens 17"><span>17</span></div>
-              <div class="asset-frame" role="img" aria-label="Espaço reservado para personagens 18"><span>18</span></div>
-              <div class="asset-frame" role="img" aria-label="Espaço reservado para personagens 19"><span>19</span></div>
-              <div class="asset-frame" role="img" aria-label="Espaço reservado para personagens 20"><span>20</span></div>
-              <div class="asset-frame" role="img" aria-label="Espaço reservado para personagens 21"><span>21</span></div>
-              <div class="asset-frame" role="img" aria-label="Espaço reservado para personagens 22"><span>22</span></div>
-              <div class="asset-frame" role="img" aria-label="Espaço reservado para personagens 23"><span>23</span></div>
-              <div class="asset-frame" role="img" aria-label="Espaço reservado para personagens 24"><span>24</span></div>
-              <div class="asset-frame" role="img" aria-label="Espaço reservado para personagens 25"><span>25</span></div>
-              <div class="asset-frame" role="img" aria-label="Espaço reservado para personagens 26"><span>26</span></div>
-              <div class="asset-frame" role="img" aria-label="Espaço reservado para personagens 27"><span>27</span></div>
-              <div class="asset-frame" role="img" aria-label="Espaço reservado para personagens 28"><span>28</span></div>
-              <div class="asset-frame" role="img" aria-label="Espaço reservado para personagens 29"><span>29</span></div>
-              <div class="asset-frame" role="img" aria-label="Espaço reservado para personagens 30"><span>30</span></div>
+            <div class="asset-grid asset-grid-personagens" id="personagensGrid"><noscript><p>Ative o JavaScript para ver os personagens.</p></noscript></div>
             </div>
           </section>
           <section class="asset-category" id="assets-npcs" aria-labelledby="heading-npcs">
@@ -359,12 +329,27 @@
     </section>
   </div>
 
+
+  <div class="asset-modal" id="assetLightbox" aria-hidden="true">
+    <div class="asset-modal-backdrop" data-close-lightbox></div>
+    <section class="asset-modal-panel" role="dialog" aria-modal="true" aria-labelledby="lightboxTitle">
+      <button class="asset-modal-close" type="button" aria-label="Fechar visualização" data-close-lightbox>×</button>
+      <p class="eyebrow" id="lightboxArea">PERSONAGEM</p>
+      <h2 id="lightboxTitle">Personagem</h2>
+      <div class="map-preview-stage" id="lightboxStage"></div>
+      <p class="lightbox-desc" id="lightboxDesc"></p>
+      <div class="map-preview-actions"><a class="btn primary" id="lightboxDownload" href="#" download>BAIXAR IMAGEM</a><button class="btn secondary" type="button" data-close-lightbox>FECHAR</button></div>
+    </section>
+  </div>
+
   <footer class="footer compact">
     <div class="copyright">© 2026 Ordem Vocacional. Projeto educacional.</div>
   </footer>
 
   <script src="js/main.js"></script>
+  <script src="js/assets-data.js"></script>
   <script src="js/rpg.js"></script>
+  <script src="js/materiais.js"></script>
 
   <script src="js/acessibilidade.js" defer></script>
 </body>

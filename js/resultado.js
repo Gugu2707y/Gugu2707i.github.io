@@ -329,6 +329,29 @@ function buildProfileAnalysis(profile, result) {
   return `${profileInsights[result.winner] || profile.description}${evidence}`;
 }
 
+function renderProfessionPhoto(career) {
+  const assets = window.OV_ASSETS;
+  const n = assets && assets.profissoes ? assets.profissoes[career.name] : null;
+  const item = n && assets.personagens ? assets.personagens.find(p => p.n === n) : null;
+  if (!item) {
+    return `<div class="profession-detail-photo" role="img" aria-label="Espaço reservado para imagem de ${escapeHTML(career.name)}">
+          <span class="photo-placeholder-mark" aria-hidden="true">✦</span>
+          <span>IMAGEM DA PROFISSÃO</span>
+          <small>${escapeHTML(career.name)}</small>
+        </div>`;
+  }
+  const pad = String(item.n).padStart(2, "0");
+  const slug = item.name.replace(/[()]/g, "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-zA-Z0-9]+/g, "-").replace(/^-|-$/g, "");
+  return `<figure class="profession-detail-photo has-image">
+          <img src="${encodeURI(assets.pasta + item.thumb)}" alt="${escapeHTML(item.name + ": " + item.desc)}" loading="lazy" decoding="async">
+          <figcaption>
+            <strong>${escapeHTML(item.name)}</strong>
+            <small>${escapeHTML(item.desc)}</small>
+            <a class="asset-card-download" href="${encodeURI(assets.pasta + item.file)}" download="Personagem-${pad}-${slug}.png" aria-label="Baixar imagem: ${escapeHTML(item.name)}">↓ Baixar imagem</a>
+          </figcaption>
+        </figure>`;
+}
+
 function renderCareer(career, index) {
   const recommended = createAccordion("🌟 CARREIRAS RECOMENDADAS", career.intro, createStarGrid(career.recommended));
   const strengths = createAccordion("💪 SEUS PONTOS FORTES", career.strengthsIntro, createBulletList(career.strengths));
@@ -347,11 +370,7 @@ function renderCareer(career, index) {
       </header>
 
       <div class="profession-detail-grid">
-        <div class="profession-detail-photo" role="img" aria-label="Espaço reservado para imagem de ${escapeHTML(career.name)}">
-          <span class="photo-placeholder-mark" aria-hidden="true">✦</span>
-          <span>IMAGEM DA PROFISSÃO</span>
-          <small>${escapeHTML(career.name)}</small>
-        </div>
+        ${renderProfessionPhoto(career)}
         <div class="profession-detail-copy">
           <section class="profession-description-block">
             <p class="eyebrow">SOBRE ESTA PROFISSÃO</p>

@@ -119,16 +119,24 @@
 
   let currentAvatarIndex = null;
 
-  // Caminhos dos 30 avatares. Os arquivos devem ficar em assets/personagens/
-  // com nomes personagem-01.png, personagem-02.png ... personagem-30.png.
-  // Se seus arquivos ainda forem AVIF, troque ".png" por ".avif" nesta linha.
+  // Retratos dos 30 personagens: vêm de js/assets-data.js (miniaturas leves em
+  // assets/personagens/thumbs/). Para trocar uma imagem, edite aquele arquivo.
+  const ASSETS = window.OV_ASSETS || { pasta: "assets/personagens/", personagens: [] };
   const AVATAR_IMAGES = Array.from(
     { length: 30 },
-    (_, index) => `assets/personagens/personagem-${String(index + 1).padStart(2, "0")}.png`
+    (_, index) => {
+      const item = ASSETS.personagens[index];
+      return item ? encodeURI(ASSETS.pasta + item.thumb) : null;
+    }
   );
 
   function avatarImageFor(index) {
     return Number.isInteger(index) && index >= 1 && index <= 30 ? AVATAR_IMAGES[index - 1] : null;
+  }
+
+  function avatarNameFor(index) {
+    const item = ASSETS.personagens[index - 1];
+    return item ? item.name : `personagem ${index}`;
   }
 
   function paintAvatar(target, index, compact = false) {
@@ -138,7 +146,7 @@
     if (imagePath) {
       const image = document.createElement("img");
       image.src = imagePath;
-      image.alt = `Retrato ${index} do personagem`;
+      image.alt = `Retrato: ${avatarNameFor(index)}`;
       image.loading = "lazy";
       image.onerror = () => {
         target.replaceChildren();
@@ -250,7 +258,7 @@
       option.type = "button";
       option.className = "avatar-option";
       option.dataset.avatarIndex = String(index);
-      option.setAttribute("aria-label", `Selecionar retrato ${index}`);
+      option.setAttribute("aria-label", `Selecionar retrato ${index}: ${avatarNameFor(index)}`);
       option.setAttribute("aria-pressed", "false");
       const visual = document.createElement("span"); visual.className = "avatar-option-visual";
       const imagePath = avatarImageFor(index);
@@ -260,7 +268,7 @@
         visual.appendChild(image);
       }
       const number = document.createElement("span"); number.className = "avatar-option-number"; number.textContent = String(index).padStart(2, "0");
-      const label = document.createElement("span"); label.className = "avatar-option-label"; label.textContent = imagePath ? "RETRATO" : "OPÇÃO";
+      const label = document.createElement("span"); label.className = "avatar-option-label"; label.textContent = imagePath ? avatarNameFor(index).toUpperCase() : "OPÇÃO";
       const check = document.createElement("span"); check.className = "avatar-option-check"; check.textContent = "✓"; check.setAttribute("aria-hidden", "true");
       visual.append(number, label);
       option.append(visual, check);

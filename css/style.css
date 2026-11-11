@@ -1835,3 +1835,30 @@ body.modal-open { overflow:hidden; }
 @media(max-width:900px) { .map-assets-grid { grid-template-columns:repeat(3,minmax(0,1fr)); } }
 @media(max-width:620px) { .map-assets-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:11px; } .maps-library-heading { align-items:flex-start; flex-direction:column; gap:12px; } .test-process-grid { grid-template-columns:1fr; } .test-process-card { display:grid; grid-template-columns:72px 1fr; column-gap:16px; text-align:left; align-items:center; } .test-token { grid-row:span 2; width:56px; height:56px; margin:0; border-radius:17px; } .test-token span { font-size:calc(27px * var(--ov-fs, 1)); } .test-process-card h3 { align-self:end; margin:0 0 4px; } .test-process-card p { align-self:start; } }
 @media(max-width:360px) { .map-assets-grid { grid-template-columns:1fr; } }
+
+/* ===== IMAGENS: cartões de personagens, ampliação e foto da profissão ===== */
+.asset-grid-personagens { grid-template-columns: repeat(auto-fill, minmax(215px, 1fr)); gap: 18px; }
+.asset-card { display:flex; flex-direction:column; min-width:0; overflow:hidden; border:1px solid rgba(229,193,88,.32); border-radius:15px; background:linear-gradient(145deg,rgba(37,25,57,.92),rgba(18,10,31,.96)); box-shadow:0 10px 28px rgba(0,0,0,.18); }
+.asset-card-image { position:relative; display:block; width:100%; padding:0; border:0; border-bottom:1px solid rgba(229,193,88,.2); background:radial-gradient(circle at 50% 30%,rgba(125,60,255,.2),transparent 62%),#150d24; cursor:zoom-in; aspect-ratio:1/1; }
+.asset-card-image img { display:block; width:100%; height:100%; object-fit:cover; }
+.asset-card-image:hover img { transform:scale(1.03); }
+.asset-card-image img { transition:transform .25s ease; }
+.asset-card-image:focus-visible { outline:3px solid #e5c158; outline-offset:-3px; }
+.asset-card-number { position:absolute; left:10px; top:10px; min-width:28px; padding:4px 6px; border-radius:6px; background:rgba(10,7,19,.85); color:var(--muted); text-align:center; font-size:calc(10px * var(--ov-fs, 1)); }
+.asset-card-body { display:flex; flex-direction:column; gap:6px; flex:1; padding:14px 14px 16px; }
+.asset-card-area { align-self:flex-start; padding:3px 9px; border:1px solid rgba(229,193,88,.4); border-radius:999px; color:var(--gold,#e5c158); font-size:calc(9px * var(--ov-fs, 1)); font-weight:700; letter-spacing:.8px; text-transform:uppercase; }
+.asset-card-body h4 { margin:2px 0 0; color:var(--text); font-family:'Cinzel',serif; font-size:calc(16px * var(--ov-fs, 1)); }
+.asset-card-body p { margin:0 0 8px; color:var(--muted); font-size:calc(12px * var(--ov-fs, 1)); line-height:1.6; flex:1; }
+.asset-card-download { align-self:flex-start; display:inline-flex; align-items:center; gap:6px; padding:8px 12px; border:1px solid rgba(229,193,88,.55); border-radius:8px; background:rgba(125,60,255,.12); color:var(--gold,#e5c158); font-size:calc(12px * var(--ov-fs, 1)); font-weight:700; text-decoration:none; transition:background .2s,color .2s; }
+.asset-card-download:hover, .asset-card-download:focus-visible { background:var(--gold,#e5c158); color:#170f25; outline:none; }
+.lightbox-desc { margin:16px 0 0; color:var(--muted); line-height:1.7; font-size:calc(14px * var(--ov-fs, 1)); }
+#assetLightbox .map-preview-stage { background:radial-gradient(circle at 50% 30%,rgba(125,60,255,.2),transparent 62%),#0c0715; }
+#assetLightbox .map-preview-stage > img { max-height:60vh; }
+
+.profession-detail-photo.has-image { display:flex; flex-direction:column; align-items:stretch; justify-content:flex-start; margin:0; padding:0; overflow:hidden; border-style:solid; text-align:left; }
+.profession-detail-photo.has-image img { display:block; width:100%; aspect-ratio:1/1; max-height:420px; object-fit:cover; background:#150d24; }
+.profession-detail-photo.has-image figcaption { display:flex; flex-direction:column; gap:6px; padding:14px 16px 16px; border-top:1px solid rgba(229,193,88,.2); }
+.profession-detail-photo.has-image figcaption strong { color:var(--text); font-family:'Cinzel',serif; font-size:calc(15px * var(--ov-fs, 1)); }
+.profession-detail-photo.has-image figcaption small { color:var(--muted); font-size:calc(12px * var(--ov-fs, 1)); line-height:1.6; }
+@media (max-width:620px) { .asset-grid-personagens { grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; } .asset-card-body { padding:11px; } }
+@media (max-width:390px) { .asset-grid-personagens { grid-template-columns:minmax(0,1fr); } }
