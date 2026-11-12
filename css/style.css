@@ -1875,3 +1875,26 @@ body.modal-open { overflow:hidden; }
 .asset-card-download.is-disabled { opacity:.45; cursor:not-allowed; pointer-events:none; }
 @media (max-width:620px) { .asset-grid-npcs { grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; } .asset-grid-mapas { grid-template-columns:minmax(0,1fr); } }
 @media (max-width:390px) { .asset-grid-npcs { grid-template-columns:minmax(0,1fr); } }
+.map-asset-desc { display:block; margin-top:8px; color:var(--muted,#b8afc9); font-size:calc(12px * var(--ov-fs, 1)); line-height:1.55; text-align:left; }
+
+/* ===== Mapas quadrados, resultado (cenário e NPCs) ===== */
+.asset-grid-mapas { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
+.asset-grid-mapas .asset-card-image { aspect-ratio: 1/1; }
+.map-asset-placeholder img { aspect-ratio: 1/1; object-fit: contain; }
+.profile-main-photo.has-image { display:block; padding:0; overflow:hidden; text-align:left; }
+.profile-scenario { margin:0; }
+.profile-scenario img { display:block; width:100%; aspect-ratio:1/1; max-height:380px; object-fit:contain; background:#0c0715; }
+.profile-scenario figcaption { display:flex; flex-direction:column; gap:6px; padding:14px 16px 16px; border-top:1px solid rgba(229,193,88,.2); }
+.profile-scenario strong { color:var(--text); font-family:'Cinzel',serif; font-size:calc(15px * var(--ov-fs, 1)); }
+.profile-scenario small { color:var(--muted); font-size:calc(12px * var(--ov-fs, 1)); line-height:1.6; }
+.result-mission { margin:48px 0; }
+.result-mission .result-section-heading { margin-bottom:24px; }
+.mission-block { margin-top:26px; }
+.mission-block h3 { margin:0 0 14px; color:var(--gold,#e5c158); font-family:'Cinzel',serif; font-size:calc(18px * var(--ov-fs, 1)); }
+.mission-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(215px, 1fr)); gap:16px; }
+.mission-grid-maps { grid-template-columns:repeat(auto-fill, minmax(280px, 1fr)); }
+.mission-grid .asset-card-image { display:block; aspect-ratio:1/1; text-decoration:none; }
+.mission-grid-maps .asset-card-image img { object-fit:contain; background:#0c0715; }
+@media (max-width:620px) { .mission-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; } .mission-grid-maps { grid-template-columns:minmax(0,1fr); } }
+.map-asset-placeholder { aspect-ratio:1/1; }
+.map-asset-placeholder img { object-fit:contain; background:#0c0715; }

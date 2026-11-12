@@ -426,7 +426,8 @@ if (!raw) {
 
     document.getElementById("resultTitle").textContent = profile.name;
     document.getElementById("resultSubtitle").textContent = profile.subtitle;
-    document.getElementById("profilePhotoCaption").textContent = profile.title;
+    const photoCaption = document.getElementById("profilePhotoCaption");
+    if (photoCaption) photoCaption.textContent = profile.title;
     document.getElementById("profileRpgLink").href = `rpg.html?perfil=${encodeURIComponent(profile.title)}`;
     document.getElementById("profileDescription").textContent = buildProfileAnalysis(profile, result);
     document.getElementById("scoreValue").textContent = `${percentage}%`;
@@ -439,6 +440,7 @@ if (!raw) {
     careerList.innerHTML = profile.careers.map((career, index) => createCareer(career, index)).join("");
 
     setupAccordions();
+    if (typeof window.renderResultAssets === "function") window.renderResultAssets(profiles[result.winner] ? result.winner : "tecnologia");
   } catch (error) {
     console.error("Não foi possível carregar o resultado:", error);
     window.location.href = "teste.html";

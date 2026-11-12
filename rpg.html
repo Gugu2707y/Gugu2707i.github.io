@@ -178,7 +178,7 @@
                   <span class="avatar-preview is-empty" id="characterAvatarPreview" aria-hidden="true"><span class="avatar-plus">+</span><span class="avatar-prompt">ADICIONAR FOTO</span></span>
                   <span class="avatar-hover-overlay" aria-hidden="true"><span>+</span><small>TROCAR FOTO</small></span>
                 </button>
-                <p class="avatar-helper">Escolha um dos 30 retratos disponíveis. As imagens podem ser adicionadas depois.</p>
+                <p class="avatar-helper">Escolha um dos retratos disponíveis.</p>
               </div>
               <div class="dice-copy">
                 <span class="eyebrow">ROLAGEM VIRTUAL</span>
@@ -241,16 +241,16 @@
             <p>Materiais preparados para apoiar a aplicação do RPG. Os botões abaixo funcionam como pontos de download e podem receber seus arquivos reais depois.</p>
           </div>
 
-          <div class="asset-library-intro"><p>Os 30 personagens já estão disponíveis para visualizar e baixar. As molduras de NPCs e mapas de cenários aguardam as imagens.</p></div>
+          <div class="asset-library-intro"><p>57 imagens organizadas por categoria (personagens, NPCs e mapas de cenários), todas com visualização ampliada e download.</p></div>
           <nav class="asset-category-nav" aria-label="Categorias de materiais">
-            <a href="#assets-personagens">PERSONAGENS <span>30</span></a>
-            <a href="#assets-npcs">NPCs <span>10</span></a>
-            <a href="#assets-mapas">MAPAS DE CENÁRIOS <span>13</span></a>
+            <a href="#assets-personagens">PERSONAGENS <span>33</span></a>
+            <a href="#assets-npcs">NPCs <span>12</span></a>
+            <a href="#assets-mapas">MAPAS DE CENÁRIOS <span>12</span></a>
           </nav>
           <section class="asset-category" id="assets-personagens" aria-labelledby="heading-personagens">
             <div class="asset-category-heading">
               <div><p class="eyebrow">BIBLIOTECA DE ASSETS</p><h3 id="heading-personagens">PERSONAGENS</h3><p>Retratos dos personagens jogáveis. Clique para ampliar e use o botão para baixar a imagem em alta resolução.</p></div>
-              <span class="asset-count">30 PERSONAGENS</span>
+              <span class="asset-count">33 PERSONAGENS</span>
             </div>
             <div class="asset-grid asset-grid-personagens" id="personagensGrid"><noscript><p>Ative o JavaScript para ver os personagens.</p></noscript></div>
             </div>
@@ -258,7 +258,7 @@
           <section class="asset-category" id="assets-npcs" aria-labelledby="heading-npcs">
             <div class="asset-category-heading">
               <div><p class="eyebrow">BIBLIOTECA DE ASSETS</p><h3 id="heading-npcs">NPCs</h3><p>Personagens não jogáveis, aliados, mentores e figuras do cenário. Clique para ampliar e baixe a imagem.</p></div>
-              <span class="asset-count">10 NPCs</span>
+              <span class="asset-count">12 NPCs</span>
             </div>
             <div class="asset-grid asset-grid-npcs" id="npcsGrid"><noscript><p>Ative o JavaScript para ver as imagens.</p></noscript></div>
             </div>
@@ -266,7 +266,7 @@
           <section class="asset-category" id="assets-mapas" aria-labelledby="heading-mapas">
             <div class="asset-category-heading">
               <div><p class="eyebrow">BIBLIOTECA DE ASSETS</p><h3 id="heading-mapas">MAPAS DE CENÁRIOS</h3><p>Mapas de locais, ambientes e cenários das missões. Clique para ampliar e baixe a imagem.</p></div>
-              <span class="asset-count">13 MAPAS</span>
+              <span class="asset-count">12 MAPAS</span>
             </div>
             <div class="asset-grid asset-grid-mapas" id="mapasGrid"><noscript><p>Ative o JavaScript para ver as imagens.</p></noscript></div>
             </div>
@@ -279,12 +279,9 @@
       <div class="panel-heading center-heading">
         <p class="eyebrow">ESPAÇO VISUAL</p>
         <h2>ILUSTRAÇÕES DA JORNADA</h2>
-        <p>As molduras abaixo já estão dimensionadas. Você poderá inserir suas próprias imagens depois, sem alterar o layout.</p>
+        <p>Um destaque de personagem, de cenário e de profissão da jornada. Amplie, baixe a imagem ou veja todas na aba Materiais.</p>
       </div>
-      <div class="image-frame-grid">
-        <div class="empty-image-frame portrait-frame" aria-label="Moldura vazia para imagem de personagem"></div>
-        <div class="empty-image-frame portrait-frame" aria-label="Moldura vazia para imagem de cenário"></div>
-        <div class="empty-image-frame portrait-frame" aria-label="Moldura vazia para imagem de profissão"></div>
+      <div class="image-frame-grid illustration-grid" id="ilustracoesGrid"><noscript><p>Ative o JavaScript para ver as ilustrações.</p></noscript></div>
       </div>
     </section>
 
@@ -298,10 +295,10 @@
   <div class="avatar-modal-backdrop" id="avatarPickerModal" hidden>
     <section class="avatar-modal" role="dialog" aria-modal="true" aria-labelledby="avatarModalTitle" aria-describedby="avatarModalDescription" tabindex="-1">
       <header class="avatar-modal-header">
-        <div><p class="eyebrow">FICHA DE PERSONAGEM</p><h2 id="avatarModalTitle">ESCOLHA SEU RETRATO</h2><p id="avatarModalDescription">Selecione uma das 30 molduras. Os espaços estão prontos para receber imagens posteriormente.</p></div>
+        <div><p class="eyebrow">FICHA DE PERSONAGEM</p><h2 id="avatarModalTitle">ESCOLHA SEU RETRATO</h2><p id="avatarModalDescription">Selecione um dos retratos para o seu personagem.</p></div>
         <button type="button" class="avatar-modal-close" id="closeAvatarModal" aria-label="Fechar galeria">×</button>
       </header>
-      <div class="avatar-options-grid" id="avatarOptionsGrid" aria-label="30 opções de retrato"></div>
+      <div class="avatar-options-grid" id="avatarOptionsGrid" aria-label="Opções de retrato"></div>
       <footer class="avatar-modal-footer"><span id="avatarSelectionStatus" aria-live="polite">Nenhum retrato selecionado.</span><button type="button" class="btn secondary" id="removeCharacterAvatar">REMOVER FOTO</button></footer>
     </section>
   </div>

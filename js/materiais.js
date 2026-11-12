@@ -55,7 +55,7 @@
     }
     visual.classList.add("asset-card-image");
     const num = document.createElement("span"); num.className = "asset-card-number"; num.textContent = pad(item.n);
-    visual.append(num);
+    if (!item.hideNumber) visual.append(num);
 
     const body = document.createElement("div"); body.className = "asset-card-body";
     const area = document.createElement("span"); area.className = "asset-card-area"; area.textContent = item.area || g.label;
@@ -80,6 +80,20 @@
     }
     el.append(visual, body);
     return el;
+  }
+
+  /* ---------- Ilustrações da Jornada (personagem / cenário / profissão) ---------- */
+  const ilus = document.getElementById("ilustracoesGrid");
+  if (ilus && data.destaques) {
+    const porLista = { personagens: GROUPS[0], npcs: GROUPS[1], mapas: GROUPS[2] };
+    ilus.replaceChildren(...Object.values(data.destaques).map(d => {
+      const g = porLista[d.lista];
+      const item = g && g.list.find(x => x.n === d.n);
+      if (!item) return document.createComment("destaque sem imagem");
+      const el = card({ ...g, label: d.rotulo }, { ...item, area: d.rotulo, hideNumber: true });
+      el.classList.add("illustration-card");
+      return el;
+    }));
   }
 
   GROUPS.forEach(g => {

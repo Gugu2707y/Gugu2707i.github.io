@@ -1,41 +1,36 @@
-RPG ORDEM VOCACIONAL — WIDGET DE ACESSIBILIDADE
+RPG ORDEM VOCACIONAL — ATUALIZAÇÃO (acessibilidade + imagens)
 
-Arquivos:
-- css/acessibilidade.css : estilo do widget, modo foco e máscara de leitura.
-- js/acessibilidade.js   : cria o botão/painel sozinho e guarda as escolhas (localStorage).
-- css/style.css          : todos os font-size agora usam var(--ov-fs, 1) para o aumento de letra.
-- acessibilidade.html    : página de teste do widget.
+COMO INSTALAR
+Copie TODOS os arquivos deste zip por cima do projeto, mantendo as pastas (css/, js/, assets/, tools/).
+Os PNG/AVIF/JPG originais de personagens, NPCs e mapas NÃO vêm no zip: eles já estão no seu repositório.
+Vêm só as miniaturas leves (assets/*/thumbs/) e o arquivo assets/mapas/mapa_seguranca.jpg.
 
-INSTALAÇÃO (já feita em index, sobre, teste, resultado, rpg e mapa):
-1. No <head>, depois de style.css:  <link rel="stylesheet" href="css/acessibilidade.css">
-2. Antes de </body>:                <script src="js/acessibilidade.js" defer></script>
-Nenhum HTML do widget precisa ser colado: o JavaScript o insere na página.
-Em uma página nova, basta repetir os passos 1 e 2.
+LIMPEZA RECOMENDADA NO SEU REPOSITÓRIO (sobras de cópias antigas)
+- Apague a pasta  js/css/  e a pasta  js/js/
+- Apague de dentro de js/ estes arquivos: index.html, sobre.html, teste.html, resultado.html, rpg.html,
+  mapa.html, acessibilidade.html, LEIA-ME.txt  (os arquivos .js ficam: main, teste, resultado, resultado-assets,
+  rpg, mapa, materiais, assets-data, acessibilidade)
+- Apague widget-acessibilidade.html (substituído pelo widget novo)
+- Apague assets/personagens/mapa_seguranca.jpg (o mapa agora fica em assets/mapas/mapa_seguranca.jpg)
 
-USO:
-- Botão flutuante (olho) no canto inferior direito abre o painel.
-- A− / A+ ajustam de 80% até 250%; "Restaurar padrão" volta a 100%.
-- Modo Foco / TDAH: mais espaço entre linhas e parágrafos, faixa de leitura que segue o mouse
-  (ou o toque / foco do teclado), realce suave do bloco sob o ponteiro, sem animações, brilhos e sombras.
-- Esc fecha o painel. As escolhas são lembradas ao trocar de página.
+O QUE FOI FEITO
+1) Widget de acessibilidade (canto inferior direito): letra de 80% a 250% e Modo Foco / TDAH.
+   css/acessibilidade.css + js/acessibilidade.js (já instalado em todas as páginas).
+2) Imagens ligadas ao site, tudo a partir de js/assets-data.js:
+   - 33 personagens (30 + 3 policiais) -> rpg.html (aba Materiais e escolha de retrato)
+   - 12 NPCs -> rpg.html (aba Materiais) e página de resultado
+   - 12 mapas de cenários -> mapa.html, rpg.html (Materiais e Ilustrações da Jornada) e resultado
+   - Resultado: o cenário do perfil aparece no destaque, há a seção "Cenários e NPCs da sua missão"
+     e cada profissão mostra o personagem correspondente. Tudo com descrição e botão "Baixar imagem".
 
+COMO ADICIONAR OU TROCAR UMA IMAGEM
+1. Copie o arquivo para assets/personagens, assets/npcs ou assets/mapas (o nome precisa ser IDÊNTICO ao que
+   está em "file", inclusive acentos e maiúsculas/minúsculas, pois o GitHub Pages diferencia).
+2. Em js/assets-data.js acrescente/edite a linha: n (número), file, name, area, desc, e thumb (opcional).
+3. Para gerar miniaturas leves:  python tools/gerar_miniaturas.py assets/npcs   (precisa de: pip install pillow)
+4. Perfis do resultado (qual mapa e quais NPCs aparecem) ficam em "perfis" no mesmo arquivo.
 
-=========================================================
-IMAGENS (personagens, retratos e profissões)
-=========================================================
-- js/assets-data.js : lista única das 30 imagens (arquivo original, miniatura, nome, área e descrição)
-  e o vínculo "profissão do resultado -> imagem". Para trocar nome/descrição/imagem, edite só este arquivo.
-- js/materiais.js   : monta os cartões da aba MATERIAIS (rpg.html) com ampliação e botão "Baixar imagem".
-- assets/personagens/thumbs/ : miniaturas leves (.webp) usadas na tela. Os PNG originais continuam em
-  assets/personagens/ e são os arquivos baixados.
-- Retratos da criação de personagem (rpg.html) usam as mesmas 30 imagens.
-- resultado.html mostra a imagem da profissão (com descrição e download) quando existe vínculo em assets-data.js.
-- NPCs (10) e Mapas de cenários (13) continuam com molduras vazias: ainda não há imagens deles no projeto.
-
-NPCs E MAPAS DE CENÁRIOS (10 e 13 espaços, já funcionando)
-1. Copie a imagem para assets/npcs/ (NPCs) ou assets/mapas/ (mapas).
-2. Em js/assets-data.js, na lista "npcs" ou "mapas", preencha na linha do número desejado:
-   "file": "nome-do-arquivo.png", e se quiser "name" e "desc" (nome e descrição).
-3. Pronto: aparece em rpg.html (aba Materiais) e, no caso dos mapas, também em mapa.html,
-   com ampliação e botão de download. Espaços sem "file" aparecem como "Imagem em breve".
-4. Opcional (arquivos grandes): python tools/gerar_miniaturas.py assets/npcs  e preencha "thumb": "thumbs/nome.webp".
+OBSERVAÇÕES
+- Os mapas têm 12 imagens (a página antes previa 13): o texto e os contadores já mostram 12.
+- Os PNG de personagens vieram com fundo opaco (branco ou preto); se reexportar com fundo transparente o visual fica uniforme.
+- Esc fecha o painel de acessibilidade; as escolhas ficam salvas entre as páginas.

@@ -119,11 +119,12 @@
 
   let currentAvatarIndex = null;
 
-  // Retratos dos 30 personagens: vêm de js/assets-data.js (miniaturas leves em
+  // Retratos dos personagens: vêm de js/assets-data.js (miniaturas leves em
   // assets/personagens/thumbs/). Para trocar uma imagem, edite aquele arquivo.
   const ASSETS = window.OV_ASSETS || { pasta: "assets/personagens/", personagens: [] };
+  const AVATAR_COUNT = Math.max(30, ASSETS.personagens.length);
   const AVATAR_IMAGES = Array.from(
-    { length: 30 },
+    { length: AVATAR_COUNT },
     (_, index) => {
       const item = ASSETS.personagens[index];
       return item ? encodeURI(ASSETS.pasta + item.thumb) : null;
@@ -131,7 +132,7 @@
   );
 
   function avatarImageFor(index) {
-    return Number.isInteger(index) && index >= 1 && index <= 30 ? AVATAR_IMAGES[index - 1] : null;
+    return Number.isInteger(index) && index >= 1 && index <= AVATAR_COUNT ? AVATAR_IMAGES[index - 1] : null;
   }
 
   function avatarNameFor(index) {
@@ -180,7 +181,7 @@
 
   function renderCharacter(character) {
     if (!character) return;
-    currentAvatarIndex = character.avatar != null && Number.isInteger(Number(character.avatar)) && Number(character.avatar) >= 1 && Number(character.avatar) <= 30 ? Number(character.avatar) : null;
+    currentAvatarIndex = character.avatar != null && Number.isInteger(Number(character.avatar)) && Number(character.avatar) >= 1 && Number(character.avatar) <= AVATAR_COUNT ? Number(character.avatar) : null;
     paintAvatar($("#characterAvatarPreview"), currentAvatarIndex);
     paintAvatar($("#sheetAvatarMini"), currentAvatarIndex, true);
     $("#sheetTitle").textContent = character.name.toUpperCase();
@@ -253,7 +254,7 @@
     if (!modal || !grid || !trigger) return;
 
     let lastFocusedElement = null;
-    for (let index = 1; index <= 30; index += 1) {
+    for (let index = 1; index <= AVATAR_COUNT; index += 1) {
       const option = document.createElement("button");
       option.type = "button";
       option.className = "avatar-option";

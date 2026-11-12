@@ -1,10 +1,11 @@
 /* =========================================================
    DADOS DAS IMAGENS — ORDEM VOCACIONAL
-   Fonte única usada por rpg.html (Materiais e retratos do
-   personagem) e resultado.html (imagem de cada profissão).
-   Para trocar nome/descrição/imagem, edite aqui.
-   - file:  arquivo original (usado no DOWNLOAD)
-   - thumb: versão leve (usada na tela)
+   Fonte única usada por rpg.html (Materiais, Ilustrações e retratos),
+   mapa.html (galeria de mapas) e resultado.html (cenário, NPCs e profissões).
+   Para trocar nome, descrição ou imagem, edite aqui.
+   - file:  arquivo original (usado no DOWNLOAD e na ampliação)
+   - thumb: miniatura leve em <pasta>/thumbs/ (usada na tela)
+   Para um NPC/mapa novo: copie o arquivo para a pasta e acrescente uma linha.
    ========================================================= */
 window.OV_ASSETS = {
   pasta: "assets/personagens/",
@@ -248,207 +249,253 @@ window.OV_ASSETS = {
     "name": "Videomaker",
     "area": "Audiovisual",
     "desc": "Pessoa de cabelo castanho encaracolado, óculos redondos, jaqueta marrom e bloco de anotações na mão. Representa a produção e a edição de vídeos."
+  },
+  {
+    "n": 31,
+    "file": "Policial 1.jpg",
+    "thumb": "thumbs/personagem-31.webp",
+    "name": "Policial 1",
+    "area": "Segurança Pública",
+    "desc": "Policial de uniforme azul-marinho com a inscrição PUBLIC SAFETY, lenço roxo no pescoço, cabelo cacheado e cinto de equipamentos. Representa a proteção da comunidade e o trabalho de segurança pública."
+  },
+  {
+    "n": 32,
+    "file": "Policial 2.jpg",
+    "thumb": "thumbs/personagem-32.webp",
+    "name": "Policial 2",
+    "area": "Segurança Pública",
+    "desc": "Policial de cabelo escuro e pele com manchas claras, uniforme azul-marinho, lenço roxo e cinto de equipamentos. Representa a atuação na segurança pública."
+  },
+  {
+    "n": 33,
+    "file": "Policial 3.jpg",
+    "thumb": "thumbs/personagem-33.webp",
+    "name": "Policial 3",
+    "area": "Segurança Pública",
+    "desc": "Policial de cabelo preto ondulado, uniforme azul-marinho com emblema, lenço roxo e mãos junto ao cinto. Representa o patrulhamento e o atendimento à população."
   }
 ],
 
-  // ---------- NPCs (10) e MAPAS DE CENÁRIOS (13) ----------
-  // Para colocar uma imagem: copie o arquivo para a pasta indicada e preencha
-  // "file" (e, se quiser, "name" e "desc"). Exemplo:
-  //   { n: 1, file: "guarda-da-cidade.png", name: "Guarda da Cidade", area: "NPC", desc: "..." }
-  // "thumb" é opcional: miniatura leve em <pasta>/thumbs/ (veja tools/gerar_miniaturas.py).
-  // Sem "file", o espaço aparece como "Imagem em breve".
   pastaNpcs: "assets/npcs/",
   npcs: [
-    {
-      "n": 1,
-      "file": null,
-      "thumb": null,
-      "name": "NPC 01",
-      "area": "NPC",
-      "desc": ""
-    },
-    {
-      "n": 2,
-      "file": null,
-      "thumb": null,
-      "name": "NPC 02",
-      "area": "NPC",
-      "desc": ""
-    },
-    {
-      "n": 3,
-      "file": null,
-      "thumb": null,
-      "name": "NPC 03",
-      "area": "NPC",
-      "desc": ""
-    },
-    {
-      "n": 4,
-      "file": null,
-      "thumb": null,
-      "name": "NPC 04",
-      "area": "NPC",
-      "desc": ""
-    },
-    {
-      "n": 5,
-      "file": null,
-      "thumb": null,
-      "name": "NPC 05",
-      "area": "NPC",
-      "desc": ""
-    },
-    {
-      "n": 6,
-      "file": null,
-      "thumb": null,
-      "name": "NPC 06",
-      "area": "NPC",
-      "desc": ""
-    },
-    {
-      "n": 7,
-      "file": null,
-      "thumb": null,
-      "name": "NPC 07",
-      "area": "NPC",
-      "desc": ""
-    },
-    {
-      "n": 8,
-      "file": null,
-      "thumb": null,
-      "name": "NPC 08",
-      "area": "NPC",
-      "desc": ""
-    },
-    {
-      "n": 9,
-      "file": null,
-      "thumb": null,
-      "name": "NPC 09",
-      "area": "NPC",
-      "desc": ""
-    },
-    {
-      "n": 10,
-      "file": null,
-      "thumb": null,
-      "name": "NPC 10",
-      "area": "NPC",
-      "desc": ""
-    }
-  ],
+  {
+    "n": 1,
+    "file": "Aluno com autismo curioso com algo.avif",
+    "thumb": "thumbs/npc-01.webp",
+    "name": "Aluno Curioso",
+    "area": "Educação",
+    "desc": "Aluno de camisa azul com cordão colorido e crachá, olhando com curiosidade para algo à frente. Pode aparecer em missões de escola e inclusão."
+  },
+  {
+    "n": 2,
+    "file": "Aluno querendo fazer uma perguntas.avif",
+    "thumb": "thumbs/npc-02.webp",
+    "name": "Aluno com Pergunta",
+    "area": "Educação",
+    "desc": "Criança de cabelo crespo, mochila e uniforme, com a mão levantada para fazer uma pergunta. Representa a dúvida e a participação em sala de aula."
+  },
+  {
+    "n": 3,
+    "file": "Criança com albinismo observando.avif",
+    "thumb": "thumbs/npc-03.webp",
+    "name": "Criança Observadora",
+    "area": "Educação",
+    "desc": "Criança com albinismo, cabelo loiro e longo, blusa roxa e saia, observando o ambiente com atenção. Representa a diversidade na escola."
+  },
+  {
+    "n": 4,
+    "file": "Criança com paralisia cerebral.avif",
+    "thumb": "thumbs/npc-04.webp",
+    "name": "Criança Cadeirante",
+    "area": "Educação",
+    "desc": "Criança de cabelo trançado, camiseta laranja, em cadeira de rodas. Representa a inclusão e a acessibilidade em escolas e serviços."
+  },
+  {
+    "n": 5,
+    "file": "Criança de etnia asiática.avif",
+    "thumb": "thumbs/npc-05.webp",
+    "name": "Criança Acenando",
+    "area": "Educação",
+    "desc": "Criança de cabelo preto com maria-chiquinhas, camiseta vermelha, acenando com a mão. Pode aparecer como aluna ou como paciente em missões."
+  },
+  {
+    "n": 6,
+    "file": "Detendo 1.jpg",
+    "thumb": "thumbs/npc-06.webp",
+    "name": "Detento 1",
+    "area": "Segurança Pública",
+    "desc": "Detento de macacão laranja, cabelo castanho e óculos escuros presos ao peito. Aparece em missões de segurança pública e justiça."
+  },
+  {
+    "n": 7,
+    "file": "Detento 2.jpg",
+    "thumb": "thumbs/npc-07.webp",
+    "name": "Detento 2",
+    "area": "Segurança Pública",
+    "desc": "Detento com o macacão laranja amarrado na cintura, sem camisa, com expressão cansada. Aparece em missões de segurança pública e justiça."
+  },
+  {
+    "n": 8,
+    "file": "Homen Cego.avif",
+    "thumb": "thumbs/npc-08.webp",
+    "name": "Homem Cego",
+    "area": "Saúde e Inclusão",
+    "desc": "Homem de óculos escuros, suéter vinho e calça clara, usando bengala branca. Representa a acessibilidade e o atendimento inclusivo."
+  },
+  {
+    "n": 9,
+    "file": "Idosa insatifeita e brava com serviço.avif",
+    "thumb": "thumbs/npc-09.webp",
+    "name": "Idosa Insatisfeita",
+    "area": "Atendimento",
+    "desc": "Idosa de cabelo branco e óculos, casaco verde e bengala, apontando com raiva. Representa o atendimento a clientes e a gestão de conflitos."
+  },
+  {
+    "n": 10,
+    "file": "Pessoa com duvida.avif",
+    "thumb": "thumbs/npc-10.webp",
+    "name": "Pessoa com Dúvida",
+    "area": "Atendimento",
+    "desc": "Pessoa de cabelo cacheado, camiseta cinza e calça verde, com expressão de dúvida e mão erguida. Representa quem procura orientação e ajuda."
+  },
+  {
+    "n": 11,
+    "file": "Pessoa machucada.avif",
+    "thumb": "thumbs/npc-11.webp",
+    "name": "Pessoa Machucada",
+    "area": "Saúde",
+    "desc": "Pessoa ferida, com roupas rasgadas e manchas de sangue, caminhando com dificuldade. Aparece em missões de saúde e resgate."
+  },
+  {
+    "n": 12,
+    "file": "Pessoa sendo advogado em um tribunal de justiça.avif",
+    "thumb": "thumbs/npc-12.webp",
+    "name": "Advogado no Tribunal",
+    "area": "Direito",
+    "desc": "Homem de terno cinza, gravata vermelha e pasta na mão, de postura séria. Aparece em missões de tribunal e justiça."
+  }
+],
+
   pastaMapas: "assets/mapas/",
   mapas: [
-    {
-      "n": 1,
-      "file": null,
-      "thumb": null,
-      "name": "Mapa 01",
-      "area": "Cenário",
-      "desc": ""
-    },
-    {
-      "n": 2,
-      "file": null,
-      "thumb": null,
-      "name": "Mapa 02",
-      "area": "Cenário",
-      "desc": ""
-    },
-    {
-      "n": 3,
-      "file": null,
-      "thumb": null,
-      "name": "Mapa 03",
-      "area": "Cenário",
-      "desc": ""
-    },
-    {
-      "n": 4,
-      "file": null,
-      "thumb": null,
-      "name": "Mapa 04",
-      "area": "Cenário",
-      "desc": ""
-    },
-    {
-      "n": 5,
-      "file": null,
-      "thumb": null,
-      "name": "Mapa 05",
-      "area": "Cenário",
-      "desc": ""
-    },
-    {
-      "n": 6,
-      "file": null,
-      "thumb": null,
-      "name": "Mapa 06",
-      "area": "Cenário",
-      "desc": ""
-    },
-    {
-      "n": 7,
-      "file": null,
-      "thumb": null,
-      "name": "Mapa 07",
-      "area": "Cenário",
-      "desc": ""
-    },
-    {
-      "n": 8,
-      "file": null,
-      "thumb": null,
-      "name": "Mapa 08",
-      "area": "Cenário",
-      "desc": ""
-    },
-    {
-      "n": 9,
-      "file": null,
-      "thumb": null,
-      "name": "Mapa 09",
-      "area": "Cenário",
-      "desc": ""
-    },
-    {
-      "n": 10,
-      "file": null,
-      "thumb": null,
-      "name": "Mapa 10",
-      "area": "Cenário",
-      "desc": ""
-    },
-    {
-      "n": 11,
-      "file": null,
-      "thumb": null,
-      "name": "Mapa 11",
-      "area": "Cenário",
-      "desc": ""
-    },
-    {
-      "n": 12,
-      "file": null,
-      "thumb": null,
-      "name": "Mapa 12",
-      "area": "Cenário",
-      "desc": ""
-    },
-    {
-      "n": 13,
-      "file": null,
-      "thumb": null,
-      "name": "Mapa 13",
-      "area": "Cenário",
-      "desc": ""
-    }
-  ],
-  // Profissão do resultado -> número do personagem (n) acima.
-  // Profissões que não estão aqui continuam com a moldura de reserva.
+  {
+    "n": 1,
+    "file": "mapa (informatica informaticiosa).avif",
+    "thumb": "thumbs/mapa-01.webp",
+    "name": "Laboratório de Informática",
+    "area": "Tecnologia",
+    "desc": "Salão com ilhas de mesas de computadores, uma sala de reunião e uma sala com projetor. Cenário das missões de tecnologia."
+  },
+  {
+    "n": 2,
+    "file": "map_engenharia.jpg",
+    "thumb": "thumbs/mapa-02.webp",
+    "name": "Sala de Engenharia",
+    "area": "Engenharia",
+    "desc": "Sala de piso de mármore com mesas redondas com plantas azuis de projetos e uma bancada longa de computadores. Cenário das missões de engenharia."
+  },
+  {
+    "n": 3,
+    "file": "mapa (estudio de artes aticioso).avif",
+    "thumb": "thumbs/mapa-03.webp",
+    "name": "Estúdio de Artes",
+    "area": "Criatividade",
+    "desc": "Ateliê de piso de madeira com cavaletes, mesa central redonda com tintas e bancadas. Cenário das missões de artes."
+  },
+  {
+    "n": 4,
+    "file": "mapa (estudio de cinema cinemioso).avif",
+    "thumb": "thumbs/mapa-04.webp",
+    "name": "Estúdio de Cinema",
+    "area": "Criatividade",
+    "desc": "Set de filmagem com refletores, cadeira de direção, painel de controle e fundo verde. Cenário das missões de audiovisual."
+  },
+  {
+    "n": 5,
+    "file": "mapa (jornalismo jornalismioso).avif",
+    "thumb": "thumbs/mapa-05.webp",
+    "name": "Estúdio de Jornalismo",
+    "area": "Comunicação",
+    "desc": "Estúdio de TV com bancada de apresentação, câmeras com luz e mesa de controle. Cenário das missões de jornalismo."
+  },
+  {
+    "n": 6,
+    "file": "mapa (agencia de jornalismo).avif",
+    "thumb": "thumbs/mapa-06.webp",
+    "name": "Agência de Jornalismo",
+    "area": "Comunicação",
+    "desc": "Redação com quatro salas de piso de madeira, corredor central e mesa de reunião redonda com luminária. Cenário das missões de comunicação."
+  },
+  {
+    "n": 7,
+    "file": "mapa (escola publica publiciosa).avif",
+    "thumb": "thumbs/mapa-07.webp",
+    "name": "Escola Pública",
+    "area": "Educação",
+    "desc": "Sala de aula com carteiras em fileiras, mesa do professor e corredor lateral. Cenário das missões de educação."
+  },
+  {
+    "n": 8,
+    "file": "mapa (hospital hospitalioso).avif",
+    "thumb": "thumbs/mapa-08.webp",
+    "name": "Hospital",
+    "area": "Saúde",
+    "desc": "Hospital com leitos, corredor, sala de espera com cadeiras azuis e ambulâncias na entrada. Cenário das missões de saúde."
+  },
+  {
+    "n": 9,
+    "file": "mapa (tribunal de justiça justicioso).avif",
+    "thumb": "thumbs/mapa-09.webp",
+    "name": "Tribunal de Justiça",
+    "area": "Direito",
+    "desc": "Salão de piso de mármore com tapete azul, bancada do juiz, mesas das partes e bancos para o público. Cenário das missões de direito."
+  },
+  {
+    "n": 10,
+    "file": "mapa (escritorio de adiministração administrioso).avif",
+    "thumb": "thumbs/mapa-10.webp",
+    "name": "Escritório de Administração",
+    "area": "Gestão",
+    "desc": "Escritório com duas mesas de reunião redondas, copa, sofá de espera e sala da gerência. Cenário das missões de gestão e negócios."
+  },
+  {
+    "n": 11,
+    "file": "mapa_seguranca.jpg",
+    "thumb": "thumbs/mapa-11.webp",
+    "name": "Delegacia / Saguão de Segurança",
+    "area": "Segurança Pública",
+    "desc": "Saguão de piso xadrez com poltronas de espera e balcão de atendimento. Cenário das missões de segurança pública."
+  },
+  {
+    "n": 12,
+    "file": "mapa (zoologico zooligicioso).avif",
+    "thumb": "thumbs/mapa-12.webp",
+    "name": "Zoológico",
+    "area": "Biologia",
+    "desc": "Recinto ao ar livre cercado de pedras, com terra, grama, árvores e um lago. Cenário das missões de biologia e meio ambiente."
+  }
+],
+
+  // Seção "Ilustrações da Jornada" (rpg.html): lista + número "n" da imagem.
+  destaques: {
+  "personagem": {
+    "lista": "personagens",
+    "n": 1,
+    "rotulo": "PERSONAGEM"
+  },
+  "cenario": {
+    "lista": "mapas",
+    "n": 1,
+    "rotulo": "CENÁRIO"
+  },
+  "profissao": {
+    "lista": "personagens",
+    "n": 22,
+    "rotulo": "PROFISSÃO"
+  }
+},
+
+  // Profissão do resultado -> número do personagem (n).
   profissoes: {
   "Desenvolvedor de Software": 7,
   "Analista de Dados": 9,
@@ -460,6 +507,75 @@ window.OV_ASSETS = {
   "Gestor de Pessoas": 15,
   "Administrador": 25,
   "Gerente de Projetos": 26,
-  "Analista de Negócios": 17
+  "Analista de Negócios": 17,
+  "Gestor de Segurança Pública": 31,
+  "Profissional de Defesa Civil": 32
+},
+
+  // Perfil do resultado -> mapas (cenário) e NPCs da missão (números "n").
+  // O primeiro mapa de cada perfil é o cenário principal.
+  perfis: {
+  "tecnologia": {
+    "mapas": [
+      1
+    ],
+    "npcs": [
+      10
+    ]
+  },
+  "criatividade": {
+    "mapas": [
+      3,
+      4,
+      5
+    ],
+    "npcs": [
+      2
+    ]
+  },
+  "pessoas": {
+    "mapas": [
+      7,
+      8
+    ],
+    "npcs": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      11
+    ]
+  },
+  "estrategia": {
+    "mapas": [
+      10,
+      6
+    ],
+    "npcs": [
+      9,
+      10
+    ]
+  },
+  "engenharia": {
+    "mapas": [
+      2
+    ],
+    "npcs": [
+      8
+    ]
+  },
+  "seguranca": {
+    "mapas": [
+      11,
+      9
+    ],
+    "npcs": [
+      6,
+      7,
+      12,
+      11
+    ]
+  }
 }
 };

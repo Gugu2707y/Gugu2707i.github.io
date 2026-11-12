@@ -16,7 +16,7 @@
       <a href="sobre.html">Sobre o Teste</a>
       <a class="active" href="teste.html">Fazer Teste</a>
       <a href="rpg.html">RPG</a>
-      <a href="mapa.html">Teste e Mapas</a>
+      <a href="mapa.html">Mapas de Cenários</a>
     </nav>
   </header>
 
@@ -29,7 +29,7 @@
 
     <section class="profile-top-grid" aria-label="Resumo do perfil vocacional">
       <div class="profile-top-left">
-        <div class="profile-main-photo" role="img" aria-label="Espaço reservado para imagem do perfil vocacional">
+        <div class="profile-main-photo" id="profileMainPhoto" role="img" aria-label="Espaço reservado para imagem do perfil vocacional">
           <span class="profile-photo-symbol" aria-hidden="true">✦</span>
           <span>ESPAÇO RESERVADO PARA IMAGEM</span>
           <small id="profilePhotoCaption">Seu perfil vocacional</small>
@@ -63,6 +63,16 @@
 
     <section class="result-professions" id="careerList" aria-label="Profissões recomendadas"></section>
 
+    <section class="result-mission" id="missionAssets" hidden aria-label="Cenários e NPCs da missão">
+      <div class="result-section-heading">
+        <p class="eyebrow">MUNDO DO RPG</p>
+        <h2>Cenários e NPCs da sua missão</h2>
+        <p>Os locais e as pessoas que você pode encontrar ao explorar as profissões do seu perfil. Abra para ampliar ou baixe as imagens.</p>
+      </div>
+      <div class="mission-block" id="missionMapsBlock"><h3>Cenários</h3><div class="mission-grid mission-grid-maps" id="missionMaps"></div></div>
+      <div class="mission-block" id="missionNpcsBlock"><h3>NPCs</h3><div class="mission-grid" id="missionNpcs"></div></div>
+    </section>
+
     <section class="result-card advice">
       <p class="eyebrow">IMPORTANTE</p>
       <h2>Use este resultado como ponto de partida</h2>
@@ -80,6 +90,7 @@
 
   <script src="js/main.js"></script>
   <script src="js/assets-data.js"></script>
+  <script src="js/resultado-assets.js"></script>
   <script src="js/resultado.js"></script>
   <script src="js/acessibilidade.js" defer></script>
 </body>
