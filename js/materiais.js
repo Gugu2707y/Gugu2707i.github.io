@@ -15,6 +15,10 @@
     { grid: "mapasGrid",       list: data.mapas,       pasta: data.pastaMapas,  rotulo: "Mapa",       label: "MAPA DE CENÁRIO" }
   ];
 
+  const porLista = { personagens: GROUPS[0], npcs: GROUPS[1], mapas: GROUPS[2] };
+  // Componente único de cartão (usado em rpg.html, mapa.html e resultado.html)
+  window.OVAssetCards = { card: (lista, item) => card(porLista[lista], item) };
+
   const modal = document.getElementById("assetLightbox");
   const stage = document.getElementById("lightboxStage");
   const mTitle = document.getElementById("lightboxTitle");
@@ -85,7 +89,6 @@
   /* ---------- Ilustrações da Jornada (personagem / cenário / profissão) ---------- */
   const ilus = document.getElementById("ilustracoesGrid");
   if (ilus && data.destaques) {
-    const porLista = { personagens: GROUPS[0], npcs: GROUPS[1], mapas: GROUPS[2] };
     ilus.replaceChildren(...Object.values(data.destaques).map(d => {
       const g = porLista[d.lista];
       const item = g && g.list.find(x => x.n === d.n);

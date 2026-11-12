@@ -29,26 +29,27 @@
     </section>
     <section class="section maps-library" aria-labelledby="maps-library-title">
       <div class="maps-library-heading">
-        <div><p class="eyebrow">GALERIA DE ASSETS</p><h2 id="maps-library-title">CENÁRIOS DA JORNADA</h2><p>Selecione um mapa para ampliar a visualização e baixar a imagem em alta resolução.</p></div>
+        <div><p class="eyebrow">GALERIA DE ASSETS</p><h2 id="maps-library-title">CENÁRIOS DA JORNADA</h2><p>Mapas de locais, ambientes e cenários das missões. Clique para ampliar e baixe a imagem.</p></div>
         <span class="asset-count">12 MAPAS</span>
       </div>
-      <div class="map-assets-grid" id="mapAssetsGrid"><noscript><p>Ative o JavaScript para ver os mapas.</p></noscript></div>
+      <div class="asset-grid asset-grid-mapas" id="mapasGrid"><noscript><p>Ative o JavaScript para ver os mapas.</p></noscript></div>
     </section>
   </main>
-  <div class="asset-modal" id="mapPreviewModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="mapPreviewTitle">
-    <div class="asset-modal-backdrop" data-close-map-modal></div>
-    <section class="asset-modal-panel" role="document">
-      <button class="asset-modal-close" type="button" aria-label="Fechar visualização" data-close-map-modal>×</button>
-      <p class="eyebrow">GALERIA DE CENÁRIOS</p>
-      <h2 id="mapPreviewTitle">Mapa 01</h2>
-      <div class="map-preview-stage" id="mapPreviewStage"><div class="map-preview-empty"><span>+</span><p>A imagem deste mapa será adicionada em breve.</p><small>Quando a imagem for registrada, a visualização ampla e o download ficam disponíveis.</small></div></div>
-      <div class="map-preview-actions"><a class="btn primary is-disabled" id="downloadMapButton" href="#" download aria-disabled="true">BAIXAR MAPA</a><button class="btn secondary" type="button" data-close-map-modal>FECHAR</button></div>
+  <div class="asset-modal" id="assetLightbox" aria-hidden="true">
+    <div class="asset-modal-backdrop" data-close-lightbox></div>
+    <section class="asset-modal-panel" role="dialog" aria-modal="true" aria-labelledby="lightboxTitle">
+      <button class="asset-modal-close" type="button" aria-label="Fechar visualização" data-close-lightbox>×</button>
+      <p class="eyebrow" id="lightboxArea">MAPA DE CENÁRIO</p>
+      <h2 id="lightboxTitle">Mapa</h2>
+      <div class="map-preview-stage" id="lightboxStage"></div>
+      <p class="lightbox-desc" id="lightboxDesc"></p>
+      <div class="map-preview-actions"><a class="btn primary" id="lightboxDownload" href="#" download>BAIXAR IMAGEM</a><button class="btn secondary" type="button" data-close-lightbox>FECHAR</button></div>
     </section>
   </div>
   <footer class="footer compact"><div class="copyright">© 2026 Ordem Vocacional. Projeto educacional.</div></footer>
   <script src="js/main.js"></script>
   <script src="js/assets-data.js"></script>
-  <script src="js/mapa.js"></script>
+  <script src="js/materiais.js"></script>
   <script src="js/acessibilidade.js" defer></script>
 </body>
 </html>

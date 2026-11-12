@@ -9,8 +9,9 @@ LIMPEZA RECOMENDADA NO SEU REPOSITÓRIO (sobras de cópias antigas)
 - Apague a pasta  js/css/  e a pasta  js/js/
 - Apague de dentro de js/ estes arquivos: index.html, sobre.html, teste.html, resultado.html, rpg.html,
   mapa.html, acessibilidade.html, LEIA-ME.txt  (os arquivos .js ficam: main, teste, resultado, resultado-assets,
-  rpg, mapa, materiais, assets-data, acessibilidade)
+  rpg, materiais, assets-data, acessibilidade)
 - Apague widget-acessibilidade.html (substituído pelo widget novo)
+- Apague js/mapa.js (não é mais usado: o mapa.html agora usa o mesmo componente dos personagens, js/materiais.js)
 - Apague assets/personagens/mapa_seguranca.jpg (o mapa agora fica em assets/mapas/mapa_seguranca.jpg)
 
 O QUE FOI FEITO
@@ -21,7 +22,8 @@ O QUE FOI FEITO
    - 12 NPCs -> rpg.html (aba Materiais) e página de resultado
    - 12 mapas de cenários -> mapa.html, rpg.html (Materiais e Ilustrações da Jornada) e resultado
    - Resultado: o cenário do perfil aparece no destaque, há a seção "Cenários e NPCs da sua missão"
-     e cada profissão mostra o personagem correspondente. Tudo com descrição e botão "Baixar imagem".
+     e cada profissão mostra o personagem correspondente. Tudo com descrição, ampliação ao clicar e botão "Baixar imagem".
+   Personagens, NPCs e mapas usam o MESMO cartão (js/materiais.js) em rpg.html, mapa.html e resultado.html.
 
 COMO ADICIONAR OU TROCAR UMA IMAGEM
 1. Copie o arquivo para assets/personagens, assets/npcs ou assets/mapas (o nome precisa ser IDÊNTICO ao que

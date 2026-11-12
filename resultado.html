@@ -67,10 +67,10 @@
       <div class="result-section-heading">
         <p class="eyebrow">MUNDO DO RPG</p>
         <h2>Cenários e NPCs da sua missão</h2>
-        <p>Os locais e as pessoas que você pode encontrar ao explorar as profissões do seu perfil. Abra para ampliar ou baixe as imagens.</p>
+        <p>Os locais e as pessoas que você pode encontrar ao explorar as profissões do seu perfil. Clique para ampliar ou baixe as imagens.</p>
       </div>
-      <div class="mission-block" id="missionMapsBlock"><h3>Cenários</h3><div class="mission-grid mission-grid-maps" id="missionMaps"></div></div>
-      <div class="mission-block" id="missionNpcsBlock"><h3>NPCs</h3><div class="mission-grid" id="missionNpcs"></div></div>
+      <div class="mission-block" id="missionMapsBlock"><h3>Cenários</h3><div class="asset-grid asset-grid-mapas" id="missionMaps"></div></div>
+      <div class="mission-block" id="missionNpcsBlock"><h3>NPCs</h3><div class="asset-grid asset-grid-npcs" id="missionNpcs"></div></div>
     </section>
 
     <section class="result-card advice">
@@ -89,7 +89,19 @@
   </footer>
 
   <script src="js/main.js"></script>
+  <div class="asset-modal" id="assetLightbox" aria-hidden="true">
+    <div class="asset-modal-backdrop" data-close-lightbox></div>
+    <section class="asset-modal-panel" role="dialog" aria-modal="true" aria-labelledby="lightboxTitle">
+      <button class="asset-modal-close" type="button" aria-label="Fechar visualização" data-close-lightbox>×</button>
+      <p class="eyebrow" id="lightboxArea">IMAGEM</p>
+      <h2 id="lightboxTitle">Imagem</h2>
+      <div class="map-preview-stage" id="lightboxStage"></div>
+      <p class="lightbox-desc" id="lightboxDesc"></p>
+      <div class="map-preview-actions"><a class="btn primary" id="lightboxDownload" href="#" download>BAIXAR IMAGEM</a><button class="btn secondary" type="button" data-close-lightbox>FECHAR</button></div>
+    </section>
+  </div>
   <script src="js/assets-data.js"></script>
+  <script src="js/materiais.js"></script>
   <script src="js/resultado-assets.js"></script>
   <script src="js/resultado.js"></script>
   <script src="js/acessibilidade.js" defer></script>

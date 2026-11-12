@@ -3,7 +3,7 @@ window.renderResultAssets = function (perfil) {
   "use strict";
   const D = window.OV_ASSETS;
   const cfg = D && D.perfis && D.perfis[perfil];
-  if (!cfg) return;
+  if (!cfg || !window.OVAssetCards) return;
 
   const pad = n => String(n).padStart(2, "0");
   const slug = s => s.replace(/[()]/g, "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-zA-Z0-9]+/g, "-").replace(/^-|-$/g, "");
@@ -12,29 +12,7 @@ window.renderResultAssets = function (perfil) {
   const pasta = { mapas: D.pastaMapas, npcs: D.pastaNpcs };
   const rot = { mapas: "Mapa", npcs: "NPC" };
 
-  function card(lista, item) {
-    const orig = encodeURI(pasta[lista] + item.file);
-    const thumb = encodeURI(pasta[lista] + (item.thumb || item.file));
-    const el = document.createElement("article");
-    el.className = "asset-card";
-    const open = document.createElement("a");
-    open.className = "asset-card-image";
-    open.href = orig; open.target = "_blank"; open.rel = "noopener";
-    open.setAttribute("aria-label", `Abrir imagem ampliada: ${item.name}`);
-    const img = document.createElement("img");
-    img.src = thumb; img.alt = `${item.name}: ${item.desc}`; img.loading = "lazy"; img.decoding = "async";
-    open.append(img);
-    const body = document.createElement("div"); body.className = "asset-card-body";
-    const area = document.createElement("span"); area.className = "asset-card-area"; area.textContent = lista === "mapas" ? "Cenário" : "NPC";
-    const h = document.createElement("h4"); h.textContent = item.name;
-    const p = document.createElement("p"); p.textContent = item.desc;
-    const dl = document.createElement("a"); dl.className = "asset-card-download"; dl.href = orig;
-    dl.download = `${rot[lista]}-${pad(item.n)}-${slug(item.name)}${ext(item.file)}`;
-    dl.textContent = "↓ Baixar imagem"; dl.setAttribute("aria-label", `Baixar imagem: ${item.name}`);
-    body.append(area, h, p, dl);
-    el.append(open, body);
-    return el;
-  }
+  const card = (lista, item) => window.OVAssetCards.card(lista, item);
 
   const mapas = cfg.mapas.map(n => find("mapas", n)).filter(i => i && i.file);
   const npcs = cfg.npcs.map(n => find("npcs", n)).filter(i => i && i.file);

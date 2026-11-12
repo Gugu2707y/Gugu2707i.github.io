@@ -1898,3 +1898,10 @@ body.modal-open { overflow:hidden; }
 @media (max-width:620px) { .mission-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; } .mission-grid-maps { grid-template-columns:minmax(0,1fr); } }
 .map-asset-placeholder { aspect-ratio:1/1; }
 .map-asset-placeholder img { object-fit:contain; background:#0c0715; }
+
+/* ===== NPCs e mapas com o MESMO visual dos personagens ===== */
+.asset-grid-npcs, .asset-grid-mapas { grid-template-columns: repeat(auto-fill, minmax(215px, 1fr)); gap: 18px; }
+.asset-grid-mapas .asset-card-image { aspect-ratio: 1/1; }
+.asset-grid-mapas .asset-card-image img { object-fit: cover; background: none; }
+@media (max-width:620px) { .asset-grid-npcs, .asset-grid-mapas { grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; } }
+@media (max-width:390px) { .asset-grid-npcs, .asset-grid-mapas { grid-template-columns:minmax(0,1fr); } }
