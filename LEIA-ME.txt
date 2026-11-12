@@ -38,5 +38,5 @@ OBSERVAÇÕES
 - Esc fecha o painel de acessibilidade; as escolhas ficam salvas entre as páginas.
 
 SELETOR DE PROFISSÃO (criação de personagem)
-js/profissoes.js monta o seletor com 38 profissões em 10 áreas (as 16 carreiras do teste + as áreas de medicina, direito, artes, audiovisual, biologia, etc.) (lista "areasProfissoes"
+js/profissoes.js monta o seletor compacto (abas por área; mostra só as profissões da área aberta) com 38 profissões em 10 áreas (as 16 carreiras do teste + as áreas de medicina, direito, artes, audiovisual, biologia, etc.) (lista "areasProfissoes"
 em js/assets-data.js). Para incluir uma profissão nova, acrescente o nome na área desejada.

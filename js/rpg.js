@@ -200,6 +200,7 @@
       event.preventDefault();
 
       if (!form.reportValidity()) return;
+      if (window.OVProfessionPicker && !window.OVProfessionPicker.validate()) return;
 
       const character = readCharacterForm();
       if (!character) return;

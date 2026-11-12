@@ -1942,3 +1942,30 @@ body.modal-open { overflow:hidden; }
 .profile-scenario img { aspect-ratio: 4/3; max-height: 300px; }
 @media (min-width: 901px) { .profile-about-main { position: sticky; top: 90px; } }
 .profile-main-photo.has-image { border-style: solid; }
+
+/* ===== Seletor de profissão COMPACTO (abas por área) ===== */
+.profession-picker-help { margin:0 0 10px; }
+.profession-groups { display:block; }
+.profession-tabs { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:10px; }
+.profession-tab { position:relative; display:inline-flex; align-items:center; gap:6px; padding:7px 11px; border:1px solid rgba(255,255,255,.16); border-radius:999px; background:rgba(255,255,255,.03); color:var(--muted); font:600 calc(12px * var(--ov-fs, 1)) 'Montserrat', Arial, sans-serif; cursor:pointer; transition:border-color .2s, background .2s, color .2s; }
+.profession-tab-icon { color:var(--gold,#e5c158); font-size:calc(13px * var(--ov-fs, 1)); }
+.profession-tab:hover { border-color:rgba(229,193,88,.6); color:var(--text); }
+.profession-tab.is-active { border-color:var(--gold,#e5c158); background:rgba(229,193,88,.14); color:var(--text); }
+.profession-tab:focus-visible { outline:3px solid #e5c158; outline-offset:2px; }
+.profession-tab-dot { display:none; width:7px; height:7px; border-radius:50%; background:var(--gold,#e5c158); }
+.profession-tab.has-selection .profession-tab-dot { display:inline-block; }
+.profession-panels { padding:12px; border:1px solid rgba(229,193,88,.22); border-radius:12px; background:rgba(18,10,31,.55); }
+.profession-options[hidden] { display:none; }
+.profession-options { display:grid; grid-template-columns:repeat(auto-fill,minmax(170px,1fr)); gap:8px; }
+.profession-option-box { min-height:42px; padding:8px 10px; }
+.profession-picker-selected { margin:10px 0 0; }
+.profession-picker-selected.has-error { color:#ff9d9d; font-weight:700; }
+@media (max-width:620px) { .profession-options { grid-template-columns:repeat(2,minmax(0,1fr)); } .profession-tab { padding:6px 9px; } }
+@media (max-width:420px) { .profession-options { grid-template-columns:1fr; } }
+
+/* ===== Retrato maior e coluna lateral sem espaço vazio ===== */
+.character-layout { align-items: start; }
+.dice-panel { position: sticky; top: 90px; min-height: auto; justify-content: flex-start; gap: 22px; }
+.avatar-picker-card { display:flex; flex-direction:column; align-items:center; }
+.avatar-picker-trigger { width: 100%; max-width: 380px; }
+@media (max-width:900px) { .dice-panel { position: static; } }
