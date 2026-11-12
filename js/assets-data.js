@@ -512,15 +512,20 @@ window.OV_ASSETS = {
   "Profissional de Defesa Civil": 32
 },
 
-  // Profissões por área (usadas no seletor "Profissão / caminho" da criação de personagem).
-  // Mesmas áreas e carreiras da página de resultado.
+  // Profissões por área (seletor "Profissão / caminho" da criação de personagem).
+  // Inclui as carreiras do teste e as áreas que têm personagens, NPCs e mapas no RPG.
+  // Para incluir uma profissão nova, acrescente o nome em "itens" da área desejada.
   areasProfissoes: [
-    { id: "tecnologia",   titulo: "Tecnologia",         icone: "⌘", itens: ["Desenvolvedor de Software", "Analista de Dados", "Engenheiro de Computação"] },
-    { id: "criatividade", titulo: "Criatividade",       icone: "✦", itens: ["Designer", "Publicidade", "Produção Audiovisual"] },
-    { id: "pessoas",      titulo: "Pessoas e Educação", icone: "♧", itens: ["Professor", "Psicólogo", "Gestor de Pessoas"] },
-    { id: "estrategia",   titulo: "Estratégia e Gestão", icone: "♜", itens: ["Administrador", "Gerente de Projetos", "Analista de Negócios"] },
-    { id: "engenharia",   titulo: "Engenharia",         icone: "⚙", itens: ["Engenheiro Civil", "Engenheiro de Produção"] },
-    { id: "seguranca",    titulo: "Segurança Pública",  icone: "⛨", itens: ["Gestor de Segurança Pública", "Profissional de Defesa Civil"] }
+    { id: "tecnologia",   titulo: "Tecnologia",              icone: "⌘",  itens: ["Desenvolvedor de Software", "Analista de Dados", "Engenheiro de Computação"] },
+    { id: "saude",        titulo: "Saúde",                   icone: "✚",  itens: ["Médico(a)", "Cirurgião(ã)", "Psicólogo"] },
+    { id: "direito",      titulo: "Direito e Justiça",       icone: "⚖\uFE0E", itens: ["Advogado(a)", "Juiz(a)", "Promotor(a)"] },
+    { id: "criatividade", titulo: "Criatividade e Artes",    icone: "✦",  itens: ["Designer", "Publicidade", "Artista Digital", "Pintor(a)", "Artesão(ã)"] },
+    { id: "audiovisual",  titulo: "Audiovisual e Comunicação", icone: "▶\uFE0E", itens: ["Produção Audiovisual", "Diretor(a) de Cinema", "Ator / Atriz", "Cinegrafista", "Videomaker", "Apresentador(a) de TV", "Repórter / Jornalista", "Influenciador(a) Digital"] },
+    { id: "pessoas",      titulo: "Pessoas e Educação",      icone: "♧",  itens: ["Professor", "Gestor de Pessoas"] },
+    { id: "estrategia",   titulo: "Estratégia e Gestão",     icone: "♜",  itens: ["Administrador", "Gerente de Projetos", "Analista de Negócios", "Analista de Marketing", "Analista Financeiro(a)", "Empreendedor(a)"] },
+    { id: "engenharia",   titulo: "Engenharia",              icone: "⚙",  itens: ["Engenheiro Civil", "Engenheiro de Produção"] },
+    { id: "ciencias",     titulo: "Ciências e Natureza",     icone: "❦",  itens: ["Biólogo(a) Terrestre", "Biólogo(a) Marinho(a)", "Guia de Turismo e Expedições"] },
+    { id: "seguranca",    titulo: "Segurança Pública",       icone: "⛨",  itens: ["Gestor de Segurança Pública", "Profissional de Defesa Civil", "Policial"] }
   ],
 
   // Perfil do resultado -> mapas (cenário) e NPCs da missão (números "n").
