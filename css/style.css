@@ -1905,3 +1905,40 @@ body.modal-open { overflow:hidden; }
 .asset-grid-mapas .asset-card-image img { object-fit: cover; background: none; }
 @media (max-width:620px) { .asset-grid-npcs, .asset-grid-mapas { grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; } }
 @media (max-width:390px) { .asset-grid-npcs, .asset-grid-mapas { grid-template-columns:minmax(0,1fr); } }
+
+/* ===== Seletor de profissão (criação de personagem) ===== */
+.profession-picker { margin:0 0 18px; padding:0; border:0; min-width:0; }
+.profession-picker legend { padding:0; margin-bottom:6px; color:var(--text); font-size:calc(11px * var(--ov-fs, 1)); font-weight:700; letter-spacing:1.2px; }
+.profession-picker-help { margin:0 0 14px; color:var(--muted); font-size:calc(12px * var(--ov-fs, 1)); }
+.profession-groups { display:grid; gap:14px; }
+.profession-group { padding:14px; border:1px solid rgba(229,193,88,.22); border-radius:14px; background:linear-gradient(145deg,rgba(37,25,57,.6),rgba(18,10,31,.7)); }
+.profession-group-head { display:flex; align-items:center; gap:10px; margin-bottom:12px; }
+.profession-group-icon { display:grid; place-items:center; width:30px; height:30px; border:1px solid rgba(229,193,88,.5); border-radius:50%; color:var(--gold,#e5c158); font-size:calc(15px * var(--ov-fs, 1)); }
+.profession-group-head strong { color:var(--gold,#e5c158); font-family:'Cinzel',serif; font-size:calc(14px * var(--ov-fs, 1)); letter-spacing:.4px; }
+.profession-options { display:grid; grid-template-columns:repeat(auto-fill,minmax(190px,1fr)); gap:10px; }
+.profession-option { position:relative; display:block; cursor:pointer; }
+.profession-option input { position:absolute; inset:0; width:100%; height:100%; margin:0; opacity:0; cursor:pointer; z-index:1; }
+.profession-option-box { display:flex; align-items:center; justify-content:space-between; gap:8px; min-height:48px; padding:10px 12px; border:1px solid rgba(255,255,255,.14); border-radius:10px; background:rgba(255,255,255,.03); color:var(--text); transition:border-color .2s, background .2s, transform .2s; }
+.profession-option-name { font-size:calc(13px * var(--ov-fs, 1)); font-weight:600; line-height:1.3; }
+.profession-option-check { display:grid; place-items:center; flex:0 0 22px; width:22px; height:22px; border:1px solid rgba(255,255,255,.25); border-radius:50%; color:transparent; font-size:calc(12px * var(--ov-fs, 1)); font-weight:700; }
+.profession-option:hover .profession-option-box { border-color:rgba(229,193,88,.6); background:rgba(229,193,88,.07); transform:translateY(-1px); }
+.profession-option input:checked + .profession-option-box { border-color:var(--gold,#e5c158); background:rgba(229,193,88,.13); box-shadow:0 0 0 1px rgba(229,193,88,.4); }
+.profession-option input:checked + .profession-option-box .profession-option-check { border-color:var(--gold,#e5c158); background:var(--gold,#e5c158); color:#170f25; }
+.profession-option input:focus-visible + .profession-option-box { outline:3px solid #e5c158; outline-offset:2px; }
+.profession-picker-selected { margin:12px 0 0; color:var(--muted); font-size:calc(12px * var(--ov-fs, 1)); }
+.profession-picker-selected.has-value { color:var(--gold,#e5c158); font-weight:700; }
+@media (max-width:620px) { .profession-options { grid-template-columns:1fr; } }
+
+/* ===== Resultado: card "Sobre seu Perfil" proporcional ao conteúdo ===== */
+.profile-top-grid { align-items: start; }
+.profile-about-main { justify-content: flex-start; align-self: start; padding: clamp(26px, 3.5vw, 42px); }
+.profile-about-main h2 { font-size: calc(clamp(28px, 3.4vw, 38px) * var(--ov-fs, 1)); margin-bottom: 18px; }
+.profile-about-main h3 { font-size: calc(clamp(19px, 2.3vw, 25px) * var(--ov-fs, 1)); margin-bottom: 14px; }
+.profile-about-main > .eyebrow { font-size: calc(12px * var(--ov-fs, 1)); }
+.profile-subtitle { font-size: calc(clamp(16px, 1.7vw, 19px) * var(--ov-fs, 1)); line-height: 1.7; margin: 0 0 14px; }
+.profile-analysis-text { font-size: calc(clamp(15px, 1.5vw, 17px) * var(--ov-fs, 1)); line-height: 1.85; margin: 0; }
+.profile-about-main .score-wrap { margin-top: 26px; }
+.profile-about-main .score-label { font-size: calc(14px * var(--ov-fs, 1)); }
+.profile-scenario img { aspect-ratio: 4/3; max-height: 300px; }
+@media (min-width: 901px) { .profile-about-main { position: sticky; top: 90px; } }
+.profile-main-photo.has-image { border-style: solid; }

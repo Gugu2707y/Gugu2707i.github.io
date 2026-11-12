@@ -136,30 +136,16 @@
                 <label for="characterName">NOME DO PERSONAGEM</label>
                 <input id="characterName" name="name" type="text" maxlength="40" placeholder="Ex.: Gabriel" required>
               </div>
-              <div class="form-row">
-                <div class="form-field">
-                  <label for="characterAge">IDADE</label>
-                  <input id="characterAge" name="age" type="number" min="1" max="120" placeholder="16" required>
-                </div>
-                <div class="form-field">
-                  <label for="characterProfession">PROFISSÃO / CAMINHO</label>
-                  <select id="characterProfession" name="profession" required>
-                    <option value="">Selecione uma opção</option>
-                    <option>Desenvolvedor de Software</option>
-                    <option>Analista de Dados</option>
-                    <option>Engenheiro de Computação</option>
-                    <option>Designer</option>
-                    <option>Publicidade</option>
-                    <option>Produção Audiovisual</option>
-                    <option>Professor</option>
-                    <option>Psicólogo</option>
-                    <option>Gestor de Pessoas</option>
-                    <option>Administrador</option>
-                    <option>Gerente de Projetos</option>
-                    <option>Analista de Negócios</option>
-                  </select>
-                </div>
+              <div class="form-field">
+                <label for="characterAge">IDADE</label>
+                <input id="characterAge" name="age" type="number" min="1" max="120" placeholder="16" required>
               </div>
+              <fieldset class="profession-picker" id="professionPicker">
+                <legend>PROFISSÃO / CAMINHO</legend>
+                <p class="profession-picker-help">Escolha a área e a profissão que seu personagem vai explorar.</p>
+                <div class="profession-groups" id="professionGroups"><noscript><p>Ative o JavaScript para escolher a profissão.</p></noscript></div>
+                <p class="profession-picker-selected" id="professionSelected" aria-live="polite">Nenhuma profissão escolhida</p>
+              </fieldset>
               <div class="form-field">
                 <label for="characterTraits">CARACTERÍSTICAS</label>
                 <textarea id="characterTraits" name="traits" rows="5" maxlength="300" placeholder="Ex.: curioso, organizado, gosta de resolver problemas e trabalhar em equipe." required></textarea>
@@ -318,6 +304,7 @@
 
   <script src="js/main.js"></script>
   <script src="js/assets-data.js"></script>
+  <script src="js/profissoes.js"></script>
   <script src="js/rpg.js"></script>
   <script src="js/materiais.js"></script>
 

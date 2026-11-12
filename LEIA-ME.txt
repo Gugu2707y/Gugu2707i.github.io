@@ -9,7 +9,7 @@ LIMPEZA RECOMENDADA NO SEU REPOSITÓRIO (sobras de cópias antigas)
 - Apague a pasta  js/css/  e a pasta  js/js/
 - Apague de dentro de js/ estes arquivos: index.html, sobre.html, teste.html, resultado.html, rpg.html,
   mapa.html, acessibilidade.html, LEIA-ME.txt  (os arquivos .js ficam: main, teste, resultado, resultado-assets,
-  rpg, materiais, assets-data, acessibilidade)
+  rpg, materiais, profissoes, assets-data, acessibilidade)
 - Apague widget-acessibilidade.html (substituído pelo widget novo)
 - Apague js/mapa.js (não é mais usado: o mapa.html agora usa o mesmo componente dos personagens, js/materiais.js)
 - Apague assets/personagens/mapa_seguranca.jpg (o mapa agora fica em assets/mapas/mapa_seguranca.jpg)
@@ -36,3 +36,7 @@ OBSERVAÇÕES
 - Os mapas têm 12 imagens (a página antes previa 13): o texto e os contadores já mostram 12.
 - Os PNG de personagens vieram com fundo opaco (branco ou preto); se reexportar com fundo transparente o visual fica uniforme.
 - Esc fecha o painel de acessibilidade; as escolhas ficam salvas entre as páginas.
+
+SELETOR DE PROFISSÃO (criação de personagem)
+js/profissoes.js monta o seletor com as 16 profissões do teste, agrupadas em 6 áreas (lista "areasProfissoes"
+em js/assets-data.js). Para incluir uma profissão nova, acrescente o nome na área desejada.

@@ -230,7 +230,7 @@
 
       $("#characterName").value = saved.name || "";
       $("#characterAge").value = saved.age || "";
-      $("#characterProfession").value = saved.profession || "";
+      if (window.OVProfessionPicker) window.OVProfessionPicker.set(saved.profession || "");
       $("#characterTraits").value = saved.traits || "";
       if (saved.name) renderCharacter(saved);
       else if (saved.avatar) {

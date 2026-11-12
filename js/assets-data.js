@@ -512,6 +512,17 @@ window.OV_ASSETS = {
   "Profissional de Defesa Civil": 32
 },
 
+  // Profissões por área (usadas no seletor "Profissão / caminho" da criação de personagem).
+  // Mesmas áreas e carreiras da página de resultado.
+  areasProfissoes: [
+    { id: "tecnologia",   titulo: "Tecnologia",         icone: "⌘", itens: ["Desenvolvedor de Software", "Analista de Dados", "Engenheiro de Computação"] },
+    { id: "criatividade", titulo: "Criatividade",       icone: "✦", itens: ["Designer", "Publicidade", "Produção Audiovisual"] },
+    { id: "pessoas",      titulo: "Pessoas e Educação", icone: "♧", itens: ["Professor", "Psicólogo", "Gestor de Pessoas"] },
+    { id: "estrategia",   titulo: "Estratégia e Gestão", icone: "♜", itens: ["Administrador", "Gerente de Projetos", "Analista de Negócios"] },
+    { id: "engenharia",   titulo: "Engenharia",         icone: "⚙", itens: ["Engenheiro Civil", "Engenheiro de Produção"] },
+    { id: "seguranca",    titulo: "Segurança Pública",  icone: "⛨", itens: ["Gestor de Segurança Pública", "Profissional de Defesa Civil"] }
+  ],
+
   // Perfil do resultado -> mapas (cenário) e NPCs da missão (números "n").
   // O primeiro mapa de cada perfil é o cenário principal.
   perfis: {
