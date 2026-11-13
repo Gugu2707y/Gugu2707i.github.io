@@ -40,3 +40,24 @@ OBSERVAÇÕES
 SELETOR DE PROFISSÃO (criação de personagem)
 js/profissoes.js monta o seletor compacto (abas por área; mostra só as profissões da área aberta) com 38 profissões em 10 áreas (as 16 carreiras do teste + as áreas de medicina, direito, artes, audiovisual, biologia, etc.) (lista "areasProfissoes"
 em js/assets-data.js). Para incluir uma profissão nova, acrescente o nome na área desejada.
+
+=========================================================
+COMO PUBLICAR E TER UM LINK QUE FUNCIONA EM QUALQUER LUGAR
+=========================================================
+O site é estático e usa só caminhos relativos, então funciona em qualquer hospedagem. O jeito mais simples (e já
+usado por você) é o GitHub Pages:
+1. Copie os arquivos deste zip por cima do projeto e rode (opcional, mas recomendado):
+      python tools/verificar_site.py
+   Ele atualiza a versão dos arquivos (o navegador de quem já visitou baixa tudo de novo, nada fica velho)
+   e confere se todos os arquivos citados existem com o nome EXATO (o GitHub Pages diferencia maiúsculas/acentos).
+2. Faça o commit e o push para a branch "main" (GitHub Desktop: Commit to main > Push origin).
+3. No GitHub: repositório > Settings > Pages > "Deploy from a branch" > main / (root). O endereço aparece ali.
+   Pelo nome do seu repositório (Gugu2707y/Gugu2707i.github.io) o endereço esperado é:
+      https://gugu2707y.github.io/Gugu2707i.github.io/
+   (a publicação leva de 1 a 3 minutos depois do push; depois disso o link abre em qualquer lugar).
+O arquivo .nojekyll (já incluso) evita que o GitHub Pages mexa nos arquivos.
+
+OUTRAS MUDANÇAS DESTA VERSÃO
+- Regras: nova seção "Situações normais e éticas" (dia a dia, dilemas éticos, passo a passo, exemplos por área
+  e regra opcional de Pontos de Confiança).
+- Teste vocacional: a tela não volta mais ao topo ao responder/avançar; fica na área das perguntas.

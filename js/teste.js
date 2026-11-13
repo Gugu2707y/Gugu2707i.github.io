@@ -213,11 +213,19 @@ function renderQuestion() {
   nextButton.textContent = current === questions.length - 1 ? "VER RESULTADO" : "PRÓXIMA";
 }
 
+// Mantém a pessoa na área das perguntas: só rola se o início do card estiver escondido
+// acima da tela (nunca volta ao topo da página e nunca anima "subindo").
+function keepQuizInView() {
+  const header = (document.querySelector(".header")?.offsetHeight || 70) + 12;
+  const top = quiz.getBoundingClientRect().top;
+  if (top < header) window.scrollTo({ top: window.scrollY + top - header, behavior: "auto" });
+}
+
 startButton.addEventListener("click", () => {
   intro.classList.add("hidden");
   quiz.classList.remove("hidden");
   renderQuestion();
-  window.scrollTo({ top: 0, behavior: "smooth" });
+  keepQuizInView();
 });
 
 prevButton.addEventListener("click", () => {
@@ -236,7 +244,7 @@ nextButton.addEventListener("click", () => {
   if (current < questions.length - 1) {
     current++;
     renderQuestion();
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    keepQuizInView();
     return;
   }
 

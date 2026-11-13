@@ -1969,3 +1969,9 @@ body.modal-open { overflow:hidden; }
 .avatar-picker-card { display:flex; flex-direction:column; align-items:center; }
 .avatar-picker-trigger { width: 100%; max-width: 380px; }
 @media (max-width:900px) { .dice-panel { position: static; } }
+
+/* ===== Regras: situações normais e éticas ===== */
+.rules-subheading { margin-top: 44px; }
+#panel-regras .rpg-info-card .rpg-list { margin-top: 14px; }
+#panel-regras .rpg-info-card .rpg-list li { font-size: calc(12px * var(--ov-fs, 1)) !important; line-height: 1.7; }
+@media (max-width: 900px) { #panel-regras .rpg-card-grid.two-columns { grid-template-columns: 1fr; } }
