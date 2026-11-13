@@ -189,6 +189,47 @@
     $("#sheetAge").textContent = character.age;
     $("#sheetProfession").textContent = character.profession;
     $("#sheetTraits").textContent = character.traits;
+    toggleDeleteButton(true);
+  }
+
+  function toggleDeleteButton(show) {
+    const button = $("#deleteCharacter");
+    if (button) button.hidden = !show;
+  }
+
+  // Volta a ficha ao estado inicial (sem personagem)
+  function resetSheet() {
+    currentAvatarIndex = null;
+    paintAvatar($("#characterAvatarPreview"), null);
+    paintAvatar($("#sheetAvatarMini"), null, true);
+    $$(".avatar-option").forEach(item => item.setAttribute("aria-pressed", "false"));
+    $("#sheetTitle").textContent = "PERSONAGEM AINDA NÃO CRIADO";
+    $("#sheetName").textContent = "—";
+    $("#sheetAge").textContent = "—";
+    $("#sheetProfession").textContent = "—";
+    $("#sheetTraits").textContent = "Preencha o formulário para visualizar as características do personagem.";
+    toggleDeleteButton(false);
+  }
+
+  function deleteCharacter() {
+    const form = $("#characterForm");
+    const status = $("#characterStatus");
+    const name = $("#sheetName")?.textContent || "o personagem";
+    if (!window.confirm(`Excluir o personagem ${name}? Essa ação não pode ser desfeita.`)) return;
+
+    try { localStorage.removeItem(STORAGE_KEY); } catch (error) { console.warn("Não foi possível apagar a ficha salva.", error); }
+    if (form) form.reset(); // também limpa o seletor de profissão (evento reset)
+    if (window.OVProfessionPicker) window.OVProfessionPicker.set("");
+    resetSheet();
+
+    // setTimeout: o reset do formulário limpa a mensagem no próximo ciclo; esta roda depois
+    setTimeout(() => {
+      if (!status) return;
+      status.textContent = "PERSONAGEM EXCLUÍDO. Você pode criar um novo quando quiser.";
+      status.classList.add("success");
+    }, 0);
+    $("#characterName")?.focus();
+    form?.scrollIntoView({ behavior: "smooth", block: "start" });
   }
 
   function setupCharacterForm() {
@@ -215,6 +256,8 @@
         $("#characterSheet")?.scrollIntoView({ behavior: "smooth", block: "center" });
       }, 100);
     });
+
+    $("#deleteCharacter")?.addEventListener("click", deleteCharacter);
 
     form.addEventListener("reset", () => {
       setTimeout(() => {
